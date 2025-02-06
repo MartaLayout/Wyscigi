@@ -22,7 +22,7 @@ public class Shooter {
         bullet.setX(x);
         bullet.setY(y);
 
-        TokyoDriftTheme.level1Root.getChildren().addAll(bullet);
+        //TokyoDriftTheme.level1Root.getChildren().addAll(bullet);
 
         distance = Math.hypot(targetX - x, targetY - y);
         double step = 5;
@@ -30,7 +30,7 @@ public class Shooter {
         dy = step * (targetY - y) / distance;
         timeline = new Timeline(new KeyFrame(Duration.millis(100 / 60), event -> {
             move();
-            TokyoDriftTheme.level1Root.getChildren().remove(bullet);
+            //TokyoDriftTheme.level1Root.getChildren().remove(bullet);
             timeline.stop();
             timeline = null;
         }));
