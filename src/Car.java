@@ -13,8 +13,9 @@ public class Car extends ImageView {
     private double y;
     private double direction;
 
-    private double carX = 200;  // Initial X position
-    private double carY = 200;  // Initial Y position
+    //here chnaged car initial position
+    public double carX = -100;  // Initial X position
+    public double carY = -200;  // Initial Y position
     private double carAngle = 0; // Initial rotation angle (in degrees)
     private final double speed = 5; // Movement speed
     private final double rotationSpeed = 5; // Rotation speed (degrees)
@@ -28,8 +29,6 @@ public class Car extends ImageView {
         this.carX = x;
         this.carY = y;
 
-        setFitHeight(100);
-        setFitWidth(100);
 
         //direction = getRotate();
         //idk how this is made to be in main and racetrack, detect surface basically
@@ -37,31 +36,38 @@ public class Car extends ImageView {
 //        if (velocity > 0){
 //            isSpeeding = true;
 //        }
-        TokyoDriftTheme.startSceneTokyo.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.UP) {
+        TokyoDriftTheme.level1Tokyo.setOnKeyPressed(event -> {
+        //ej a może zamiast if użyć while?
+            //UP z DOWN zamienione bo musiałam zrobić rotate imageView
+            //i right z left też
+            if (event.getCode() == KeyCode.DOWN) {
                 slowDown();
                 // Move backward
                 carX -= speed * Math.cos(Math.toRadians(carAngle));
                 carY -= speed * Math.sin(Math.toRadians(carAngle));
             }
-            if (event.getCode() == KeyCode.DOWN) {
+            if (event.getCode() == KeyCode.UP) {
                 speedUP();
                 carX += speed * Math.cos(Math.toRadians(carAngle));
                 carY += speed * Math.sin(Math.toRadians(carAngle));
             }
-            if (event.getCode() == KeyCode.RIGHT) {
+            if (event.getCode() == KeyCode.LEFT) {
                 //turnRight();
                 // Rotate left
-                carAngle += rotationSpeed;
-                carX -= speed * Math.cos(Math.toRadians(carAngle));
-                carY -= speed * Math.sin(Math.toRadians(carAngle));
-            }
-            if (event.getCode() == KeyCode.LEFT) {
-                //turnLeft();
+                //+-->-
                 carAngle -= rotationSpeed;
-                carX -= speed * Math.cos(Math.toRadians(carAngle));
-                carY -= speed * Math.sin(Math.toRadians(carAngle));
+                //- --> +
+                carX += speed * Math.cos(Math.toRadians(carAngle));
+                carY += speed * Math.sin(Math.toRadians(carAngle));
             }
+            if (event.getCode() == KeyCode.RIGHT) {
+                //turnLeft();
+                carAngle += rotationSpeed;
+                //- --> +
+                carX += speed * Math.cos(Math.toRadians(carAngle));
+                carY +=speed * Math.sin(Math.toRadians(carAngle));
+            }
+
 
             this.setTranslateX(carX);
             this.setTranslateY(carY);
