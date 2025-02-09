@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -59,10 +60,13 @@ public class TokyoDriftTheme {
         Player player = new Player(200,300);
         //player.setRotate(180);
 
+        Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
+        Shooter shooter = new Shooter(500, 500, imageTowerShooter);
+
         Rectangle rectangle = new Rectangle(10, 10);
 
 
-        level1.getChildren().addAll(imageViewTorLevel1Tokyo, rectangle, player );
+        level1.getChildren().addAll(imageViewTorLevel1Tokyo, rectangle, player, shooter);
 
         //Scene startSceneTokyo = new Scene(level1, Main.WIDTH, Main.HEIGHT);
         Main.stage.setTitle("Level 1 Tokyo");
