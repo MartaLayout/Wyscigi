@@ -8,25 +8,22 @@ import javafx.util.Duration;
 
 public class Car extends ImageView {
 
-    private double velocity;
-    private int maxVelocity;
+    protected double velocity;
+    protected int maxVelocity;
     private boolean isSpeeding;
     private boolean slowingDown;
     private boolean nitro;
     private double x;
     private double y;
-    private double direction;
-    private boolean moveForward;
-    private boolean moveRight;
-    private boolean moveLeft;
-    private boolean moveBackwards;
+    protected double direction;
+
 
     //here chnaged car initial position
     public double carX = -100;  // Initial X position
     public double carY = -200;  // Initial Y position
-    private double carAngle = 0; // Initial rotation angle (in degrees)
-    private final double speed = 5; // Movement speed
-    private final double rotationSpeed = 5; // Rotation speed (degrees)
+    protected double carAngle = 0; // Initial rotation angle (in degrees)
+    protected final double speed = 5; // Movement speed
+    protected final double rotationSpeed = 5; // Rotation speed (degrees)
 
     private enum Surface {
         ASFALT, SNOW, GRUZ
@@ -47,102 +44,9 @@ public class Car extends ImageView {
 //        if (velocity > 0){
 //            isSpeeding = true;
 //        }
-        TokyoDriftTheme.level1Tokyo.setOnKeyPressed(event -> {
-        //ej a może zamiast if użyć while?
-            //UP z DOWN zamienione bo musiałam zrobić rotate imageView
-            //i right z left też
-            if  (event.getCode() == KeyCode.DOWN) {
-                slowDown();
-                // Move backward
-                moveBackwards = true;
-
-            }
-            if (event.getCode() == KeyCode.UP) {
-                speedUP();
-
-                moveForward = true;
-
-
-            }
-            if (event.getCode() == KeyCode.LEFT) {
-                //turnRight();
-
-                moveLeft = true;
-
-
-            }
-            if (event.getCode() == KeyCode.RIGHT) {
-                //turnLeft();
-                moveRight = true;
-
-            }
 
 
 
-        });
-
-        TokyoDriftTheme.level1Tokyo.setOnKeyReleased(event -> {
-
-            if  (event.getCode() == KeyCode.DOWN) {
-                slowDown();
-                // Move backward
-                moveBackwards = false;
-
-            }
-            if (event.getCode() == KeyCode.UP) {
-                speedUP();
-
-                moveForward = false;
-
-
-            }
-            if (event.getCode() == KeyCode.LEFT) {
-                //turnRight();
-
-                moveLeft = false;
-
-
-            }
-            if (event.getCode() == KeyCode.RIGHT) {
-                //turnLeft();
-                moveRight = false;
-
-            }
-        });
-
-        Timeline timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
-            if (moveBackwards){
-                carX -= speed * Math.cos(Math.toRadians(carAngle));
-                carY -= speed * Math.sin(Math.toRadians(carAngle));
-            }
-            if (moveForward){
-                carX += speed * Math.cos(Math.toRadians(carAngle));
-                carY += speed * Math.sin(Math.toRadians(carAngle));
-            }
-            if (moveLeft){
-                // Rotate left
-                //+-->-
-                carAngle -= rotationSpeed;
-                //- --> +
-                carX += speed * Math.cos(Math.toRadians(carAngle));
-                carY += speed * Math.sin(Math.toRadians(carAngle));
-            }
-
-            if (moveRight){
-                carAngle += rotationSpeed;
-                //- --> +
-                carX += speed * Math.cos(Math.toRadians(carAngle));
-                carY +=speed * Math.sin(Math.toRadians(carAngle));
-            }
-
-
-            this.setTranslateX(carX);
-            this.setTranslateY(carY);
-            this.setRotate(carAngle);
-
-        }));
-        timelineCar.setCycleCount(Animation.INDEFINITE);
-        timelineCar.play();
 
     }
 
@@ -151,16 +55,16 @@ public class Car extends ImageView {
 
 
 
-    private void speedUP() {
+    protected void speedUP() {
 //        x = direction * x / velocity;
 //        y = direction * y / velocity;
     }
 
-    private void slowDown() {
+    protected void slowDown() {
         //velocity--;
     }
 
-    private void turnRight() {
+    protected void turnRight() {
 //        if (isSpeeding){
 //            direction += 1;
 //            if (direction > 180){
@@ -171,7 +75,7 @@ public class Car extends ImageView {
 
     }
 
-    private void turnLeft() {
+    protected void turnLeft() {
 //        if (isSpeeding){
 //            direction -= 1;
 //            if (direction < -179){
