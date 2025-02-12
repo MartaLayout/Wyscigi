@@ -22,6 +22,7 @@ public class Shooter extends ImageView{
 
 
     //Marta 09.02: wyświetla się ale problem jest taki jak w Car, że respi się u góry i jakby nic z tym się nie da zrobić :(((
+    //Nati: Juz naprawione
     public Shooter(double x, double y, Image imageViewShootingTower) {
         super(imageViewShootingTower);
         xTower = x;
@@ -29,8 +30,8 @@ public class Shooter extends ImageView{
 
         this.setTranslateX(xTower);
         this.setTranslateY(yTower);
-        //TokyoDriftTheme.level1.getChildren().addAll(towerShooting);
-       // bullets(300, 300, 200, 200);
+       TokyoDriftTheme.level1.getChildren().addAll();
+
     }
 
     public static void bullets(double x , double y, double targetX, double targetY) {
@@ -38,7 +39,7 @@ public class Shooter extends ImageView{
         bullet.setX(x);
         bullet.setY(y);
 
-        //TokyoDriftTheme.level1Root.getChildren().addAll(bullet);
+        TokyoDriftTheme.level1.getChildren().addAll(bullet);
 
         distance = Math.hypot(targetX - x, targetY - y);
         double step = 5;

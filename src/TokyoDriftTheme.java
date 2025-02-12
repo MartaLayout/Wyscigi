@@ -62,6 +62,7 @@ public class TokyoDriftTheme {
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
         Shooter shooter = new Shooter(288, 347, imageTowerShooter);
+        Shooter.bullets(300, 300, player.getX(), player.getY());
 
         Rectangle rectangle = new Rectangle(10, 10);
 
