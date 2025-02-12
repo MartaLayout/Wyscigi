@@ -322,7 +322,7 @@ public class Main extends Application {
         activeSamouczekScene = false;
 
         //TODO button "dalej" w timeline?
-        Timeline timelineFabula = new Timeline(new KeyFrame(Duration.seconds(10), event -> {
+        Timeline timelineFabula = new Timeline(new KeyFrame(Duration.seconds(100), event -> {
             //różne zdj
             for (int i = 0; i < 6; i++) {
                 textFabula = new Text("" + i);
