@@ -1,3 +1,5 @@
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
@@ -11,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.awt.*;
 
@@ -62,7 +65,11 @@ public class TokyoDriftTheme {
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
         Shooter shooter = new Shooter(288, 347, imageTowerShooter);
-        Shooter.bullets(300, 300, player.getX(), player.getY());
+
+        Timeline timelineBullets = new Timeline(new KeyFrame(Duration.millis(10), event -> {
+            Shooter.bullets(300, 300, player.getX(), player.getY());
+
+        }));
 
         Rectangle rectangle = new Rectangle(10, 10);
 
