@@ -57,11 +57,11 @@ public class TokyoDriftTheme {
     public static void level1(){
         ImageView imageViewTorLevel1Tokyo = new ImageView(new Image("file:Tokyo/torInfinity1.png"));
 
-        Player player = new Player(200,300);
+        Player player = new Player(200,298);
         //player.setRotate(180);
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
-        Shooter shooter = new Shooter(500, 500, imageTowerShooter);
+        Shooter shooter = new Shooter(288, 347, imageTowerShooter);
 
         Rectangle rectangle = new Rectangle(10, 10);
 

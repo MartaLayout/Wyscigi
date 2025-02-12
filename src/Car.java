@@ -29,6 +29,9 @@ public class Car extends ImageView {
         this.carX = x;
         this.carY = y;
 
+        this.setTranslateX(carX);
+        this.setTranslateY(carY);
+        this.setRotate(carAngle);
 
         //direction = getRotate();
         //idk how this is made to be in main and racetrack, detect surface basically

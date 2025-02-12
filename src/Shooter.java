@@ -26,6 +26,9 @@ public class Shooter extends ImageView{
         super(imageViewShootingTower);
         xTower = x;
         yTower = y;
+
+        this.setTranslateX(xTower);
+        this.setTranslateY(yTower);
         //TokyoDriftTheme.level1.getChildren().addAll(towerShooting);
        // bullets(300, 300, 200, 200);
     }
