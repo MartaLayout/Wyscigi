@@ -67,9 +67,11 @@ public class TokyoDriftTheme {
         Shooter shooter = new Shooter(288, 347, imageTowerShooter);
 
         Timeline timelineBullets = new Timeline(new KeyFrame(Duration.millis(10), event -> {
+            shooter.setRotate(player.getX() - 10);
             Shooter.bullets(300, 300, player.getX(), player.getY());
 
         }));
+        timelineBullets.play();
 
         Rectangle rectangle = new Rectangle(10, 10);
 

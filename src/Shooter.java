@@ -47,7 +47,6 @@ public class Shooter extends ImageView{
         dy = step * (targetY - y) / distance;
         timeline = new Timeline(new KeyFrame(Duration.millis(100 / 60), event -> {
             move();
-            TokyoDriftTheme.level1.getChildren().remove(bullet);
             timeline.stop();
             timeline = null;
         }));
