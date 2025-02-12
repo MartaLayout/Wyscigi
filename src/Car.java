@@ -18,7 +18,7 @@ public class Car extends ImageView {
     protected double direction;
 
 
-    //here chnaged car initial position
+    //here changed car initial position
     public double carX = -100;  // Initial X position
     public double carY = -200;  // Initial Y position
     protected double carAngle = 0; // Initial rotation angle (in degrees)
@@ -50,8 +50,9 @@ public class Car extends ImageView {
 
     }
 
-
-
+//TODO
+//method for nie wychodzenie poza tor --> kolorki
+//method for odbijanie od ściany --> kolizje
 
 
 
