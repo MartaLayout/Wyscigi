@@ -27,10 +27,8 @@ public class Player extends Car{
 
     static Image image = new Image("file:Tokyo/car.png");
 
-
-    public Player(double x, double y) {
+    public Player(double x,double y) {
         super(x, y, image);
-    }
+    }}
 
 
-}
