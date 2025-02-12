@@ -7,6 +7,5 @@ public class Opponents extends Car{
 
 
     }
-    //klasa przygotowana pod robotę
 
 }
