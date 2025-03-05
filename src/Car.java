@@ -8,6 +8,7 @@ import javafx.util.Duration;
 
 public class Car extends ImageView {
 
+    //TODO checkpoints
     protected double velocity;
     protected int maxVelocity;
     private boolean isSpeeding;
