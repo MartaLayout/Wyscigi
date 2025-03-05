@@ -106,11 +106,18 @@ public class Player extends Car{
             if (moveBackwards){
                 carX -= speed * Math.cos(Math.toRadians(carAngle)*speedIncrimentation);
                 carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
-                speedUP();
+
             }
             if (moveForward){
                 carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
                 carY += speed * Math.sin(Math.toRadians(carAngle));
+                speedUP();
+            }
+            if (!moveForward){
+                carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
+                carY += speed * Math.sin(Math.toRadians(carAngle));
+                slowDown();
+
             }
             if (moveLeft){
                 // Rotate left

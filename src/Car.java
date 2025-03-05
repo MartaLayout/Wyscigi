@@ -60,14 +60,19 @@ public class Car extends ImageView {
     protected void speedUP() {
 //        x = direction * x / velocity;
 //        y = direction * y / velocity;
-        speedIncrimentation += 0.1;
+        if (speedIncrimentation<1){
+            speedIncrimentation += 0.1;
+        }
+
 
 
 
     }
 
     protected void slowDown() {
-        //velocity--;
+        if (speedIncrimentation>-1) {
+            speedIncrimentation -= 0.1;
+        }
     }
 
     protected void turnRight() {
