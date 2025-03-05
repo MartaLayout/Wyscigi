@@ -14,4 +14,9 @@ public class Opponent4 extends Opponents implements OpponentsAI{
     public void move() {
 
     }
+
+    @Override
+    public void collide() {
+
+    }
 }
