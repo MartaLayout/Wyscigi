@@ -168,6 +168,11 @@ public class Main extends Application {
                 stageMenu.close();
                 TokyoDriftTheme.activeGenerateScene = false;
             }
+            if(TokyoDriftTheme.activeLevel1Scene == true){
+                TokyoDriftTheme.level1();
+                stageMenu.close();
+                TokyoDriftTheme.activeLevel1Scene = false;
+            }
 
         });
 

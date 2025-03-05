@@ -24,6 +24,7 @@ public class TokyoDriftTheme {
     static final ImageView background = new ImageView(new Image("file:")); //add
     static AnchorPane rootTokyoStart = new AnchorPane();
     static boolean activeGenerateScene = false;
+    static boolean activeLevel1Scene = false;
     static AnchorPane level1 = new AnchorPane();
     static Scene level1Tokyo = new Scene(level1, Main.WIDTH, Main.HEIGHT);
 
@@ -62,6 +63,21 @@ public class TokyoDriftTheme {
         imageViewTorLevel1Tokyo.setFitHeight(800);
         imageViewTorLevel1Tokyo.setFitWidth(1200);
 
+        ImageView menuTokyoDrift = new ImageView(new Image("file:imagesStart/menuSamouczek.png"));
+        menuTokyoDrift.setLayoutX(1010);
+        menuTokyoDrift.setLayoutY(730);
+        menuTokyoDrift.setFitWidth(100);
+        menuTokyoDrift.setFitHeight(50);
+        menuTokyoDrift.setOnMouseClicked(event -> {
+            activeLevel1Scene = true;
+            Main.menu();
+        });
+        Main.activeChooseThemeScene = false;
+        Main.activeFabulaScene = false;
+        Main.activeSamouczekScene = false;
+        activeGenerateScene = false;
+        activeLevel1Scene = false;
+
         Player player = new Player(200,298);
         //player.setRotate(180);
 
@@ -78,7 +94,7 @@ public class TokyoDriftTheme {
         Rectangle rectangle = new Rectangle(10, 10);
 
 
-        level1.getChildren().addAll(imageViewTorLevel1Tokyo, rectangle, player, shooter);
+        level1.getChildren().addAll(imageViewTorLevel1Tokyo, rectangle, player, shooter, menuTokyoDrift);
 
         //Scene startSceneTokyo = new Scene(level1, Main.WIDTH, Main.HEIGHT);
         Main.stage.setTitle("Level 1 Tokyo");
