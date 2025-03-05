@@ -58,7 +58,9 @@ public class TokyoDriftTheme {
     }
 
     public static void level1(){
-        ImageView imageViewTorLevel1Tokyo = new ImageView(new Image("file:Tokyo/torInfinity1.png"));
+        ImageView imageViewTorLevel1Tokyo = new ImageView(new Image("file:Tokyo/torduzy.png"));
+        imageViewTorLevel1Tokyo.setFitHeight(800);
+        imageViewTorLevel1Tokyo.setFitWidth(1200);
 
         Player player = new Player(200,298);
         //player.setRotate(180);
