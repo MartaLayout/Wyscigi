@@ -24,6 +24,7 @@ public class Car extends ImageView {
     protected double carAngle = 0; // Initial rotation angle (in degrees)
     protected final double speed = 5; // Movement speed
     protected final double rotationSpeed = 5; // Rotation speed (degrees)
+    protected  double speedIncrimentation = 1.0000;
 
     private enum Surface {
         ASFALT, SNOW, GRUZ
@@ -59,6 +60,10 @@ public class Car extends ImageView {
     protected void speedUP() {
 //        x = direction * x / velocity;
 //        y = direction * y / velocity;
+        speedIncrimentation += 0.1;
+
+
+
     }
 
     protected void slowDown() {
