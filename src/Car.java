@@ -60,11 +60,11 @@ public class Car extends ImageView {
     protected void speedUP() {
 //        x = direction * x / velocity;
 //        y = direction * y / velocity;
-        if (speedIncrimentation<1){
+        //if (speedIncrimentation<4){
             speedIncrimentation += 0.1;
 //            speedIncrimentation = Math.round(speedIncrimentation *100);
 //            speedIncrimentation/=100;
-        }
+        //}
 
 
 
@@ -72,7 +72,7 @@ public class Car extends ImageView {
     }
 
     protected void slowDown() {
-        if (speedIncrimentation>0) {
+        if (speedIncrimentation>=0) {
             speedIncrimentation -= 0.1;
 //            speedIncrimentation = Math.round(speedIncrimentation *100);
 //            speedIncrimentation/=100;

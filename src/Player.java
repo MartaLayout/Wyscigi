@@ -76,9 +76,10 @@ public class Player extends Car{
         TokyoDriftTheme.level1Tokyo.setOnKeyReleased(event -> {
 
             if  (event.getCode() == KeyCode.DOWN) {
-                slowDown();
+
                 // Move backward
                 moveBackwards = false;
+
 
             }
             if (event.getCode() == KeyCode.UP) {
@@ -86,6 +87,9 @@ public class Player extends Car{
 
                 moveForward = false;
 
+
+            }
+            else{
 
             }
             if (event.getCode() == KeyCode.LEFT) {
@@ -103,27 +107,39 @@ public class Player extends Car{
         });
 
         Timeline timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
+
+
             if (moveBackwards){
-                carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentation;
-                carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
-                speedUP();
+                carX -= speed * Math.cos(Math.toRadians(carAngle));
+                carY -= speed * Math.sin(Math.toRadians(carAngle));
+                //speedUP();
 
             }
             if (moveForward){
                 carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
                 carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
                 speedUP();
+                System.out.println(speedIncrimentation);
             }
-            if (!moveForward){
+            else {
                 carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
-                carY += speed * Math.sin(Math.toRadians(carAngle))* speedIncrimentation;
-                if (speedIncrimentation>=0){
-                    slowDown();
-                    System.out.println(speedIncrimentation);
-                }
-
-
+                carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
+                slowDown();
             }
+
+//            if (!moveForward){
+//                carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
+//                carY += speed * Math.sin(Math.toRadians(carAngle))* speedIncrimentation;
+//                if (speedIncrimentation>=0){
+//                    slowDown();
+//                    System.out.println(speedIncrimentation);
+//                }
+//                else{
+//                    speedIncrimentation =0;
+//                }
+
+
+            //}
             if (moveLeft){
                 // Rotate left
                 //+-->-
