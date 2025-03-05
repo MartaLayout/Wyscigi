@@ -82,7 +82,7 @@ public class TokyoDriftTheme {
         //player.setRotate(180);
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
-        Shooter shooter = new Shooter(288, 347, imageTowerShooter);
+        Shooter shooter = new Shooter(242, 320, imageTowerShooter);
 
         Timeline timelineBullets = new Timeline(new KeyFrame(Duration.millis(10), event -> {
             shooter.setRotate(player.getX() - 10);
