@@ -104,19 +104,24 @@ public class Player extends Car{
 
         Timeline timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
             if (moveBackwards){
-                carX -= speed * Math.cos(Math.toRadians(carAngle)*speedIncrimentation);
+                carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentation;
                 carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
+                speedUP();
 
             }
             if (moveForward){
                 carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
-                carY += speed * Math.sin(Math.toRadians(carAngle));
+                carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
                 speedUP();
             }
             if (!moveForward){
                 carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
-                carY += speed * Math.sin(Math.toRadians(carAngle));
-                slowDown();
+                carY += speed * Math.sin(Math.toRadians(carAngle))* speedIncrimentation;
+                if (speedIncrimentation>=0){
+                    slowDown();
+                    System.out.println(speedIncrimentation);
+                }
+
 
             }
             if (moveLeft){
