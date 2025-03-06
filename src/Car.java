@@ -26,6 +26,7 @@ public class Car extends ImageView {
     protected final double speed = 3; // Movement speed
     protected final double rotationSpeed = 5; // Rotation speed (degrees)
     protected  double speedIncrimentation = 1.0000;
+    protected  double speedIncrimentationBackwards = 1.0000;
 
     private enum Surface {
         ASFALT, SNOW, GRUZ
@@ -72,6 +73,10 @@ public class Car extends ImageView {
 
     }
 
+    protected void speedUpBackwards(){
+        speedIncrimentationBackwards += 0.1;
+    }
+
     protected void slowDown() {
         if (speedIncrimentation>=0) {
             speedIncrimentation -= 0.1;
@@ -82,6 +87,20 @@ public class Car extends ImageView {
             speedIncrimentation =0;
         }
     }
+
+
+
+    protected void slowDownBackwards() {
+        if (speedIncrimentationBackwards>=0) {
+            speedIncrimentationBackwards -= 0.1;
+//            speedIncrimentation = Math.round(speedIncrimentation *100);
+//            speedIncrimentation/=100;
+        }
+        if (speedIncrimentationBackwards <0.01){
+            speedIncrimentationBackwards =0;
+        }
+    }
+
 
     protected void turnRight() {
 //        if (isSpeeding){

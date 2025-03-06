@@ -44,13 +44,13 @@ public class Player extends Car{
             //UP z DOWN zamienione bo musiałam zrobić rotate imageView
             //i right z left też
             if  (event.getCode() == KeyCode.DOWN) {
-                slowDown();
+                //slowDown();
                 // Move backward
                 moveBackwards = true;
 
             }
             if (event.getCode() == KeyCode.UP) {
-                speedUP();
+                //speedUP();
 
                 moveForward = true;
 
@@ -83,7 +83,7 @@ public class Player extends Car{
 
             }
             if (event.getCode() == KeyCode.UP) {
-                speedUP();
+                //speedUP();
 
                 moveForward = false;
 
@@ -110,16 +110,22 @@ public class Player extends Car{
 
 
             if (moveBackwards){
-                carX -= speed * Math.cos(Math.toRadians(carAngle));
-                carY -= speed * Math.sin(Math.toRadians(carAngle));
-                //speedUP();
+                carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
+                carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentationBackwards;
+                speedUpBackwards();
+                System.out.println(speedIncrimentationBackwards);
 
+            }
+            else{
+                carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
+                carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentationBackwards;
+                slowDownBackwards();
             }
             if (moveForward){
                 carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
                 carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
                 speedUP();
-                System.out.println(speedIncrimentation);
+                //System.out.println(speedIncrimentation);
             }
             else {
                 carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
