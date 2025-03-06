@@ -8,6 +8,7 @@ import javafx.util.Duration;
 
 public class Car extends ImageView {
 
+    //TODO checkpoints
     protected double velocity;
     protected int maxVelocity;
     private boolean isSpeeding;
@@ -22,7 +23,7 @@ public class Car extends ImageView {
     public double carX = -100;  // Initial X position
     public double carY = -200;  // Initial Y position
     protected double carAngle = 0; // Initial rotation angle (in degrees)
-    protected final double speed = 5; // Movement speed
+    protected final double speed = 3; // Movement speed
     protected final double rotationSpeed = 5; // Rotation speed (degrees)
     protected  double speedIncrimentation = 1.0000;
 
@@ -60,14 +61,26 @@ public class Car extends ImageView {
     protected void speedUP() {
 //        x = direction * x / velocity;
 //        y = direction * y / velocity;
-        speedIncrimentation += 0.1;
+        //if (speedIncrimentation<4){
+            speedIncrimentation += 0.1;
+//            speedIncrimentation = Math.round(speedIncrimentation *100);
+//            speedIncrimentation/=100;
+        //}
+
 
 
 
     }
 
     protected void slowDown() {
-        //velocity--;
+        if (speedIncrimentation>=0) {
+            speedIncrimentation -= 0.1;
+//            speedIncrimentation = Math.round(speedIncrimentation *100);
+//            speedIncrimentation/=100;
+        }
+        if (speedIncrimentation <0.01){
+            speedIncrimentation =0;
+        }
     }
 
     protected void turnRight() {
