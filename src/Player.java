@@ -103,6 +103,8 @@ public class Player extends Car{
         });
 
         Timeline timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
+
+
             if (moveBackwards){
                 carX -= speed * Math.cos(Math.toRadians(carAngle)*speedIncrimentation);
                 carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
@@ -127,6 +129,8 @@ public class Player extends Car{
                 carX += speed * Math.cos(Math.toRadians(carAngle));
                 carY +=speed * Math.sin(Math.toRadians(carAngle));
             }
+
+            //            speedIncrimentation -= 0.1;
 
 
             this.setTranslateX(carX);

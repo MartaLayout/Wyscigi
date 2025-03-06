@@ -84,6 +84,9 @@ public class TokyoDriftTheme {
         Main.stage.setTitle("Level 1 Tokyo");
         Main.stage.setScene(level1Tokyo);
 
+        Rectangle checkpointMeta = new Rectangle(227, 16, 50, 255);
+        Rectangle checkpoint = new Rectangle(227, 16, 25, 255);
+
 
     }
 
