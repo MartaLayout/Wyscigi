@@ -5,13 +5,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Shooter extends ImageView{
 
     public static double xTower = 300;
     public static double yTower = 300;
 
     public static final Image IMAGE = new Image("file:Tokyo/shoot.png");
-    private static ImageView bullet = new ImageView(IMAGE);
+    public static ImageView bullet = new ImageView(IMAGE);
     private final static double step = 5;
     private static double dh = 1;
     private static double dx;
@@ -19,6 +22,7 @@ public class Shooter extends ImageView{
     private static double distance;
     private static Timeline timeline;
     private static double ahoraDistance;
+
 
 
     //Marta 09.02: wyświetla się ale problem jest taki jak w Car, że respi się u góry i jakby nic z tym się nie da zrobić :(((
@@ -38,18 +42,21 @@ public class Shooter extends ImageView{
         bullet = new ImageView(IMAGE);
         bullet.setX(x);
         bullet.setY(y);
+        List<ImageView> bullets = new ArrayList<>();
+        bullets.add(bullet);
 
-        TokyoDriftTheme.level1.getChildren().addAll(bullet);
+        TokyoDriftTheme.level1.getChildren().addAll(bullets);
 
         distance = Math.hypot(targetX - x, targetY - y);
         double step = 5;
         dx = step * (targetX - x) / distance;
         dy = step * (targetY - y) / distance;
-        timeline = new Timeline(new KeyFrame(Duration.millis(100 / 60), event -> {
+        timeline = new Timeline(new KeyFrame(Duration.millis(100), event -> {
             move();
             timeline.stop();
             timeline = null;
         }));
+
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
