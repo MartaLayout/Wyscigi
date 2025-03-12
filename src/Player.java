@@ -40,7 +40,6 @@ public class Player extends Car{
         super(x, y, image);
 
         TokyoDriftTheme.level1Tokyo.setOnKeyPressed(event -> {
-            //ej a może zamiast if użyć while?
             //UP z DOWN zamienione bo musiałam zrobić rotate imageView
             //i right z left też
             if  (event.getCode() == KeyCode.DOWN) {
