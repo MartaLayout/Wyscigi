@@ -13,7 +13,7 @@ public class Shooter extends ImageView{
     public double xTower = 300;
     public double yTower = 300;
     public double rotationAngle = 0; //pod jakim kątem jest teraz obrazek
-    public double stepAngle = Math.PI/180; //1 stopień //co ile się odwraca
+    public double stepAngle = Math.PI/180 * 10; //1 stopień //co ile się odwraca
 
     private Timeline timeline;
 
