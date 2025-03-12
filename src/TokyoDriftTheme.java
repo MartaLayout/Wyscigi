@@ -101,14 +101,14 @@ public class TokyoDriftTheme {
         //tworzymy wieżę - działa
         Shooter shooter = new Shooter(288, 300, imageTowerShooter);
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
+        Timeline timelineShooter = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
             shooter.fireBullet(player.carX, player.carY, 20);
             shooter.rotateToTarget(player);
 
 
         }));
-        timeline.setCycleCount(INDEFINITE);
-        timeline.play();
+        timelineShooter.setCycleCount(INDEFINITE);
+        timelineShooter.play();
 
         Rectangle rectangle = new Rectangle(10, 10);
 
@@ -138,5 +138,4 @@ public class TokyoDriftTheme {
         }
 
     }}
-
 
