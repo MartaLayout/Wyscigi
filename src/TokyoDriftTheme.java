@@ -1,32 +1,26 @@
-import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Application;
-import javafx.scene.Cursor;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.awt.*;
-import java.util.Timer;
-
 import static javafx.animation.Animation.INDEFINITE;
+import static javafx.scene.text.Font.font;
 
 
 public class TokyoDriftTheme {
     //hubhubhu
-
+    static Text timerText = new Text(" ");
+    static int seconds = 0;
+    static int minutes = 0;
     static final ImageView background = new ImageView(new Image("file:")); //add
     static AnchorPane rootTokyoStart = new AnchorPane();
     static boolean activeGenerateScene = false;
@@ -85,25 +79,18 @@ public class TokyoDriftTheme {
         Main.activeSamouczekScene = false;
         activeGenerateScene = false;
         activeLevel1Scene = false;
-        Text timerText = new Text(" ");
-        timerText.setX(500);
-        timerText.setY(500);
-        timerText.setFont(Font.font(30));
+      
+        timerText.setX(337);
+        timerText.setY(805);
+        Font font = Font.loadFont("file:Minecraftia-Regular.ttf",25);
+        timerText.setFont(font);
+        timerText.setFill(Color.MAGENTA);
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.seconds(1), e -> updateTimer())
+        );
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
 
-        // nati bawi sie timerem tu
-        if (timerON) {
-            int interval = 0;
-            int min = 0;
-
-            for (int i = 0; i < 60; i++) {
-                interval++;
-            }
-            if(interval == 60) {
-                interval = 0;
-                min++;
-            }
-            timerText.setText(min + ":" + interval);
-        }
 
 
         Player player = new Player(200,298);
@@ -111,7 +98,7 @@ public class TokyoDriftTheme {
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
         Shooter shooter = new Shooter(288, 347, imageTowerShooter);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
+        Timeline bulletTimeline = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
             Shooter.bullets(player.getTranslateX() + 20,player.getTranslateY() + 20,player.getX(),player.getY());
             shooter.setRotate(-30);
 
@@ -119,8 +106,8 @@ public class TokyoDriftTheme {
 
 
         }));
-        timeline.setCycleCount(INDEFINITE);
-        timeline.play();
+        bulletTimeline.setCycleCount(INDEFINITE);
+        bulletTimeline.play();
 
         Rectangle rectangle = new Rectangle(10, 10);
 
@@ -137,7 +124,18 @@ public class TokyoDriftTheme {
 
     }
 
+    private static void updateTimer() {
+        seconds++;
+        if ( seconds >= 0 && seconds < 10) {
+            timerText.setText(minutes + ":0" + seconds);
+        } else {
+            if (seconds > 59) {
+                seconds = 0;
+                minutes++;
+            }
+            timerText.setText(minutes + ":" + seconds);
+        }
+
+    }}
 
 
-
-}
