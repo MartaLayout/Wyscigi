@@ -51,9 +51,9 @@ public class TokyoDriftTheme {
         Main.activeFabulaScene = false;
         Main.activeSamouczekScene = false;
         activeGenerateScene = false;
-        Player player1 = new Player(200,298);
 
-        rootTokyoStart.getChildren().addAll(imageViewStartTokyo, rectangleLevel1, rectangleLevel2, rectangleLevel3, menuTokyo, player1);
+
+        rootTokyoStart.getChildren().addAll(imageViewStartTokyo, rectangleLevel1, rectangleLevel2, rectangleLevel3, menuTokyo);
 
         Scene startSceneTokyo = new Scene(rootTokyoStart, Main.WIDTH, Main.HEIGHT);
         Main.stage.setTitle("TokyoDrift Start");
