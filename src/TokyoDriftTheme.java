@@ -79,7 +79,7 @@ public class TokyoDriftTheme {
         Main.activeSamouczekScene = false;
         activeGenerateScene = false;
         activeLevel1Scene = false;
-      
+
         timerText.setX(337);
         timerText.setY(805);
         Font font = Font.loadFont("file:Minecraftia-Regular.ttf",25);
@@ -97,17 +97,18 @@ public class TokyoDriftTheme {
         //player.setRotate(180);
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
-        Shooter shooter = new Shooter(288, 347, imageTowerShooter);
-        Timeline bulletTimeline = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
-            Shooter.bullets(player.getTranslateX() + 20,player.getTranslateY() + 20,player.getX(),player.getY());
-            shooter.setRotate(-30);
 
+        //tworzymy wieżę - działa
+        Shooter shooter = new Shooter(288, 300, imageTowerShooter);
 
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
+            shooter.fireBullet(player.carX, player.carY, 20);
+            shooter.rotateToTarget(player);
 
 
         }));
-        bulletTimeline.setCycleCount(INDEFINITE);
-        bulletTimeline.play();
+        timeline.setCycleCount(INDEFINITE);
+        timeline.play();
 
         Rectangle rectangle = new Rectangle(10, 10);
 
