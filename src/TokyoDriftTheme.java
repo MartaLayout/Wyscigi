@@ -19,13 +19,16 @@ import static javafx.scene.text.Font.font;
 public class TokyoDriftTheme {
     //hubhubhu
     static Text timerText = new Text(" ");
+    static Text lapTimerText = new Text(" ");
     static int seconds = 0;
     static int minutes = 0;
+    static int lapSeconds = 0;
+    static int lapMinutes = 0;
+    static int lap = 0;
     static final ImageView background = new ImageView(new Image("file:")); //add
     static AnchorPane rootTokyoStart = new AnchorPane();
     static boolean activeGenerateScene = false;
     static boolean activeLevel1Scene = false;
-    static boolean timerON = true;
     static AnchorPane level1 = new AnchorPane();
     static Scene level1Tokyo = new Scene(level1, Main.WIDTH, Main.HEIGHT);
 
@@ -84,12 +87,26 @@ public class TokyoDriftTheme {
         timerText.setY(805);
         Font font = Font.loadFont("file:Minecraftia-Regular.ttf",25);
         timerText.setFont(font);
-        timerText.setFill(Color.MAGENTA);
+        timerText.setFill(Color.color(1, 0, 1));
+        lapTimerText.setX(575);
+        lapTimerText.setY(805);
+        lapTimerText.setFont(font);
+        lapTimerText.setFill(Color.color(1,0,0.7));
         Timeline timeline = new Timeline(
-                new KeyFrame(Duration.seconds(1), e -> updateTimer())
+                new KeyFrame(Duration.seconds(1), event -> {
+                    updateTimer();
+                    setLapTimer();
+                })
+
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+
+
+
+
+
+
 
 
 
@@ -112,7 +129,7 @@ public class TokyoDriftTheme {
         Rectangle rectangle = new Rectangle(10, 10);
 
 
-        level1.getChildren().addAll(imageViewTorLevel1Tokyo, rectangle, player, shooter, menuTokyoDrift,timerText);
+        level1.getChildren().addAll(imageViewTorLevel1Tokyo, rectangle, player, shooter, menuTokyoDrift,timerText,lapTimerText);
 
         //Scene startSceneTokyo = new Scene(level1, Main.WIDTH, Main.HEIGHT);
         Main.stage.setTitle("Level 1 Tokyo");
@@ -122,6 +139,19 @@ public class TokyoDriftTheme {
         Rectangle checkpoint = new Rectangle(227, 16, 25, 255);
 
 
+    }
+    private static void setLapTimer() {
+        if (lap >= 0) {
+        lapSeconds++; }
+        if ( lapSeconds >= 0 && lapSeconds < 10) {
+            lapTimerText.setText(lapMinutes + ":0" + lapSeconds);
+        } else {
+            if (lapSeconds > 59) {
+                lapSeconds = 0;
+                lapMinutes++;
+            }
+            lapTimerText.setText(lapMinutes + ":" + lapSeconds);
+        }
     }
 
     private static void updateTimer() {
