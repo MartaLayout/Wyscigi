@@ -88,9 +88,7 @@ public class Player extends Car{
 
 
             }
-            else{
 
-            }
             if (event.getCode() == KeyCode.LEFT) {
                 //turnRight();
 
@@ -109,27 +107,17 @@ public class Player extends Car{
 
 
             if (moveBackwards){
-                carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
-                carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentationBackwards;
-                speedUpBackwards();
-                System.out.println(speedIncrimentationBackwards);
+                moveBackwardsAppliedForce();
 
             }
             else{
-                carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
-                carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentationBackwards;
-                slowDownBackwards();
+                moveBackwardsNegForce();
             }
             if (moveForward){
-                carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
-                carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
-                speedUP();
-                //System.out.println(speedIncrimentation);
+                moveForwardAppliedForce();
             }
             else {
-                carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
-                carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
-                slowDown();
+                moveForwardNegForce();
             }
 
 //            if (!moveForward){
@@ -146,26 +134,11 @@ public class Player extends Car{
 
             //}
             if (moveLeft){
-                // Rotate left
-                //+-->-
-                carAngle -= rotationSpeed;
-                //- --> +
-                carX += speed * Math.cos(Math.toRadians(carAngle));
-                carY += speed * Math.sin(Math.toRadians(carAngle));
-                if (moveForward){
-                    slowDown();
-                }
-                if (moveBackwards){
-                    slowDownBackwards();
-                }
+                turnLeft();
             }
 
             if (moveRight){
-                carAngle += rotationSpeed;
-                //- --> +
-                carX += speed * Math.cos(Math.toRadians(carAngle));
-                carY +=speed * Math.sin(Math.toRadians(carAngle));
-                if (moveForward){}
+              turnRight();
             }
 
             //            speedIncrimentation -= 0.1;

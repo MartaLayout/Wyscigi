@@ -24,9 +24,9 @@ public class Car extends ImageView {
     public double carY = -200;  // Initial Y position
     protected double carAngle = 0; // Initial rotation angle (in degrees)
     protected final double speed = 2; // Movement speed   //3
-    protected final double rotationSpeed = 2; // Rotation speed (degrees) //5
-    protected  double speedIncrimentation = 0.1000; //1.0000
-    protected  double speedIncrimentationBackwards = 0.10000;
+    protected final double rotationSpeed = 3; // Rotation speed (degrees) //5
+    protected  double speedIncrimentation = 0.1; //1.0000
+    protected  double speedIncrimentationBackwards = 0.1;
 
     boolean moveBackwards;
     boolean moveForward;
@@ -53,79 +53,67 @@ public class Car extends ImageView {
 //            isSpeeding = true;
 //        }
 
-        Timeline timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
+//        Timeline timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
 
 
-            if (moveBackwards){
-                carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
-                carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentationBackwards;
-                speedUpBackwards();
-                System.out.println(speedIncrimentationBackwards);
-
-            }
-            else{
-                carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
-                carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentationBackwards;
-                slowDownBackwards();
-            }
-            if (moveForward){
-                carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
-                carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
-                speedUP();
-                //System.out.println(speedIncrimentation);
-            }
-            else {
-                carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
-                carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
-                slowDown();
-            }
-
-//            if (!moveForward){
+//            if (moveBackwards){
+//                carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
+//                carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentationBackwards;
+//                speedUpBackwards();
+//                System.out.println(speedIncrimentationBackwards);
+//
+//            }
+//            else{
+//                carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
+//                carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentationBackwards;
+//                slowDownBackwards();
+//            }
+//            if (moveForward){
 //                carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
-//                carY += speed * Math.sin(Math.toRadians(carAngle))* speedIncrimentation;
-//                if (speedIncrimentation>=0){
+//                carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
+//                speedUP();
+//                //System.out.println(speedIncrimentation);
+//            }
+//            else {
+//                carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
+//                carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
+//                slowDown();
+//            }
+
+
+//            if (moveLeft){
+//                // Rotate left
+//                //+-->-
+//                carAngle -= rotationSpeed;
+//                //- --> +
+//                carX += speed * Math.cos(Math.toRadians(carAngle));
+//                carY += speed * Math.sin(Math.toRadians(carAngle));
+//                if (moveForward){
 //                    slowDown();
-//                    System.out.println(speedIncrimentation);
 //                }
-//                else{
-//                    speedIncrimentation =0;
+//                if (moveBackwards){
+//                    slowDownBackwards();
 //                }
+//            }
 
-
-            //}
-            if (moveLeft){
-                // Rotate left
-                //+-->-
-                carAngle -= rotationSpeed;
-                //- --> +
-                carX += speed * Math.cos(Math.toRadians(carAngle));
-                carY += speed * Math.sin(Math.toRadians(carAngle));
-                if (moveForward){
-                    slowDown();
-                }
-                if (moveBackwards){
-                    slowDownBackwards();
-                }
-            }
-
-            if (moveRight){
-                carAngle += rotationSpeed;
-                //- --> +
-                carX += speed * Math.cos(Math.toRadians(carAngle));
-                carY +=speed * Math.sin(Math.toRadians(carAngle));
-                if (moveForward){}
-            }
+//            if (moveRight){
+//                carAngle += rotationSpeed;
+//                //- --> +
+//                carX += speed * Math.cos(Math.toRadians(carAngle));
+//                carY +=speed * Math.sin(Math.toRadians(carAngle));
+//                if (moveForward){}
+//            }
 
             //            speedIncrimentation -= 0.1;
 
 
-            this.setTranslateX(carX);
-            this.setTranslateY(carY);
-            this.setRotate(carAngle);
-
-        }));
-        timelineCar.setCycleCount(Animation.INDEFINITE);
-        timelineCar.play();
+//            this.setTranslateX(carX);
+//            this.setTranslateY(carY);
+//            this.setRotate(carAngle);
+//
+//        }));
+//        timelineCar.setCycleCount(Animation.INDEFINITE);
+//        timelineCar.play();
 
 
     }
@@ -134,16 +122,69 @@ public class Car extends ImageView {
 //method for nie wychodzenie poza tor --> kolorki
 //method for odbijanie od ściany --> kolizje
 
+    //methods for movement - copied from player
+    // if the method has "Applied Force", the car is not only moving but is also increasing it's speed
+    //if the method has "Neg Force" the car is moving but due to the negative force, it is slowing down its movement
+    protected void moveForwardAppliedForce(){
+        carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
+        carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
+        speedUP();
+        //System.out.println(speedIncrimentation);
+    }
+
+    protected void moveForwardNegForce(){
+        carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
+        carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
+        slowDown();
+    }
+
+    protected void moveBackwardsAppliedForce(){
+        carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
+        carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentationBackwards;
+        speedUpBackwards();
+        System.out.println(speedIncrimentationBackwards);
+    }
+
+    protected void moveBackwardsNegForce(){
+        carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
+        carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentationBackwards;
+        slowDownBackwards();
+    }
+
+    protected void turnLeft(){
+        // Rotate left
+        //+-->-
+        carAngle -= rotationSpeed;
+        //- --> +
+        carX += speed * Math.cos(Math.toRadians(carAngle));
+        carY += speed * Math.sin(Math.toRadians(carAngle));
+        if (moveForward){
+            slowDown();
+        }
+        if (moveBackwards){
+            slowDownBackwards();
+        }
+    }
+
+    protected void turnRight(){
+        carAngle += rotationSpeed;
+        //- --> +
+        carX += speed * Math.cos(Math.toRadians(carAngle));
+        carY +=speed * Math.sin(Math.toRadians(carAngle));
+        if (moveForward){
+            slowDown();
+        }
+        if (moveBackwards){
+            slowDownBackwards();
+        }
+    }
+
 
 
     protected void speedUP() {
-//        x = direction * x / velocity;
-//        y = direction * y / velocity;
-        //if (speedIncrimentation<4){
+
             speedIncrimentation += 0.1;
-//            speedIncrimentation = Math.round(speedIncrimentation *100);
-//            speedIncrimentation/=100;
-        //}
+
 
 
 
@@ -179,26 +220,9 @@ public class Car extends ImageView {
     }
 
 
-    protected void turnRight() {
-//        if (isSpeeding){
-//            direction += 1;
-//            if (direction > 180){
-//                direction = -179;
-//            }
-//            setRotate(direction);
-//        }
 
-    }
 
-    protected void turnLeft() {
-//        if (isSpeeding){
-//            direction -= 1;
-//            if (direction < -179){
-//                direction = 180;
-//            }
-//            setRotate(direction);
-//        }
-    }
+
 
 
     //later add variations of move on different surfaces, with slightly different parameters
