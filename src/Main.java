@@ -336,7 +336,6 @@ public class Main extends Application {
             chooseThemeScene();
         });
 
-
         ImageView imageViewMenuFabula = new ImageView(new Image("file:imagesStart/menuFabula.png"));
         imageViewMenuFabula.setLayoutX(1088);
         imageViewMenuFabula.setLayoutY(10);
@@ -351,15 +350,60 @@ public class Main extends Application {
         activeSamouczekScene = false;
 
         //TODO button "dalej" w timeline?
-        final String content = "Ok testing the babcia"; //TODO tekst
-        final Text textDymek = new Text(10, 20, "");
-        textDymek.setFont(Font.font(30));
-        textDymek.setLayoutX(530);
-        textDymek.setLayoutY(240);
+        String[] dymekContent = {"ok I can't believe it works", "testing again", "the babcia :)))", "I'm really happy", "with how that works"}; //todo tekst
 
-        final Animation animation = new Transition() {
+        final Text textDymek = new Text("");
+        textDymek.setFont(Font.font(35));
+        textDymek.setLayoutX(550);
+        textDymek.setLayoutY(260);
+
+
+
+//        final Animation animation = new Transition() {
+//            {
+//                setCycleDuration(Duration.seconds(3.5));
+//            }
+//
+//            protected void interpolate(double frac) {
+//                final int length = content.length();
+//                final int n = Math.round(length * (float) frac);
+//                textDymek.setText(content.substring(0, n));
+//            }
+//
+//        };
+//        animation.play();
+
+        animateTextUsingTimeline(dymekContent, textDymek);
+
+        rootFabula.getChildren().addAll(background, imageViewMenuFabula, imageViewPominFabula, babcia, dymek, textDymek);
+        Scene fabulaScene = new Scene(rootFabula, WIDTH, HEIGHT);
+        stage.setTitle("Fabuła");
+        stage.setScene(fabulaScene);
+
+    }
+
+    public static void animateTextUsingTimeline(String[] contentArray, Text textDymek) {
+        Timeline timeline = new Timeline();
+
+        for (int i = 0; i < contentArray.length; i++) {
+            final int index = i;
+            String content = contentArray[i];
+
+            KeyFrame keyFrame = new KeyFrame(
+                    Duration.seconds(i * 5),  // seconds between each string
+                    e -> animateText(content, textDymek)
+            );
+            timeline.getKeyFrames().add(keyFrame);
+        }
+
+        timeline.setCycleCount(1);
+        timeline.play();
+    }
+
+    private static void animateText(String content, Text textDymek) {
+        final Animation typingAnimation = new Transition() {
             {
-                setCycleDuration(Duration.seconds(3.5));
+                setCycleDuration(Duration.seconds(3.25)); // Duration of typing effect for each string
             }
 
             protected void interpolate(double frac) {
@@ -367,15 +411,9 @@ public class Main extends Application {
                 final int n = Math.round(length * (float) frac);
                 textDymek.setText(content.substring(0, n));
             }
-
         };
-        animation.play();
 
-        rootFabula.getChildren().addAll(imageViewMenuFabula, imageViewPominFabula, babcia, dymek, textDymek);
-        Scene fabulaScene = new Scene(rootFabula, WIDTH, HEIGHT);
-        stage.setTitle("Fabuła");
-        stage.setScene(fabulaScene);
-
+        typingAnimation.play();
     }
 
 
