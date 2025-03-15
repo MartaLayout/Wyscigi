@@ -1,5 +1,7 @@
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.animation.Transition;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -246,8 +248,6 @@ public class Main extends Application {
         //fiolet
         AnchorPane rootSamouczek = new AnchorPane();
 
-        ImageView samouczekImage = new ImageView(new Image("file:imagesStart/babciaSamouczek1.PNG")); //tu coś musimy wymyśleć jak będzie wyglądała plansza samouczka
-
         ImageView imageViewPominSamouczek = new ImageView(new Image("file:imagesStart/pomin.png"));
         imageViewPominSamouczek.setLayoutX(1088);
         imageViewPominSamouczek.setLayoutY(740);
@@ -256,11 +256,6 @@ public class Main extends Application {
         imageViewPominSamouczek.setOnMouseClicked(event -> {
             fabulaScene();
         });
-
-
-        Timeline timelineSamouczek = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
-
-        }));
 
         ImageView imageViewMenuSamouczek = new ImageView(new Image("file:imagesStart/menuSamouczek.png"));
         imageViewMenuSamouczek.setLayoutX(1088);
@@ -271,36 +266,66 @@ public class Main extends Application {
             activeSamouczekScene = true;
             menu();
         });
-
-
-
         activeChooseThemeScene = false;
         activeFabulaScene = false;
         activeSamouczekScene = false;
 
-        rootSamouczek.getChildren().addAll(samouczekImage, imageViewMenuSamouczek, imageViewPominSamouczek);
+        Text textDymek = new Text(""); //z niewiadomych przyczyn initiallt empty
+
+
+        String textBabcia = "Ok to testuję babcię";
+
+        Rectangle rectangleSamouczek = new Rectangle(100, 100);
+        rectangleSamouczek.setLayoutX(100);
+        rectangleSamouczek.setLayoutY(600);
+
+        rectangleSamouczek.setOnMouseClicked(event -> {
+//            Timeline delayTimeline = new Timeline(new KeyFrame(Duration.seconds(2), e -> startTypingEffect(textDymek, textBabcia)));
+//            delayTimeline.play();
+        });
+
+
+        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, rectangleSamouczek, textDymek);
 
         Scene samouczekScene = new Scene(rootSamouczek, WIDTH, HEIGHT);
         stage.setTitle("Samouczek");
         stage.setScene(samouczekScene);
 
-        samouczekScene.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.SPACE){
-                Projectile projectile = new Projectile(Math.random()*100, Math.random()*100, 6.0);
-                projectiles.add(projectile);
-                rootSamouczek.getChildren().add(projectile);
-            }
-        });
+//        samouczekScene.setOnKeyPressed(event -> {
+//            if (event.getCode() == KeyCode.SPACE){
+//                Projectile projectile = new Projectile(Math.random()*100, Math.random()*100, 6.0);
+//                projectiles.add(projectile);
+//                rootSamouczek.getChildren().add(projectile);
+//            }
+//
+//        });
     }
+
+//    public static void startTypingEffect(Text textDymek, String text) {
+//        Timeline typingTimeline = new Timeline();
+//
+//        for (int i = 0; i < text.length(); i++) {
+//            int index = i;
+//            typingTimeline.getKeyFrames().add(
+//                    new KeyFrame(Duration.millis(100 * i), e -> textDymek.setText(text.substring(0, index + 1)))
+//            );
+//        }
+//        typingTimeline.play();
+//    }
 
     public static void fabulaScene(){
         //zielone
-
         AnchorPane rootFabula = new AnchorPane();
 
-        ImageView fabulaImage = new ImageView(new Image("file:")); //to będzie cały obrazek babci z dymkiem na miejsce na tekst
-//        Text text1 = new Text("tekst1");
+        ImageView background = new ImageView(new Image("file:imagesStart/samouczek/")); //TODO
 
+        ImageView babcia = new ImageView(new Image("file:imagesStart/samouczek/babcia.png"));
+        babcia.setLayoutX(250);
+        babcia.setLayoutY(200);
+
+        ImageView dymek = new ImageView(new Image("file:imagesStart/samouczek/dymek.png"));
+        dymek.setLayoutX(500);
+        dymek.setLayoutY(200);
 
         ImageView imageViewPominFabula = new ImageView(new Image("file:imagesStart/pominFabula.png"));
         imageViewPominFabula.setLayoutX(1088);
@@ -326,29 +351,33 @@ public class Main extends Application {
         activeSamouczekScene = false;
 
         //TODO button "dalej" w timeline?
-        Timeline timelineFabula = new Timeline(new KeyFrame(Duration.seconds(100), event -> {
-            //różne zdj
-            for (int i = 0; i < 6; i++) {
-                textFabula = new Text("" + i);
-                rootFabula.getChildren().addAll(textFabula);
-                //rootFabula.getChildren().remove(textFabula);
-            }
-            textFabula.setX(500);
-            textFabula.setY(300);
-            textFabula.setFont(Font.font(32));
-        }));
-        timelineFabula.setCycleCount(1);
-        timelineFabula.play();
-        timelineFabula.setOnFinished(event -> {
-            rootFabula.getChildren().remove(textFabula);
-        });
+        final String content = "Ok testing the babcia"; //TODO tekst
+        final Text textDymek = new Text(10, 20, "");
+        textDymek.setFont(Font.font(30));
+        textDymek.setLayoutX(530);
+        textDymek.setLayoutY(240);
 
-        rootFabula.getChildren().addAll(fabulaImage, imageViewMenuFabula, imageViewPominFabula);
+        final Animation animation = new Transition() {
+            {
+                setCycleDuration(Duration.seconds(3.5));
+            }
+
+            protected void interpolate(double frac) {
+                final int length = content.length();
+                final int n = Math.round(length * (float) frac);
+                textDymek.setText(content.substring(0, n));
+            }
+
+        };
+        animation.play();
+
+        rootFabula.getChildren().addAll(imageViewMenuFabula, imageViewPominFabula, babcia, dymek, textDymek);
         Scene fabulaScene = new Scene(rootFabula, WIDTH, HEIGHT);
         stage.setTitle("Fabuła");
         stage.setScene(fabulaScene);
 
     }
+
 
     public static void chooseThemeScene() {
         AnchorPane rootTheme = new AnchorPane();
