@@ -178,7 +178,6 @@ public class Main extends Application {
 
         });
 
-        //TODO Alert !!!
         imageViewWyjdzZGry.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -199,49 +198,6 @@ public class Main extends Application {
         });
         rootMenu.getChildren().addAll(imageViewWyjdzZGry);
 
-        /*imageViewWyjdzZGry.setOnMouseClicked(event -> {
-
-            AnchorPane rootWyjdzZgry = new AnchorPane();
-            Stage stageWyjdzZGry = new Stage();
-            Scene sceneWyjdzZGry = new Scene(rootWyjdzZgry, 400, 200);
-
-            stageWyjdzZGry.setX(550);
-            stageWyjdzZGry.setY(400);
-            stageWyjdzZGry.setTitle("Wyjdź z gry");
-            stageWyjdzZGry.setAlwaysOnTop(true);
-
-            Button cancelButton = new Button("Anuluj");
-            cancelButton.setPrefSize(150, 60);
-            cancelButton.setLayoutX(130);
-            cancelButton.setLayoutY(100);
-            cancelButton.setOnAction(event1 -> {
-                stageWyjdzZGry.close();
-                stageWyjdzZGryActive = false;
-            });
-            rootWyjdzZgry.getChildren().addAll(cancelButton);*/
-
-    //nie działają te booleany, w sensie jakby ten na cancelButton zmiana booleana nie działa (ja wiem że on jest na false defaultowo)
-            /*if(stageWyjdzZGryActive == true){
-                Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), event1 -> {
-                    for (int i = 0; i < 6; i++) {
-                        //dlaczego ten tekst się nie wyświetla
-                        Text text = new Text();
-                        text.setText("Wyjście z gry za " + i + " sek");
-                        text.setFont(new Font(20));
-                        text.setX(130);
-                        text.setY(90);
-                        rootWyjdzZgry.getChildren().addAll(text);
-                    }
-                    stageWyjdzZGry.close();
-                    stage.close();
-                    stageMenu.close();
-                }));
-                timeline.play();
-            }
-
-            stageWyjdzZGry.setScene(sceneWyjdzZGry);
-            stageWyjdzZGry.show();
-        });*/
     }
 
     public static void samouczekScene(){
@@ -270,23 +226,37 @@ public class Main extends Application {
         activeFabulaScene = false;
         activeSamouczekScene = false;
 
-        Text textDymek = new Text(""); //z niewiadomych przyczyn initiallt empty
+        ImageView babciaSamouczek = new ImageView(new Image("file:imagesStart/samouczek_fabula/babcia.png"));
+        babciaSamouczek.setLayoutX(50);
+        babciaSamouczek.setLayoutY(10);
+        babciaSamouczek.setFitHeight(165);
+        babciaSamouczek.setFitWidth(123);
 
-
-        String textBabcia = "Ok to testuję babcię";
+        ImageView dymekSamouczek = new ImageView(new Image("file:imagesStart/samouczek_fabula/dymek.png"));
+        dymekSamouczek.setLayoutX(170);
+        dymekSamouczek.setLayoutY(10);
+        dymekSamouczek.setFitWidth(297);
+        dymekSamouczek.setFitHeight(90);
 
         Rectangle rectangleSamouczek = new Rectangle(100, 100);
         rectangleSamouczek.setLayoutX(100);
         rectangleSamouczek.setLayoutY(600);
 
         rectangleSamouczek.setOnMouseClicked(event -> {
-//            Timeline delayTimeline = new Timeline(new KeyFrame(Duration.seconds(2), e -> startTypingEffect(textDymek, textBabcia)));
-//            delayTimeline.play();
+
         });
 
+        String[] dymekContentSamouczek = {"Hej, to jest do samouczka", "damy tu taki tekst", "na zasadzie, że", "młody graczu, poznaj", "zasady itd"}; //todo tekst
 
-        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, rectangleSamouczek, textDymek);
+        final Text textDymekSamouczek = new Text("");
+        textDymekSamouczek.setFont(Font.font(15));
+        textDymekSamouczek.setLayoutX(192);
+        textDymekSamouczek.setLayoutY(45);
 
+
+        animateTextUsingTimeline(dymekContentSamouczek, textDymekSamouczek);
+
+        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, rectangleSamouczek, dymekSamouczek, babciaSamouczek, textDymekSamouczek);
         Scene samouczekScene = new Scene(rootSamouczek, WIDTH, HEIGHT);
         stage.setTitle("Samouczek");
         stage.setScene(samouczekScene);
@@ -301,29 +271,18 @@ public class Main extends Application {
 //        });
     }
 
-//    public static void startTypingEffect(Text textDymek, String text) {
-//        Timeline typingTimeline = new Timeline();
-//
-//        for (int i = 0; i < text.length(); i++) {
-//            int index = i;
-//            typingTimeline.getKeyFrames().add(
-//                    new KeyFrame(Duration.millis(100 * i), e -> textDymek.setText(text.substring(0, index + 1)))
-//            );
-//        }
-//        typingTimeline.play();
-//    }
 
     public static void fabulaScene(){
         //zielone
         AnchorPane rootFabula = new AnchorPane();
 
-        ImageView background = new ImageView(new Image("file:imagesStart/samouczek/")); //TODO
+        ImageView background = new ImageView(new Image("file:imagesStart/samouczek_fabula/")); //TODO
 
-        ImageView babcia = new ImageView(new Image("file:imagesStart/samouczek/babcia.png"));
+        ImageView babcia = new ImageView(new Image("file:imagesStart/samouczek_fabula/babcia.png"));
         babcia.setLayoutX(250);
         babcia.setLayoutY(200);
 
-        ImageView dymek = new ImageView(new Image("file:imagesStart/samouczek/dymek.png"));
+        ImageView dymek = new ImageView(new Image("file:imagesStart/samouczek_fabula/dymek.png"));
         dymek.setLayoutX(500);
         dymek.setLayoutY(200);
 
@@ -357,21 +316,6 @@ public class Main extends Application {
         textDymek.setLayoutX(550);
         textDymek.setLayoutY(260);
 
-
-
-//        final Animation animation = new Transition() {
-//            {
-//                setCycleDuration(Duration.seconds(3.5));
-//            }
-//
-//            protected void interpolate(double frac) {
-//                final int length = content.length();
-//                final int n = Math.round(length * (float) frac);
-//                textDymek.setText(content.substring(0, n));
-//            }
-//
-//        };
-//        animation.play();
 
         animateTextUsingTimeline(dymekContent, textDymek);
 

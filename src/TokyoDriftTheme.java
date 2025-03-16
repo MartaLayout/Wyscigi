@@ -35,8 +35,10 @@ public class TokyoDriftTheme {
     public static void generateTokyo(){
         ImageView imageViewStartTokyo = new ImageView(new Image("file:")); //add
 
-        Rectangle rectangleLevel1 = new Rectangle(100, 100, 100, 100);
-        rectangleLevel1.setOnMouseClicked(event -> {
+        ImageView imageViewLevel1 = new ImageView(new Image("file:Tokyo/level1Cover.png"));
+        imageViewLevel1.setLayoutX(100);
+        imageViewLevel1.setLayoutY(100);
+        imageViewLevel1.setOnMouseClicked(event -> {
             level1();
         });
         Rectangle rectangleLevel2 = new Rectangle(400, 100, 100, 100);
@@ -56,7 +58,7 @@ public class TokyoDriftTheme {
         activeGenerateScene = false;
 
 
-        rootTokyoStart.getChildren().addAll(imageViewStartTokyo, rectangleLevel1, rectangleLevel2, rectangleLevel3, menuTokyo);
+        rootTokyoStart.getChildren().addAll(imageViewStartTokyo, imageViewLevel1, rectangleLevel2, rectangleLevel3, menuTokyo);
 
         Scene startSceneTokyo = new Scene(rootTokyoStart, Main.WIDTH, Main.HEIGHT);
         Main.stage.setTitle("TokyoDrift Start");
@@ -68,9 +70,9 @@ public class TokyoDriftTheme {
         imageViewTorLevel1Tokyo.setFitHeight(800);
         imageViewTorLevel1Tokyo.setFitWidth(1200);
 
-        ImageView menuTokyoDrift = new ImageView(new Image("file:imagesStart/menuSamouczek.png"));
-        menuTokyoDrift.setLayoutX(1010);
-        menuTokyoDrift.setLayoutY(730);
+        ImageView menuTokyoDrift = new ImageView(new Image("file:Tokyo/menuButtonTokyo.png"));
+        menuTokyoDrift.setLayoutX(1030);
+        menuTokyoDrift.setLayoutY(744);
         menuTokyoDrift.setFitWidth(100);
         menuTokyoDrift.setFitHeight(50);
         menuTokyoDrift.setOnMouseClicked(event -> {
@@ -83,6 +85,7 @@ public class TokyoDriftTheme {
         activeGenerateScene = false;
         activeLevel1Scene = false;
 
+    //timer
         timerText.setX(337);
         timerText.setY(805);
         Font font = Font.loadFont("file:Minecraftia-Regular.ttf",25);
@@ -103,14 +106,7 @@ public class TokyoDriftTheme {
         timeline.play();
 
 
-
-
-
-
-
-
-
-        Player player = new Player(200,298);
+        Player player = new Player(200,180);
         //player.setRotate(180);
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
@@ -130,6 +126,7 @@ public class TokyoDriftTheme {
         Rectangle rectangle = new Rectangle(10, 10);
 
 
+        //TODO loophole
         level1.getChildren().addAll(imageViewTorLevel1Tokyo, rectangle, player, shooter, menuTokyoDrift,timerText,lapTimerText);
 
         //Scene startSceneTokyo = new Scene(level1, Main.WIDTH, Main.HEIGHT);
