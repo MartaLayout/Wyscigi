@@ -36,59 +36,54 @@ public class Player extends Car{
     private boolean moveLeft;
     private boolean moveBackwards;
 
+    static Timeline timelineCar;
+
     public Player(double x,double y) {
         super(x, y, image);
 
         //do samouczka ruszanie :))
         if(Main.activeSamouczekScene == false) {
     //pressed
-            Main.samouczekScene.setOnKeyPressed(event -> {
-                if (event.getCode() == KeyCode.DOWN) {
-                    //slowDown();
-                    // Move backward
-                    moveBackwards = true;
+               Main.samouczekScene.setOnKeyPressed(event -> {
+                   if (event.getCode() == KeyCode.DOWN) {
+                       //slowDown();
+                       // Move backward
+                       moveBackwards = true;
+                   }
+                   if (event.getCode() == KeyCode.UP) {
+                       //speedUP();
+                       moveForward = true;
+                   }
+                   if (event.getCode() == KeyCode.LEFT) {
+                       //turnRight();
+                       moveLeft = true;
+                   }
+                   if (event.getCode() == KeyCode.RIGHT) {
+                       //turnLeft();
+                       moveRight = true;
 
-                }
-                if (event.getCode() == KeyCode.UP) {
-                    //speedUP();
+                   }
+               });
+               //released
+               Main.samouczekScene.setOnKeyReleased(event -> {
 
-                    moveForward = true;
-
-
-                }
-                if (event.getCode() == KeyCode.LEFT) {
-                    //turnRight();
-
-                    moveLeft = true;
-
-
-                }
-                if (event.getCode() == KeyCode.RIGHT) {
-                    //turnLeft();
-                    moveRight = true;
-
-                }
-            });
-    //released
-            Main.samouczekScene.setOnKeyReleased(event -> {
-
-                if  (event.getCode() == KeyCode.DOWN) {
-                    // Move backward
-                    moveBackwards = false;
-                }
-                if (event.getCode() == KeyCode.UP) {
-                    //speedUP();
-                    moveForward = false;
-                }
-                if (event.getCode() == KeyCode.LEFT) {
-                    //turnRight();
-                    moveLeft = false;
-                }
-                if (event.getCode() == KeyCode.RIGHT) {
-                    //turnLeft();
-                    moveRight = false;
-                }
-            });
+                   if (event.getCode() == KeyCode.DOWN) {
+                       // Move backward
+                       moveBackwards = false;
+                   }
+                   if (event.getCode() == KeyCode.UP) {
+                       //speedUP();
+                       moveForward = false;
+                   }
+                   if (event.getCode() == KeyCode.LEFT) {
+                       //turnRight();
+                       moveLeft = false;
+                   }
+                   if (event.getCode() == KeyCode.RIGHT) {
+                       //turnLeft();
+                       moveRight = false;
+                   }
+               });
 
         }
         if(TokyoDriftTheme.activeLevel1Scene == false) {
@@ -140,10 +135,9 @@ public class Player extends Car{
                 }
             });
         }
-        Timeline timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
+        timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
             if (moveBackwards){
                 moveBackwardsAppliedForce();
-
             }
             else{
                 moveBackwardsNegForce();

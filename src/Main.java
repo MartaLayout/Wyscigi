@@ -36,6 +36,8 @@ public class Main extends Application {
 
     static AnchorPane rootSamouczek = new AnchorPane();
     static Scene samouczekScene = new Scene(rootSamouczek, WIDTH, HEIGHT);
+    static Rectangle rectangleSamouczek = new Rectangle(100, 100);
+    static Player playerSamouczek;
 
     private static Text textFabula;
 
@@ -240,7 +242,7 @@ public class Main extends Application {
         dymekSamouczek.setFitWidth(297);
         dymekSamouczek.setFitHeight(90);
 
-        Rectangle rectangleSamouczek = new Rectangle(100, 100);
+
         rectangleSamouczek.setLayoutX(100);
         rectangleSamouczek.setLayoutY(600);
 
@@ -248,12 +250,19 @@ public class Main extends Application {
 
         });
 
-        Player playerSamouczek = new Player(410, 410);
+        playerSamouczek = new Player(710, 210);
+        playerSamouczek.setFitWidth(50);
+        playerSamouczek.setFitHeight(24);
 
-        Rectangle torMalutkiSamouczek = new Rectangle(400, 400, 500, 300);
+        Rectangle torMalutkiSamouczek = new Rectangle(700, 200, 350, 200);
         torMalutkiSamouczek.setStroke(Color.BLACK);
+        torMalutkiSamouczek.setStrokeWidth(6);
         torMalutkiSamouczek.setFill(Color.TRANSPARENT);
 
+        if(playerSamouczek.carY < torMalutkiSamouczek.getY() || playerSamouczek.carY > torMalutkiSamouczek.getY() + torMalutkiSamouczek.getHeight()){
+            Player.timelineCar.stop();
+            activeSamouczekScene = true;
+        }
 
         String[] dymekContentSamouczek = {"Hej, to jest do samouczka", "damy tu taki tekst", "na zasadzie, że", "młody graczu, poznaj", "zasady itd"}; //todo tekst
 

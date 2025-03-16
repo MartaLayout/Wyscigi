@@ -209,6 +209,5 @@ public class Car extends ImageView {
         }
     }
 
-
     //later add variations of move on different surfaces, with slightly different parameters
 }
