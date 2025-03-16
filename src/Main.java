@@ -34,6 +34,9 @@ public class Main extends Application {
     static boolean activeFabulaScene = false;
     static boolean activeChooseThemeScene = false;
 
+    static AnchorPane rootSamouczek = new AnchorPane();
+    static Scene samouczekScene = new Scene(rootSamouczek, WIDTH, HEIGHT);
+
     private static Text textFabula;
 
     static List<Projectile> projectiles = new ArrayList<>();
@@ -202,7 +205,6 @@ public class Main extends Application {
 
     public static void samouczekScene(){
         //fiolet
-        AnchorPane rootSamouczek = new AnchorPane();
 
         ImageView imageViewPominSamouczek = new ImageView(new Image("file:imagesStart/pomin.png"));
         imageViewPominSamouczek.setLayoutX(1088);
@@ -246,6 +248,13 @@ public class Main extends Application {
 
         });
 
+        Player playerSamouczek = new Player(410, 410);
+
+        Rectangle torMalutkiSamouczek = new Rectangle(400, 400, 500, 300);
+        torMalutkiSamouczek.setStroke(Color.BLACK);
+        torMalutkiSamouczek.setFill(Color.TRANSPARENT);
+
+
         String[] dymekContentSamouczek = {"Hej, to jest do samouczka", "damy tu taki tekst", "na zasadzie, że", "młody graczu, poznaj", "zasady itd"}; //todo tekst
 
         final Text textDymekSamouczek = new Text("");
@@ -256,8 +265,7 @@ public class Main extends Application {
 
         animateTextUsingTimeline(dymekContentSamouczek, textDymekSamouczek);
 
-        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, rectangleSamouczek, dymekSamouczek, babciaSamouczek, textDymekSamouczek);
-        Scene samouczekScene = new Scene(rootSamouczek, WIDTH, HEIGHT);
+        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, rectangleSamouczek, dymekSamouczek, babciaSamouczek, textDymekSamouczek, torMalutkiSamouczek, playerSamouczek);
         stage.setTitle("Samouczek");
         stage.setScene(samouczekScene);
 

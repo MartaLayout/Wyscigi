@@ -166,29 +166,21 @@ public class Car extends ImageView {
         }
     }
 
-    protected void turnRight(){
+    protected void turnRight() {
         carAngle += rotationSpeed;
         //- --> +
         carX += speed * Math.cos(Math.toRadians(carAngle));
-        carY +=speed * Math.sin(Math.toRadians(carAngle));
-        if (moveForward){
+        carY += speed * Math.sin(Math.toRadians(carAngle));
+        if (moveForward) {
             slowDown();
         }
-        if (moveBackwards){
+        if (moveBackwards) {
             slowDownBackwards();
         }
     }
 
-
-
     protected void speedUP() {
-
-            speedIncrimentation += 0.1;
-
-
-
-
-
+        speedIncrimentation += 0.1;
     }
 
     protected void speedUpBackwards(){
@@ -206,8 +198,6 @@ public class Car extends ImageView {
         }
     }
 
-
-
     protected void slowDownBackwards() {
         if (speedIncrimentationBackwards>=0) {
             speedIncrimentationBackwards -= 0.1;
@@ -218,11 +208,6 @@ public class Car extends ImageView {
             speedIncrimentationBackwards =0;
         }
     }
-
-
-
-
-
 
 
     //later add variations of move on different surfaces, with slightly different parameters

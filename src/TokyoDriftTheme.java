@@ -38,6 +38,8 @@ public class TokyoDriftTheme {
         ImageView imageViewLevel1 = new ImageView(new Image("file:Tokyo/level1Cover.png"));
         imageViewLevel1.setLayoutX(100);
         imageViewLevel1.setLayoutY(100);
+        imageViewLevel1.setFitHeight(100);
+        imageViewLevel1.setFitWidth(100);
         imageViewLevel1.setOnMouseClicked(event -> {
             level1();
         });
@@ -56,7 +58,6 @@ public class TokyoDriftTheme {
         Main.activeFabulaScene = false;
         Main.activeSamouczekScene = false;
         activeGenerateScene = false;
-
 
         rootTokyoStart.getChildren().addAll(imageViewStartTokyo, imageViewLevel1, rectangleLevel2, rectangleLevel3, menuTokyo);
 
@@ -127,7 +128,7 @@ public class TokyoDriftTheme {
 
 
         //TODO loophole
-        level1.getChildren().addAll(imageViewTorLevel1Tokyo, rectangle, player, shooter, menuTokyoDrift,timerText,lapTimerText);
+        level1.getChildren().addAll(imageViewTorLevel1Tokyo, rectangle, player, shooter, menuTokyoDrift, timerText, lapTimerText);
 
         //Scene startSceneTokyo = new Scene(level1, Main.WIDTH, Main.HEIGHT);
         Main.stage.setTitle("Level 1 Tokyo");
