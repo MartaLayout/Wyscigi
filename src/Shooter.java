@@ -49,7 +49,7 @@ public class Shooter extends ImageView{
 
         bullets.add(bullet);
 
-        TokyoDriftTheme.level1.getChildren().add(bullet); //pojawia się na planszy
+        TokyoDriftTheme.level1Root.getChildren().add(bullet); //pojawia się na planszy
     }
 
     public void move() {

@@ -237,13 +237,13 @@ public class Main extends Application {
 
         ImageView babciaSamouczek = new ImageView(new Image("file:imagesStart/samouczek_fabula/babcia.png"));
         babciaSamouczek.setLayoutX(50);
-        babciaSamouczek.setLayoutY(10);
+        babciaSamouczek.setLayoutY(22);
         babciaSamouczek.setFitHeight(165);
         babciaSamouczek.setFitWidth(123);
 
         ImageView dymekSamouczek = new ImageView(new Image("file:imagesStart/samouczek_fabula/dymek.png"));
         dymekSamouczek.setLayoutX(170);
-        dymekSamouczek.setLayoutY(10);
+        dymekSamouczek.setLayoutY(26);
         dymekSamouczek.setFitWidth(297);
         dymekSamouczek.setFitHeight(90);
 
@@ -272,9 +272,10 @@ public class Main extends Application {
         String[] dymekContentSamouczek = {"Hej, to jest do samouczka", "damy tu taki tekst", "na zasadzie, że", "młody graczu, poznaj", "zasady itd"}; //todo tekst
 
         final Text textDymekSamouczek = new Text("");
-        textDymekSamouczek.setFont(Font.font(15));
+        Font font = Font.loadFont("file:Minecraftia-Regular.ttf",15);
+        textDymekSamouczek.setFont(font);
         textDymekSamouczek.setLayoutX(192);
-        textDymekSamouczek.setLayoutY(45);
+        textDymekSamouczek.setLayoutY(70);
 
 
         animateTextUsingTimeline(dymekContentSamouczek, textDymekSamouczek);
@@ -292,7 +293,6 @@ public class Main extends Application {
 //
 //        });
     }
-
 
     public static void fabulaScene(){
         //zielone
@@ -334,9 +334,10 @@ public class Main extends Application {
         String[] dymekContent = {"ok I can't believe it works", "testing again", "the babcia :)))", "I'm really happy", "with how that works"}; //todo tekst
 
         final Text textDymek = new Text("");
-        textDymek.setFont(Font.font(35));
+        Font font = Font.loadFont("file:Minecraftia-Regular.ttf",35);
+        textDymek.setFont(font);
         textDymek.setLayoutX(550);
-        textDymek.setLayoutY(260);
+        textDymek.setLayoutY(289);
 
 
         animateTextUsingTimeline(dymekContent, textDymek);
