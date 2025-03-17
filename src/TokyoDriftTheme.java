@@ -37,14 +37,33 @@ public class TokyoDriftTheme {
 
         ImageView imageViewLevel1 = new ImageView(new Image("file:Tokyo/level1Cover.png"));
         imageViewLevel1.setLayoutX(100);
-        imageViewLevel1.setLayoutY(100);
-        imageViewLevel1.setFitHeight(100);
-        imageViewLevel1.setFitWidth(100);
+        imageViewLevel1.setLayoutY(200);
+        imageViewLevel1.setFitHeight(300);
+        imageViewLevel1.setFitWidth(300);
         imageViewLevel1.setOnMouseClicked(event -> {
             level1();
         });
-        Rectangle rectangleLevel2 = new Rectangle(400, 100, 100, 100);
-        Rectangle rectangleLevel3 = new Rectangle(700, 100, 100, 100);
+
+        ImageView imageViewLevel2 = new ImageView(new Image("file:Tokyo/level2Cover.png"));
+        imageViewLevel2.setLayoutX(450);
+        imageViewLevel2.setLayoutY(200);
+        imageViewLevel2.setFitHeight(300);
+        imageViewLevel2.setFitWidth(300);
+        imageViewLevel2.setOnMouseClicked(event -> {
+            level2();
+        });
+
+        Rectangle rectangle2 = new Rectangle(450, 200, 300, 300 );
+
+        ImageView imageViewLevel3 = new ImageView(new Image("file:Tokyo/level3Cover.png"));
+        imageViewLevel3.setLayoutX(800);
+        imageViewLevel3.setLayoutY(200);
+        imageViewLevel3.setFitHeight(300);
+        imageViewLevel3.setFitWidth(300);
+        imageViewLevel3.setOnMouseClicked(event -> {
+            level3();
+        });
+
 
         Button menuTokyo = new Button("MENU");
         menuTokyo.setLayoutX(1088);
@@ -59,12 +78,13 @@ public class TokyoDriftTheme {
         Main.activeSamouczekScene = false;
         activeGenerateScene = false;
 
-        rootTokyoStart.getChildren().addAll(imageViewStartTokyo, imageViewLevel1, rectangleLevel2, rectangleLevel3, menuTokyo);
+        rootTokyoStart.getChildren().addAll(imageViewStartTokyo, imageViewLevel1, imageViewLevel2, imageViewLevel3, menuTokyo, rectangle2);
 
         Scene startSceneTokyo = new Scene(rootTokyoStart, Main.WIDTH, Main.HEIGHT);
         Main.stage.setTitle("TokyoDrift Start");
         Main.stage.setScene(startSceneTokyo);
     }
+
 
     public static void level1(){
         ImageView imageViewTorLevel1Tokyo = new ImageView(new Image("file:Tokyo/torduzy.png"));
@@ -165,5 +185,18 @@ public class TokyoDriftTheme {
             timerText.setText(minutes + ":" + seconds);
         }
 
-    }}
+    }
+
+    public static void level2(){
+
+    }
+
+    public static void level3(){
+
+    }
+
+}
+
+
+
 

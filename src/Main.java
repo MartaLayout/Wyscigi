@@ -208,6 +208,11 @@ public class Main extends Application {
     public static void samouczekScene(){
         //fiolet
 
+        ImageView background = new ImageView(new Image("file:imagesStart/samouczek_fabula/backgroundSamouczek.png"));
+        background.setFitHeight(HEIGHT);
+        background.setFitWidth(WIDTH);
+        rootSamouczek.getChildren().add(background);
+
         ImageView imageViewPominSamouczek = new ImageView(new Image("file:imagesStart/pomin.png"));
         imageViewPominSamouczek.setLayoutX(1088);
         imageViewPominSamouczek.setLayoutY(740);
