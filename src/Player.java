@@ -41,7 +41,8 @@ public class Player extends Car{
     public Player(double x,double y) {
         super(x, y, image);
 
-        //do samouczka ruszanie :))
+        //do samouczka ruszanie
+        //TODO żeby działało
         if(canMoveOnSelf(Main.torMalutkiSamouczek.getLayoutX(),
                 (Main.torMalutkiSamouczek.getLayoutX() + Main.torMalutkiSamouczek.getWidth()),
                 Main.torMalutkiSamouczek.getLayoutY(),

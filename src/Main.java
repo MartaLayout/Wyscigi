@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -97,39 +96,43 @@ public class Main extends Application {
         //niebieskie do srodka
         AnchorPane rootMenu= new AnchorPane();
 
-        ImageView imageViewButtonSamouczek1 = new ImageView(new Image("file:imagesStart/samouczekMenu.png"));
-        imageViewButtonSamouczek1.setLayoutX(220);
-        imageViewButtonSamouczek1.setLayoutY(250);
-        imageViewButtonSamouczek1.setFitHeight(80);
-        imageViewButtonSamouczek1.setFitWidth(300);
+        ImageView backgroundMenu = new ImageView(new Image("file:imagesStart/menu/background.png"));
+        backgroundMenu.setFitHeight(500);
+        backgroundMenu.setFitWidth(750);
+        rootMenu.getChildren().add(backgroundMenu);
 
-        ImageView imageViewStartSceneButton = new ImageView(new Image("file:imagesStart/powrotNaStart.png"));
-        imageViewStartSceneButton.setLayoutX(220);
-        imageViewStartSceneButton.setLayoutY(135);
-        imageViewStartSceneButton.setFitHeight(80);
-        imageViewStartSceneButton.setFitWidth(300);
+        ImageView samouczekButtonMenu = new ImageView(new Image("file:imagesStart/menu/samouczekMenu.png"));
+        samouczekButtonMenu.setLayoutX(220);
+        samouczekButtonMenu.setLayoutY(250);
+        samouczekButtonMenu.setFitHeight(80);
+        samouczekButtonMenu.setFitWidth(300);
 
-        /*ImageView imageViewSkipButton = new ImageView(new Image("file:imagesStart/powrotNaStart.png"));
-        imageViewSkipButton.setLayoutX(220);
-        imageViewSkipButton.setLayoutY(80);
-        imageViewSkipButton.setFitWidth(300);
-        imageViewSkipButton.setFitHeight(80);*/
-        //Zosia mówi że nie potrzebujemy więc się słucham :))
+        ImageView powrotNaStartButton = new ImageView(new Image("file:imagesStart/menu/powrotNaStart.png"));
+        powrotNaStartButton.setLayoutX(220);
+        powrotNaStartButton.setLayoutY(135);
+        powrotNaStartButton.setFitHeight(80);
+        powrotNaStartButton.setFitWidth(300);
 
+        //will appear only if we are in any of the levels or in choose theme/choose level
+        ImageView cofnijButton = new ImageView(new Image("file:imagesStart/menu/menuCofnij.png"));
+        cofnijButton.setLayoutX(30);
+        cofnijButton.setLayoutY(100);
+        cofnijButton.setFitWidth(100);
+        cofnijButton.setFitHeight(50);
 
-        ImageView imageViewWyjdzZMenu = new ImageView(new Image("file:imagesStart/menueXit.png"));
-        imageViewWyjdzZMenu.setLayoutX(10);
-        imageViewWyjdzZMenu.setLayoutY(10);
-        imageViewWyjdzZMenu.setFitWidth(100);
-        imageViewWyjdzZMenu.setFitHeight(50);
+        ImageView wyjdzZMenu = new ImageView(new Image("file:imagesStart/menu/menueXit.png"));
+        wyjdzZMenu.setLayoutX(30);
+        wyjdzZMenu.setLayoutY(30);
+        wyjdzZMenu.setFitWidth(100);
+        wyjdzZMenu.setFitHeight(50);
 
-        ImageView imageViewWyjdzZGry = new ImageView(new Image("file:imagesStart/wyjdzZGry.png"));
-        imageViewWyjdzZGry.setLayoutX(220);
-        imageViewWyjdzZGry.setLayoutY(365);
-        imageViewWyjdzZGry.setFitHeight(80);
-        imageViewWyjdzZGry.setFitWidth(300);
+        ImageView wyjdzZGry = new ImageView(new Image("file:imagesStart/menu/wyjdzZGry.png"));
+        wyjdzZGry.setLayoutX(220);
+        wyjdzZGry.setLayoutY(365);
+        wyjdzZGry.setFitHeight(80);
+        wyjdzZGry.setFitWidth(300);
 
-        rootMenu.getChildren().addAll(imageViewButtonSamouczek1, imageViewStartSceneButton, imageViewWyjdzZMenu);
+        rootMenu.getChildren().addAll(samouczekButtonMenu, powrotNaStartButton, wyjdzZMenu, cofnijButton);
 
         Scene menu = new Scene(rootMenu, 750, 500);
         Stage stageMenu = new Stage();
@@ -140,22 +143,18 @@ public class Main extends Application {
         stageMenu.show();
         stageMenu.setAlwaysOnTop(true);
 
-        imageViewStartSceneButton.setOnMouseClicked(event -> {
+        powrotNaStartButton.setOnMouseClicked(event -> {
             startScene();
             stageMenu.close();
         });
 
-        imageViewButtonSamouczek1.setOnMouseClicked(event -> {
+        samouczekButtonMenu.setOnMouseClicked(event -> {
             samouczekScene();
             stageMenu.close();
         });
 
-        /*imageViewSkipButton.setOnMouseClicked(event -> {
-            chooseThemeScene();
-            stageMenu.close();
-        });*/
 
-        imageViewWyjdzZMenu.setOnMouseClicked(event -> {
+        wyjdzZMenu.setOnMouseClicked(event -> {
         //W KONCU DZIAŁA
             if(activeSamouczekScene == true){
                 samouczekScene();
@@ -185,7 +184,7 @@ public class Main extends Application {
 
         });
 
-        imageViewWyjdzZGry.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        wyjdzZGry.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 stageMenu.setAlwaysOnTop(false);
@@ -203,19 +202,18 @@ public class Main extends Application {
                 }
             }
         });
-        rootMenu.getChildren().addAll(imageViewWyjdzZGry);
+        rootMenu.getChildren().addAll(wyjdzZGry);
 
     }
 
     public static void samouczekScene(){
         //fiolet
-
         ImageView background = new ImageView(new Image("file:imagesStart/samouczek_fabula/backgroundSamouczek.png"));
         background.setFitHeight(HEIGHT);
         background.setFitWidth(WIDTH);
         rootSamouczek.getChildren().add(background);
 
-        ImageView imageViewPominSamouczek = new ImageView(new Image("file:imagesStart/pomin.png"));
+        ImageView imageViewPominSamouczek = new ImageView(new Image("file:imagesStart/pominSamouczek.png"));
         imageViewPominSamouczek.setLayoutX(1088);
         imageViewPominSamouczek.setLayoutY(740);
         imageViewPominSamouczek.setFitHeight(50);
@@ -278,7 +276,6 @@ public class Main extends Application {
         textDymekSamouczek.setFont(font);
         textDymekSamouczek.setLayoutX(192);
         textDymekSamouczek.setLayoutY(70);
-
 
         animateTextUsingTimeline(dymekContentSamouczek, textDymekSamouczek);
 
@@ -389,6 +386,13 @@ public class Main extends Application {
     public static void chooseThemeScene() {
         AnchorPane rootTheme = new AnchorPane();
 
+        //TODO tekst u góry ? --> babcia czy tekst?
+
+        ImageView background = new ImageView(new Image("file:imagesStart/menu/background.png"));
+        background.setFitWidth(WIDTH);
+        background.setFitHeight(HEIGHT);
+        rootTheme.getChildren().add(background);
+
         //tokyo drift
         ImageView tokyoDriftTheme = new ImageView(new Image("file:imagesStart/menutokyo.png")); //file needed
         tokyoDriftTheme.setLayoutX(150);
@@ -427,13 +431,4 @@ public class Main extends Application {
         stage.setScene(chooseThemeScene);
     }
 
-//    public void trackScene (){
-//        AnchorPane rootTrack = new AnchorPane();
-//
-//        ImageView tokyoDriftTheme = new ImageView(new Image("file:imagesStart\\menutokyo.png")); //file needed
-//        tokyoDriftTheme.setLayoutX(0);
-//        tokyoDriftTheme.setLayoutY(0);
-//
-//
-//    }
 }
