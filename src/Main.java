@@ -93,6 +93,7 @@ public class Main extends Application {
         stage.setScene(startScene);
     }
     public static void menu(){
+        //zrobić folder na menu
         //niebieskie do srodka
         AnchorPane rootMenu= new AnchorPane();
 
