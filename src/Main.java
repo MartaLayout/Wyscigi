@@ -264,10 +264,10 @@ public class Main extends Application {
         torMalutkiSamouczek.setStrokeWidth(6);
         torMalutkiSamouczek.setFill(Color.TRANSPARENT);
 
-        if(playerSamouczek.carY < torMalutkiSamouczek.getY() || playerSamouczek.carY > torMalutkiSamouczek.getY() + torMalutkiSamouczek.getHeight()){
-            Player.timelineCar.stop();
-            activeSamouczekScene = true;
-        }
+//        if(playerSamouczek.carY < torMalutkiSamouczek.getY() || playerSamouczek.carY > torMalutkiSamouczek.getY() + torMalutkiSamouczek.getHeight()){
+//            Player.timelineCar.stop();
+//            activeSamouczekScene = true;
+//        }
 
         String[] dymekContentSamouczek = {"Hej, to jest do samouczka", "damy tu taki tekst", "na zasadzie, że", "młody graczu, poznaj", "zasady itd"}; //todo tekst
 

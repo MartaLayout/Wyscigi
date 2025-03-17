@@ -125,6 +125,12 @@ public class Car extends ImageView {
     //methods for movement - copied from player
     // if the method has "Applied Force", the car is not only moving but is also increasing it's speed
     //if the method has "Neg Force" the car is moving but due to the negative force, it is slowing down its movement
+//    protected boolean canMoveOnSelf(double xLeft) {
+//        if (carX <= xLeft) {
+//            return false;
+//        }
+//    }
+
     protected void moveForwardAppliedForce(){
         carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
         carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
