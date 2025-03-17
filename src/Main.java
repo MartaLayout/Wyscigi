@@ -38,6 +38,7 @@ public class Main extends Application {
     static Scene samouczekScene = new Scene(rootSamouczek, WIDTH, HEIGHT);
     static Rectangle rectangleSamouczek = new Rectangle(100, 100);
     static Player playerSamouczek;
+    static Rectangle torMalutkiSamouczek = new Rectangle(700, 200, 350, 200);
 
     private static Text textFabula;
 
@@ -259,7 +260,7 @@ public class Main extends Application {
         playerSamouczek.setFitWidth(50);
         playerSamouczek.setFitHeight(24);
 
-        Rectangle torMalutkiSamouczek = new Rectangle(700, 200, 350, 200);
+
         torMalutkiSamouczek.setStroke(Color.BLACK);
         torMalutkiSamouczek.setStrokeWidth(6);
         torMalutkiSamouczek.setFill(Color.TRANSPARENT);

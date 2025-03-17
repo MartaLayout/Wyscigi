@@ -42,50 +42,54 @@ public class Player extends Car{
         super(x, y, image);
 
         //do samouczka ruszanie :))
-        if(Main.activeSamouczekScene == false) {
-    //pressed
-               Main.samouczekScene.setOnKeyPressed(event -> {
-                   if (event.getCode() == KeyCode.DOWN) {
-                       //slowDown();
-                       // Move backward
-                       moveBackwards = true;
-                   }
-                   if (event.getCode() == KeyCode.UP) {
-                       //speedUP();
-                       moveForward = true;
-                   }
-                   if (event.getCode() == KeyCode.LEFT) {
-                       //turnRight();
-                       moveLeft = true;
-                   }
-                   if (event.getCode() == KeyCode.RIGHT) {
-                       //turnLeft();
-                       moveRight = true;
+        if(canMoveOnSelf(Main.torMalutkiSamouczek.getLayoutX(),
+                (Main.torMalutkiSamouczek.getLayoutX() + Main.torMalutkiSamouczek.getWidth()),
+                Main.torMalutkiSamouczek.getLayoutY(),
+                (Main.torMalutkiSamouczek.getLayoutY() + Main.torMalutkiSamouczek.getHeight()))) {
+            if(Main.activeSamouczekScene == false) {
+                //pressed
+                Main.samouczekScene.setOnKeyPressed(event -> {
+                    if (event.getCode() == KeyCode.DOWN) {
+                        //slowDown();
+                        // Move backward
+                        moveBackwards = true;
+                    }
+                    if (event.getCode() == KeyCode.UP) {
+                        //speedUP();
+                        moveForward = true;
+                    }
+                    if (event.getCode() == KeyCode.LEFT) {
+                        //turnRight();
+                        moveLeft = true;
+                    }
+                    if (event.getCode() == KeyCode.RIGHT) {
+                        //turnLeft();
+                        moveRight = true;
 
-                   }
-               });
-               //released
-               Main.samouczekScene.setOnKeyReleased(event -> {
+                    }
+                });
+                //released
+                Main.samouczekScene.setOnKeyReleased(event -> {
 
-                   if (event.getCode() == KeyCode.DOWN) {
-                       // Move backward
-                       moveBackwards = false;
-                   }
-                   if (event.getCode() == KeyCode.UP) {
-                       //speedUP();
-                       moveForward = false;
-                   }
-                   if (event.getCode() == KeyCode.LEFT) {
-                       //turnRight();
-                       moveLeft = false;
-                   }
-                   if (event.getCode() == KeyCode.RIGHT) {
-                       //turnLeft();
-                       moveRight = false;
-                   }
-               });
-
-        }
+                    if (event.getCode() == KeyCode.DOWN) {
+                        // Move backward
+                        moveBackwards = false;
+                    }
+                    if (event.getCode() == KeyCode.UP) {
+                        //speedUP();
+                        moveForward = false;
+                    }
+                    if (event.getCode() == KeyCode.LEFT) {
+                        //turnRight();
+                        moveLeft = false;
+                    }
+                    if (event.getCode() == KeyCode.RIGHT) {
+                        //turnLeft();
+                        moveRight = false;
+                    }
+                });
+            }
+       }
         if(TokyoDriftTheme.activeLevel1Scene == false) {
             TokyoDriftTheme.level1TokyoScene.setOnKeyPressed(event -> {
                 //UP z DOWN zamienione bo musiałam zrobić rotate imageView
