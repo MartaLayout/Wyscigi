@@ -93,7 +93,7 @@ public class Main extends Application {
         // Create the menu scene
         AnchorPane rootMenu = new AnchorPane();
 
-        ImageView backgroundMenu = new ImageView(new Image("file:imagesStart/menu/background.png"));
+        ImageView backgroundMenu = new ImageView(new Image("file:imagesStart/menu/background.png")); //TODO
         backgroundMenu.setFitHeight(500);
         backgroundMenu.setFitWidth(750);
         rootMenu.getChildren().add(backgroundMenu);
@@ -273,7 +273,7 @@ public class Main extends Application {
         textDymekSamouczek.setLayoutX(192);
         textDymekSamouczek.setLayoutY(70);
 
-        animateTextUsingTimeline(dymekContentSamouczek, textDymekSamouczek);
+        animateTextUsingTimeline(dymekContentSamouczek, textDymekSamouczek, 3.4);
 
         rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, rectangleSamouczek, dymekSamouczek, babciaSamouczek, textDymekSamouczek, torMalutkiSamouczek, playerSamouczek);
     }
@@ -309,12 +309,14 @@ public class Main extends Application {
         imageViewMenuFabula.setOnMouseClicked(event -> menu());
 
         ImageView babcia = new ImageView(new Image("file:imagesStart/samouczek_fabula/babcia.png"));
-        babcia.setLayoutX(250);
-        babcia.setLayoutY(200);
+        babcia.setFitHeight(220);
+        babcia.setFitWidth(164);
+        babcia.setLayoutX(448);
+        babcia.setLayoutY(520);
 
         ImageView dymek = new ImageView(new Image("file:imagesStart/samouczek_fabula/dymek.png"));
-        dymek.setLayoutX(500);
-        dymek.setLayoutY(200);
+        dymek.setLayoutX(600);
+        dymek.setLayoutY(280);
 
         ImageView imageViewPominFabula = new ImageView(new Image("file:imagesStart/pominFabula.png"));
         imageViewPominFabula.setLayoutX(1088);
@@ -328,15 +330,15 @@ public class Main extends Application {
         final Text textDymek = new Text("");
         Font font = Font.loadFont("file:Minecraftia-Regular.ttf",35);
         textDymek.setFont(font);
-        textDymek.setLayoutX(550);
-        textDymek.setLayoutY(289);
+        textDymek.setLayoutX(651);
+        textDymek.setLayoutY(370);
 
-        animateTextUsingTimeline(dymekContent, textDymek);
+        animateTextUsingTimeline(dymekContent, textDymek, 3.5);
 
         rootFabula.getChildren().addAll(imageViewMenuFabula, babcia, dymek, imageViewPominFabula, textDymek );
     }
 
-    public static void animateTextUsingTimeline(String[] contentArray, Text textDymek) {
+    public static void animateTextUsingTimeline(String[] contentArray, Text textDymek, double timeBetweenStrings) {
         Timeline timeline = new Timeline();
 
         for (int i = 0; i < contentArray.length; i++) {
@@ -344,7 +346,7 @@ public class Main extends Application {
             String content = contentArray[i];
 
             KeyFrame keyFrame = new KeyFrame(
-                    Duration.seconds(i * 5),  // seconds between each string
+                    Duration.seconds(i * timeBetweenStrings),  // seconds between each string
                     e -> animateText(content, textDymek)
             );
             timeline.getKeyFrames().add(keyFrame);
@@ -409,12 +411,40 @@ public class Main extends Application {
         magicalTheme.setFitWidth(400);
 //        magicalTheme.setOnMouseClicked(event -> MagicalTheme.generateMagical());
 
+        ImageView wBudowie = new ImageView(new Image("file:imagesStart/wBudowie.png"));
+        wBudowie.setLayoutX(650);
+        wBudowie.setLayoutY(210);
+        wBudowie.setOnMouseMoved(event -> {
+            ImageView babciaMowi = new ImageView(new Image("file:imagesStart/samouczek_fabula/babcia.png"));
+            babciaMowi.setLayoutX(560);
+            babciaMowi.setLayoutY(570);
+            babciaMowi.setFitHeight(198); //198 (3/5)
+            babciaMowi.setFitWidth(147.6); //147.6
+
+            ImageView dymek = new ImageView(new Image("file:imagesStart/samouczek_fabula/dymek.png"));
+            dymek.setLayoutX(700);
+            dymek.setLayoutY(570);
+            dymek.setFitHeight(108);
+            dymek.setFitWidth(356.4);
+
+            String[] dymekContent = {"Nadal nad tym pracujemy!", "narazie zapraszam Cię", "do zagrania w ...", "nocny wyścig!!!"};
+            final Text textDymek = new Text("");
+            Font font = Font.loadFont("file:Minecraftia-Regular.ttf",15);
+            textDymek.setFont(font);
+            textDymek.setLayoutX(751);
+            textDymek.setLayoutY(616);
+
+            animateTextUsingTimeline(dymekContent, textDymek, 3.35);
+
+            rootChooseThemeScene.getChildren().addAll(babciaMowi, dymek, textDymek);
+        });
+
         Button menu3 = new Button("MENU");
         menu3.setLayoutX(1088);
         menu3.setLayoutY(10);
         menu3.setPrefSize(100, 50);
         menu3.setOnAction(event -> menu());
 
-        rootChooseThemeScene.getChildren().addAll(tokyoDriftTheme, magicalTheme, menu3);
+        rootChooseThemeScene.getChildren().addAll(tokyoDriftTheme, magicalTheme, menu3, wBudowie);
     }
 }
