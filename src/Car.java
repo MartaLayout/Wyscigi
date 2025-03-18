@@ -3,8 +3,12 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelReader;
 import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
+
+import java.awt.*;
 
 public class Car extends ImageView {
 
@@ -225,5 +229,14 @@ public class Car extends ImageView {
         }
     }
 
+    protected void kolorMaski(){
+        Image maska = new Image("file:maska.png");
+        PixelReader maskaReader = maska.getPixelReader();
+        Color maskaColor = maskaReader.getColor((int) carX, (int) carY);
+        if (maskaColor == Color.WHITE){
+
+        }
+
+    }
     //later add variations of move on different surfaces, with slightly different parameters
 }
