@@ -225,5 +225,16 @@ public class Car extends ImageView {
         }
     }
 
+
+    protected boolean BonusCollision(Bonus bonus){
+        if (this.intersects(bonus.getX(), bonus.getY(), bonus.getFitWidth(), bonus.getFitHeight())){
+            return true;
+        }
+        return false;
+    }
+
+
+
+
     //later add variations of move on different surfaces, with slightly different parameters
 }

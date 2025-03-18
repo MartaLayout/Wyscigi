@@ -157,6 +157,10 @@ public class TokyoDriftTheme {
         Player player = new Player(200,180);
         //player.setRotate(180);
 
+        Bonus bonus = new Bonus();
+
+
+
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
         //tworzymy wieżę - działa
@@ -175,7 +179,7 @@ public class TokyoDriftTheme {
 
 
         //TODO loophole
-        level1Root.getChildren().addAll(imageViewTorLevel1Tokyo, rectangle, player, shooter, menuTokyoDrift, timerText, lapTimerText);
+        level1Root.getChildren().addAll(imageViewTorLevel1Tokyo, rectangle, player, shooter, menuTokyoDrift, timerText, lapTimerText, bonus);
 
         //Scene startSceneTokyo = new Scene(level1, Main.WIDTH, Main.HEIGHT);
         Main.stage.setTitle("Level 1 Tokyo");
