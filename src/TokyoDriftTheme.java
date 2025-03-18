@@ -158,6 +158,7 @@ public class TokyoDriftTheme {
         //player.setRotate(180);
 
         Bonus bonus = new Bonus();
+        //bonus.appear(); -> dziwnie zacina program
 
 
 
