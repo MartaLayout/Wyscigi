@@ -42,6 +42,7 @@ public class Main extends Application {
     static Rectangle rectangleSamouczek = new Rectangle(100, 100);
     static Player playerSamouczek;
     static Rectangle torMalutkiSamouczek = new Rectangle(700, 200, 350, 200);
+    static ImageView torSamouczekImageView = new ImageView(new Image("file:imagesStart/samouczek_fabula/torMaly.png"));
 
     static List<Projectile> projectiles = new ArrayList<>();
 
@@ -88,7 +89,7 @@ public class Main extends Application {
         // Create the menu scene
         AnchorPane rootMenu = new AnchorPane();
 
-        ImageView backgroundMenu = new ImageView(new Image("file:imagesStart/menu/background.png")); //TODO
+        ImageView backgroundMenu = new ImageView(new Image("file:Tokyo/backgroundGenerate.png")); //TODO?
         backgroundMenu.setFitHeight(500);
         backgroundMenu.setFitWidth(750);
         rootMenu.getChildren().add(backgroundMenu);
@@ -236,12 +237,7 @@ public class Main extends Application {
         activeFabulaScene = false;
         activeChooseThemeScene = false;
 
-//        TokyoDriftTheme.activeGenerateScene = false;
-//        TokyoDriftTheme.activeLevel1Scene = false;
-//        TokyoDriftTheme.activeLevel2Scene = false;
-//        TokyoDriftTheme.activeLevel3Scene = false;
-
-        rootSamouczek.getChildren().clear(); // Clear previous elements
+        rootSamouczek.getChildren().clear();
         ImageView background = new ImageView(new Image("file:imagesStart/samouczek_fabula/backgroundSamouczek.png"));
         background.setFitHeight(HEIGHT);
         background.setFitWidth(WIDTH);
@@ -280,22 +276,17 @@ public class Main extends Application {
         dymekSamouczek.setFitWidth(297);
         dymekSamouczek.setFitHeight(90);
 
-
-        rectangleSamouczek.setLayoutX(100);
-        rectangleSamouczek.setLayoutY(600);
-
-        rectangleSamouczek.setOnMouseClicked(event -> {
-
-        });
-
         playerSamouczek = new Player(710, 210);
         playerSamouczek.setFitWidth(50);
         playerSamouczek.setFitHeight(24);
 
-
         torMalutkiSamouczek.setStroke(Color.BLACK);
-        torMalutkiSamouczek.setStrokeWidth(6);
+        torMalutkiSamouczek.setStrokeWidth(10);
         torMalutkiSamouczek.setFill(Color.TRANSPARENT);
+        torSamouczekImageView.setFitWidth(torMalutkiSamouczek.getWidth());
+        torSamouczekImageView.setFitHeight(torMalutkiSamouczek.getHeight());
+        torSamouczekImageView.setLayoutX(700);
+        torSamouczekImageView.setLayoutY(200);
 
         String[] dymekContentSamouczek = {"Hej, to jest do samouczka", "damy tu taki tekst", "na zasadzie, że", "młody graczu, poznaj", "zasady itd"}; //todo tekst
 
@@ -307,18 +298,13 @@ public class Main extends Application {
 
         animateTextUsingTimeline(dymekContentSamouczek, textDymekSamouczek, 3.4);
 
-        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, rectangleSamouczek, dymekSamouczek, babciaSamouczek, textDymekSamouczek, torMalutkiSamouczek, playerSamouczek);
+        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, rectangleSamouczek, dymekSamouczek, babciaSamouczek, textDymekSamouczek, torMalutkiSamouczek, torSamouczekImageView, playerSamouczek);
     }
 
     public static void fabulaScene() {
         activeSamouczekScene = false;
         activeFabulaScene = true;
         activeChooseThemeScene = false;
-
-//        TokyoDriftTheme.activeGenerateScene = false;
-//        TokyoDriftTheme.activeLevel1Scene = false;
-//        TokyoDriftTheme.activeLevel2Scene = false;
-//        TokyoDriftTheme.activeLevel3Scene = false;
 
         rootFabula.getChildren().clear();
         ImageView background = new ImageView(new Image("file:imagesStart/samouczek_fabula/backgroundFabula.png"));
@@ -409,13 +395,8 @@ public class Main extends Application {
         activeFabulaScene = false;
         activeChooseThemeScene = true;
 
-//        TokyoDriftTheme.activeGenerateScene = false;
-//        TokyoDriftTheme.activeLevel1Scene = false;
-//        TokyoDriftTheme.activeLevel2Scene = false;
-//        TokyoDriftTheme.activeLevel3Scene = false;
-
         rootChooseThemeScene.getChildren().clear(); // Clear previous elements
-        ImageView background = new ImageView(new Image("file:imagesStart/themeChooseBackground.png"));
+        ImageView background = new ImageView(new Image("file:Tokyo/backgroundTokyoLevel.png"));
         background.setFitWidth(WIDTH);
         background.setFitHeight(HEIGHT);
         rootChooseThemeScene.getChildren().add(background);
@@ -435,13 +416,12 @@ public class Main extends Application {
         tokyoDriftTheme.setFitHeight(300);
         tokyoDriftTheme.setOnMouseClicked(event -> TokyoDriftTheme.generateTokyo());
 
-        //magical theme
+        //magical theme --> we are not doing that probably
         ImageView magicalTheme = new ImageView(new Image("file:imagesStart/menumagic.png"));
         magicalTheme.setLayoutX(650);
         magicalTheme.setLayoutY(250);
         magicalTheme.setFitHeight(300);
         magicalTheme.setFitWidth(400);
-//        magicalTheme.setOnMouseClicked(event -> MagicalTheme.generateMagical());
 
         ImageView wBudowie = new ImageView(new Image("file:imagesStart/wBudowie.png"));
         wBudowie.setLayoutX(650);
