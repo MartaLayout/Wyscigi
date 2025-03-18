@@ -35,7 +35,10 @@ public class Bonus extends ImageView {
             if (maskaColor == Color.WHITE){
                 foundNewPlace = true;
 
-
+            }
+            else{
+                NewX = Math.random()*Main.WIDTH;
+                 NewY = Math.random()*Main.HEIGHT;
             }
         }
 
