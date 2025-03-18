@@ -103,6 +103,8 @@ public class TokyoDriftTheme {
         imageViewLevel3.setFitWidth(300);
         imageViewLevel3.setOnMouseClicked(event -> level3());
 
+        //TODO kłó∂ka --> when we know after how many points(idk) the next one unlocks
+
         Button menuTokyo = new Button("MENU");
         menuTokyo.setLayoutX(1088);
         menuTokyo.setLayoutY(10);

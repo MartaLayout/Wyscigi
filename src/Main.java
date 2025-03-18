@@ -56,11 +56,6 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void switchScene(Scene newScene, String title) {
-        stage.setScene(newScene);
-        stage.setTitle(title);
-    }
-
     public static void startScene() {
         // Create the start screen
         AnchorPane rootStart = new AnchorPane();
@@ -110,13 +105,6 @@ public class Main extends Application {
         powrotNaStartButton.setFitHeight(80);
         powrotNaStartButton.setFitWidth(300);
 
-        // Only visible if in game or specific scenes
-        ImageView cofnijButton = new ImageView(new Image("file:imagesStart/menu/menuCofnij.png"));
-        cofnijButton.setLayoutX(30);
-        cofnijButton.setLayoutY(100);
-        cofnijButton.setFitWidth(100);
-        cofnijButton.setFitHeight(50);
-
         ImageView wyjdzZMenu = new ImageView(new Image("file:imagesStart/menu/menueXit.png"));
         wyjdzZMenu.setLayoutX(30);
         wyjdzZMenu.setLayoutY(30);
@@ -129,7 +117,7 @@ public class Main extends Application {
         wyjdzZGry.setFitHeight(80);
         wyjdzZGry.setFitWidth(300);
 
-        rootMenu.getChildren().addAll(samouczekButtonMenu, powrotNaStartButton, wyjdzZMenu, cofnijButton, wyjdzZGry);
+        rootMenu.getChildren().addAll(samouczekButtonMenu, powrotNaStartButton, wyjdzZMenu, wyjdzZGry);
 
         Scene menu = new Scene(rootMenu, 750, 500);
         Stage stageMenu = new Stage();
@@ -139,6 +127,35 @@ public class Main extends Application {
         stageMenu.setScene(menu);
         stageMenu.show();
         stageMenu.setAlwaysOnTop(true);
+
+        // Only visible if in game or specific scenes
+        if(TokyoDriftTheme.activeLevel1Scene || TokyoDriftTheme.activeLevel2Scene || TokyoDriftTheme.activeLevel3Scene || activeChooseThemeScene || TokyoDriftTheme.activeGenerateScene){
+            ImageView cofnijButton = new ImageView(new Image("file:imagesStart/menu/menuCofnij.png"));
+            cofnijButton.setLayoutX(30);
+            cofnijButton.setLayoutY(100);
+            cofnijButton.setFitWidth(100);
+            cofnijButton.setFitHeight(50);
+            if(TokyoDriftTheme.activeLevel1Scene || TokyoDriftTheme.activeLevel2Scene || TokyoDriftTheme.activeLevel3Scene){
+                cofnijButton.setOnMouseClicked(event -> {
+                    exitDuringGame(stageMenu, fabulaScene);
+                    TokyoDriftTheme.generateTokyo();
+                    stageMenu.close();
+                });
+            }
+            if(TokyoDriftTheme.activeGenerateScene){
+                cofnijButton.setOnMouseClicked(event -> {
+                    chooseThemeScene();
+                    stageMenu.close();
+                });
+            }
+            if(activeChooseThemeScene){
+                cofnijButton.setOnMouseClicked(event -> {
+                    fabulaScene();
+                    stageMenu.close();
+                });
+            }
+            rootMenu.getChildren().add(cofnijButton);
+        }
 
         powrotNaStartButton.setOnMouseClicked(event -> {
             startScene();
@@ -157,6 +174,21 @@ public class Main extends Application {
         wyjdzZGry.setOnMouseClicked(event -> {
             handleExitGame(stageMenu);
         });
+    }
+
+    private static void exitDuringGame(Stage stageMenu, Scene whichScene) {
+        stageMenu.setAlwaysOnTop(false);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText("Czy na pewno chcesz wyjść z rozgrywki? Twój postęp nie zostanie zapisany.");
+        alert.setTitle("");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            stage.setScene(whichScene);
+            stageMenu.close();
+        } else {
+            alert.close();
+        }
     }
 
     private static void handleExitMenu(Stage stageMenu) {
