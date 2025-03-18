@@ -1,25 +1,3 @@
-//import javafx.scene.image.Image;
-//import javafx.scene.image.ImageView;
-//
-//public class Player extends Car {
-//
-//    static Image image = new Image("file:imageStart//car.png");
-//    static ImageView imageView  = new ImageView(image);;
-//
-//
-//
-//    public Player(double x, double y) {
-//
-//        super(x, y, imageView);
-//
-//    }
-//
-//    public static ImageView getImageView() {
-//        return imageView;
-//    }
-//}
-
-
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -43,55 +21,54 @@ public class Player extends Car{
 
         //do samouczka ruszanie
         //TODO żeby działało
-        if(canMoveOnSelf(Main.torMalutkiSamouczek.getLayoutX(),
-                (Main.torMalutkiSamouczek.getLayoutX() + Main.torMalutkiSamouczek.getWidth()),
-                Main.torMalutkiSamouczek.getLayoutY(),
-                (Main.torMalutkiSamouczek.getLayoutY() + Main.torMalutkiSamouczek.getHeight()))) {
-            if(Main.activeSamouczekScene == false) {
-                //pressed
-                Main.samouczekScene.setOnKeyPressed(event -> {
-                    if (event.getCode() == KeyCode.DOWN) {
-                        //slowDown();
-                        // Move backward
-                        moveBackwards = true;
-                    }
-                    if (event.getCode() == KeyCode.UP) {
-                        //speedUP();
-                        moveForward = true;
-                    }
-                    if (event.getCode() == KeyCode.LEFT) {
-                        //turnRight();
-                        moveLeft = true;
-                    }
-                    if (event.getCode() == KeyCode.RIGHT) {
-                        //turnLeft();
-                        moveRight = true;
+//        if(canMoveOnSelf(Main.torMalutkiSamouczek.getLayoutX(),
+//                (Main.torMalutkiSamouczek.getLayoutX() + Main.torMalutkiSamouczek.getWidth()),
+//                Main.torMalutkiSamouczek.getLayoutY(),
+//                (Main.torMalutkiSamouczek.getLayoutY() + Main.torMalutkiSamouczek.getHeight()))) {
+        if(Main.activeSamouczekScene) {
+            //pressed
+            Main.samouczekScene.setOnKeyPressed(event -> {
+                if (event.getCode() == KeyCode.DOWN) {
+                    //slowDown();
+                    // Move backward
+                    moveBackwards = true;
+                }
+                if (event.getCode() == KeyCode.UP) {
+                    //speedUP();
+                    moveForward = true;
+                }
+                if (event.getCode() == KeyCode.LEFT) {
+                    //turnRight();
+                    moveLeft = true;
+                }
+                if (event.getCode() == KeyCode.RIGHT) {
+                    //turnLeft();
+                    moveRight = true;
 
-                    }
-                });
-                //released
-                Main.samouczekScene.setOnKeyReleased(event -> {
+                }
+            });
+            //released
+            Main.samouczekScene.setOnKeyReleased(event -> {
 
-                    if (event.getCode() == KeyCode.DOWN) {
-                        // Move backward
-                        moveBackwards = false;
-                    }
-                    if (event.getCode() == KeyCode.UP) {
-                        //speedUP();
-                        moveForward = false;
-                    }
-                    if (event.getCode() == KeyCode.LEFT) {
-                        //turnRight();
-                        moveLeft = false;
-                    }
-                    if (event.getCode() == KeyCode.RIGHT) {
-                        //turnLeft();
-                        moveRight = false;
-                    }
-                });
-            }
-       }
-        if(TokyoDriftTheme.activeLevel1Scene == false) {
+                if (event.getCode() == KeyCode.DOWN) {
+                    // Move backward
+                    moveBackwards = false;
+                }
+                if (event.getCode() == KeyCode.UP) {
+                    //speedUP();
+                    moveForward = false;
+                }
+                if (event.getCode() == KeyCode.LEFT) {
+                    //turnRight();
+                    moveLeft = false;
+                }
+                if (event.getCode() == KeyCode.RIGHT) {
+                    //turnLeft();
+                    moveRight = false;
+                }
+            });
+            //     }
+        } else if (TokyoDriftTheme.activeLevel1Scene) {
             TokyoDriftTheme.level1TokyoScene.setOnKeyPressed(event -> {
                 //UP z DOWN zamienione bo musiałam zrobić rotate imageView
                 //i right z left też
@@ -139,105 +116,6 @@ public class Player extends Car{
 
                 }
             });
-
-            if(TokyoDriftTheme.activeLevel2Scene == false) {
-                TokyoDriftTheme.level2TokyoScene.setOnKeyPressed(event -> {
-                    //UP z DOWN zamienione bo musiałam zrobić rotate imageView
-                    //i right z left też
-                    if (event.getCode() == KeyCode.DOWN) {
-                        //slowDown();
-                        // Move backward
-                        moveBackwards = true;
-                    }
-                    if (event.getCode() == KeyCode.UP) {
-                        //speedUP();
-                        moveForward = true;
-                    }
-                    if (event.getCode() == KeyCode.LEFT) {
-                        //turnRight();
-                        moveLeft = true;
-                    }
-                    if (event.getCode() == KeyCode.RIGHT) {
-                        //turnLeft();
-                        moveRight = true;
-                    }
-                });
-
-                TokyoDriftTheme.level2TokyoScene.setOnKeyReleased(event -> {
-                    if (event.getCode() == KeyCode.DOWN) {
-                        // Move backward
-                        moveBackwards = false;
-                    }
-                    if (event.getCode() == KeyCode.UP) {
-                        //speedUP();
-                        moveForward = false;
-
-
-                    }
-
-                    if (event.getCode() == KeyCode.LEFT) {
-                        //turnRight();
-
-                        moveLeft = false;
-
-
-                    }
-                    if (event.getCode() == KeyCode.RIGHT) {
-                        //turnLeft();
-                        moveRight = false;
-
-                    }
-                });
-            }
-            if(TokyoDriftTheme.activeLevel3Scene == false) {
-                TokyoDriftTheme.level3TokyoScene.setOnKeyPressed(event -> {
-                    //UP z DOWN zamienione bo musiałam zrobić rotate imageView
-                    //i right z left też
-                    if (event.getCode() == KeyCode.DOWN) {
-                        //slowDown();
-                        // Move backward
-                        moveBackwards = true;
-                    }
-                    if (event.getCode() == KeyCode.UP) {
-                        //speedUP();
-                        moveForward = true;
-                    }
-                    if (event.getCode() == KeyCode.LEFT) {
-                        //turnRight();
-                        moveLeft = true;
-                    }
-                    if (event.getCode() == KeyCode.RIGHT) {
-                        //turnLeft();
-                        moveRight = true;
-                    }
-                });
-
-                TokyoDriftTheme.level3TokyoScene.setOnKeyReleased(event -> {
-                    if (event.getCode() == KeyCode.DOWN) {
-                        // Move backward
-                        moveBackwards = false;
-                    }
-                    if (event.getCode() == KeyCode.UP) {
-                        //speedUP();
-                        moveForward = false;
-
-
-                    }
-
-                    if (event.getCode() == KeyCode.LEFT) {
-                        //turnRight();
-
-                        moveLeft = false;
-
-
-                    }
-                    if (event.getCode() == KeyCode.RIGHT) {
-                        //turnLeft();
-                        moveRight = false;
-
-                    }
-                });
-            }
         }
         timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
             if (moveBackwards){
@@ -269,7 +147,7 @@ public class Player extends Car{
             }
 
             if (moveRight){
-              turnRight();
+                turnRight();
             }
 
             //            speedIncrimentation -= 0.1;
@@ -283,9 +161,10 @@ public class Player extends Car{
         timelineCar.play();
 
 
-
-
     }
 }
+
+
+
 
 
