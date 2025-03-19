@@ -17,6 +17,7 @@ public class Bonus extends ImageView {
     private PixelReader maskaReader = maska.getPixelReader();
 
 
+    //teste
     public Bonus() {
         super(image);
         setLayoutX(100);
