@@ -4,6 +4,6 @@ public interface Obstacle {
 //    boolean collide(Opponent opponent);
     void movement();
     void delete();
-    boolean collision();
+    boolean collision(Car car);
 //    void updateStateOfObstacle();
 }

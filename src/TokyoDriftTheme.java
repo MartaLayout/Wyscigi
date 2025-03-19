@@ -189,6 +189,7 @@ public class TokyoDriftTheme {
         Rectangle checkpoint = new Rectangle(227, 16, 25, 255);
 
         level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDrift, timerText, lapTimerText);
+        Puddle.puddleFactory(level1Root);
     }
 
 
@@ -348,6 +349,7 @@ public class TokyoDriftTheme {
         timeline.play();
 
 
+        Puddle.puddleFactory(level1Root);
         Player player = new Player(200,180);
         //player.setRotate(180);
 

@@ -156,6 +156,13 @@ public class Player extends Car{
             this.setTranslateY(carY);
             this.setRotate(carAngle);
 
+            //checking if player intersects puddle
+            for (int i = 0; i < Puddle.puddleList.size(); i++) {
+                if (Puddle.puddleList.get(i).collision(this)){
+                    this.slowDown();
+                }
+            }
+
         }));
         timelineCar.setCycleCount(Animation.INDEFINITE);
         timelineCar.play();
