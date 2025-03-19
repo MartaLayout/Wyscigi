@@ -276,18 +276,6 @@ public class Main extends Application {
         dymekSamouczek.setFitWidth(297);
         dymekSamouczek.setFitHeight(90);
 
-        playerSamouczek = new Player(710, 210);
-        playerSamouczek.setFitWidth(50);
-        playerSamouczek.setFitHeight(24);
-
-        torMalutkiSamouczek.setStroke(Color.BLACK);
-        torMalutkiSamouczek.setStrokeWidth(10);
-        torMalutkiSamouczek.setFill(Color.TRANSPARENT);
-        torSamouczekImageView.setFitWidth(torMalutkiSamouczek.getWidth());
-        torSamouczekImageView.setFitHeight(torMalutkiSamouczek.getHeight());
-        torSamouczekImageView.setLayoutX(700);
-        torSamouczekImageView.setLayoutY(200);
-
         String[] dymekContentSamouczek = {"Hej, to jest do samouczka", "damy tu taki tekst", "na zasadzie, że", "młody graczu, poznaj", "zasady itd"}; //todo tekst
 
         final Text textDymekSamouczek = new Text("");
@@ -298,7 +286,155 @@ public class Main extends Application {
 
         animateTextUsingTimeline(dymekContentSamouczek, textDymekSamouczek, 3.4);
 
-        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, rectangleSamouczek, dymekSamouczek, babciaSamouczek, textDymekSamouczek, torMalutkiSamouczek, torSamouczekImageView, playerSamouczek);
+        //buttony do opisywania
+        //start, samouczek, wyjdz z gry
+        ImageView podSpodRectangle = new ImageView(new Image("file:imagesStart/samouczek_fabula/podSpod.png"));
+        int initialX = 1500;
+        int initialY = 900;
+        podSpodRectangle.setLayoutX(initialX); //poza sceną
+        podSpodRectangle.setLayoutY(initialY); //poza sceną
+        podSpodRectangle.setFitWidth(221); //4/5 - 35
+        podSpodRectangle.setFitHeight(75); //-3
+        rootSamouczek.getChildren().add(podSpodRectangle);
+
+        //-10 w obu X i Y
+        ImageView startShow = new ImageView(new Image("file:imagesStart/menu/powrotNaStart.png"));
+        startShow.setLayoutX(180);
+        startShow.setLayoutY(250);
+        startShow.setFitWidth(200); //2/3
+        startShow.setFitHeight(53.33);
+        Text text1 = new Text("");
+
+        startShow.setOnMouseEntered(event -> {
+//            rootSamouczek.getChildren().remove(text);
+            rootSamouczek.getChildren().remove(textDymekSamouczek);
+            podSpodRectangle.setLayoutX(170);
+            podSpodRectangle.setLayoutY(240);
+            String[] dymek = {"Przycisk start", "jest dostępny w menu.", "Po jego naciśnięciu", "wrócisz na start."};
+            animateTextUsingTimeline(dymek, text1, 3.3);
+            text1.setFont(font);
+            text1.setLayoutX(192);
+            text1.setLayoutY(70);
+            rootSamouczek.getChildren().add(text1);
+
+        });
+        startShow.setOnMouseExited(event -> {
+            podSpodRectangle.setLayoutX(initialX);
+            podSpodRectangle.setLayoutY(initialY);
+            rootSamouczek.getChildren().remove(text1);
+        });
+
+        ImageView samouczekShow = new ImageView(new Image("file:imagesStart/menu/samouczekMenu.png"));
+        samouczekShow.setLayoutX(180);
+        samouczekShow.setLayoutY(325);
+        samouczekShow.setFitWidth(200); //2/3
+        samouczekShow.setFitHeight(53.33);
+        Text text2 = new Text("");
+
+        samouczekShow.setOnMouseEntered(event -> {
+            rootSamouczek.getChildren().remove(textDymekSamouczek);
+            podSpodRectangle.setLayoutX(170);
+            podSpodRectangle.setLayoutY(315);
+            String[] dymek = {"Przycisk samouczek", "jest dostępny w menu.", "Po jego naciśnięciu", "trafisz z powrotem", "do samouczka."};
+            animateTextUsingTimeline(dymek, text2, 3.3);
+            text2.setFont(font);
+            text2.setLayoutX(192);
+            text2.setLayoutY(70);
+            rootSamouczek.getChildren().add(text2);
+        });
+        samouczekShow.setOnMouseExited(event -> {
+            rootSamouczek.getChildren().remove(text2);
+            podSpodRectangle.setLayoutX(initialX);
+            podSpodRectangle.setLayoutY(initialY);
+        });
+
+        ImageView wyjdzZGryShow = new ImageView(new Image("file:imagesStart/menu/wyjdzZGry.png"));
+        wyjdzZGryShow.setLayoutX(180);
+        wyjdzZGryShow.setLayoutY(400);
+        wyjdzZGryShow.setFitWidth(200); //2/3
+        wyjdzZGryShow.setFitHeight(53.33);
+        Text text3 = new Text("");
+
+        wyjdzZGryShow.setOnMouseEntered(event -> {
+            rootSamouczek.getChildren().remove(textDymekSamouczek);
+            podSpodRectangle.setLayoutX(170);
+            podSpodRectangle.setLayoutY(390);
+            String[] dymek = {"Przycisk wyjdż z gry", "również jest w menu.", "Po jego naciśnięciu", "możesz wyjść z gry."};
+            animateTextUsingTimeline(dymek, text3, 3.35);
+            text3.setFont(font);
+            text3.setLayoutX(192);
+            text3.setLayoutY(70);
+            rootSamouczek.getChildren().add(text3);
+
+        });
+        wyjdzZGryShow.setOnMouseExited(event -> {
+            podSpodRectangle.setLayoutX(initialX);
+            podSpodRectangle.setLayoutY(initialY);
+            rootSamouczek.getChildren().remove(text3);
+        });
+
+
+        //TODO
+        ImageView podSpodRectangleMniejszy = new ImageView(new Image("file:imagesStart/samouczek_fabula/podSpod.png"));
+        podSpodRectangle.setLayoutX(initialX); //poza sceną
+        podSpodRectangle.setLayoutY(initialY); //poza sceną
+        podSpodRectangle.setFitWidth(221); //4/5 - 35
+        podSpodRectangle.setFitHeight(75); //-3
+        rootSamouczek.getChildren().add(podSpodRectangleMniejszy);
+
+        ImageView xShow = new ImageView(new Image("file:imagesStart/menu/menueXit.png"));
+        xShow.setLayoutX(125);
+        xShow.setLayoutY(550);
+        Text text4 = new Text("");
+        xShow.setOnMouseEntered(event -> {
+            rootSamouczek.getChildren().remove(textDymekSamouczek);
+            podSpodRectangle.setLayoutX(115);
+            podSpodRectangle.setLayoutY(540);
+            String[] dymek = {"Ten przycisk", "pozwala Ci wyjść", "z menu :)"};
+            animateTextUsingTimeline(dymek, text4, 3.35);
+            text4.setFont(font);
+            text4.setLayoutX(192);
+            text4.setLayoutY(70);
+            rootSamouczek.getChildren().add(text4);
+
+        });
+        xShow.setOnMouseExited(event -> {
+            podSpodRectangle.setLayoutX(initialX);
+            podSpodRectangle.setLayoutY(initialY);
+            rootSamouczek.getChildren().remove(text4);
+        });
+
+
+        ImageView cofnijShow = new ImageView(new Image("file:imagesStart/menu/menuCofnij.png"));
+        cofnijShow.setLayoutX(125);
+        cofnijShow.setLayoutY(625);
+        Text text5 = new Text("");
+        xShow.setOnMouseEntered(event -> {
+            rootSamouczek.getChildren().remove(textDymekSamouczek);
+            podSpodRectangle.setLayoutX(115);
+            podSpodRectangle.setLayoutY(615);
+            String[] dymek = {"Ten przycisk", "cofnąć się do poprzedniej", "sceny"}; //TODO
+            animateTextUsingTimeline(dymek, text5, 3.35);
+            text5.setFont(font);
+            text5.setLayoutX(192);
+            text5.setLayoutY(70);
+            rootSamouczek.getChildren().add(text5);
+
+        });
+        xShow.setOnMouseExited(event -> {
+            podSpodRectangle.setLayoutX(initialX);
+            podSpodRectangle.setLayoutY(initialY);
+            rootSamouczek.getChildren().remove(text5);
+        });
+
+        rootSamouczek.getChildren().addAll(startShow, samouczekShow, wyjdzZGryShow, xShow, cofnijShow);
+        //koniec tych buttonów
+
+        playerSamouczek = new Player(710, 210);
+        playerSamouczek.setFitWidth(50);
+        playerSamouczek.setFitHeight(24);
+
+        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, dymekSamouczek, babciaSamouczek, textDymekSamouczek, playerSamouczek);
     }
 
     public static void fabulaScene() {
@@ -451,12 +587,11 @@ public class Main extends Application {
             rootChooseThemeScene.getChildren().addAll(babciaMowi, dymek, textDymek);
         });
 
-        Button menu3 = new Button("MENU");
-        menu3.setLayoutX(1088);
-        menu3.setLayoutY(10);
-        menu3.setPrefSize(100, 50);
-        menu3.setOnAction(event -> menu());
+        ImageView menuButton = new ImageView(new Image("file:imagesStart/menuButtonChooseTheme.png"));
+        menuButton.setLayoutX(1088);
+        menuButton.setLayoutY(10);
+        menuButton.setOnMouseClicked(event -> menu());
 
-        rootChooseThemeScene.getChildren().addAll(tokyoDriftTheme, magicalTheme, menu3, wBudowie);
+        rootChooseThemeScene.getChildren().addAll(tokyoDriftTheme, magicalTheme, menuButton, wBudowie);
     }
 }

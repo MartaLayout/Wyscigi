@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -18,8 +19,10 @@ import static javafx.scene.text.Font.getFamilies;
 
 public class TokyoDriftTheme {
     //hubhubhu
+    public static boolean start = false;
+
     static Text timerText = new Text(" ");
-    static Text lapTimerText = new Text(" ");
+    public static Text lapTimerText = new Text(" ");
     static int seconds = 0;
     static int minutes = 0;
     static int lapSeconds = 0;
@@ -42,6 +45,7 @@ public class TokyoDriftTheme {
 
     static boolean activeLevel3Scene = false;
     static Scene level3TokyoScene = new Scene(level3Root, Main.WIDTH, Main.HEIGHT);
+    private static boolean isTimerRunning;
 
 
     public static void generateTokyo(){
@@ -57,11 +61,10 @@ public class TokyoDriftTheme {
 
         rootTokyoStart.getChildren().clear();
 
-        ImageView background = new ImageView(new Image("file:Tokyo/backgroundGenerate.png")); //add
+        ImageView background = new ImageView(new Image("file:Tokyo/backgroundGenerate.png"));
         background.setFitWidth(Main.WIDTH);
         background.setFitHeight(Main.HEIGHT);
         rootTokyoStart.getChildren().add(background);
-
 
         generateTokyoSetup();
 
@@ -105,13 +108,12 @@ public class TokyoDriftTheme {
 
         //TODO kłó∂ka --> when we know after how many points(idk) the next one unlocks
 
-        Button menuTokyo = new Button("MENU");
-        menuTokyo.setLayoutX(1088);
-        menuTokyo.setLayoutY(10);
-        menuTokyo.setPrefSize(100, 50);
-        menuTokyo.setOnAction(event -> Main.menu());
+        ImageView menuButton = new ImageView(new Image("file:Tokyo/menuButtonChooseLevel.png"));
+        menuButton.setLayoutX(1088);
+        menuButton.setLayoutY(10);
+        menuButton.setOnMouseClicked(event -> Main.menu());
 
-        rootTokyoStart.getChildren().addAll(textNaGorze, imageViewLevel1, imageViewLevel2, imageViewLevel3, menuTokyo, rectangle2);
+        rootTokyoStart.getChildren().addAll(textNaGorze, imageViewLevel1, imageViewLevel2, imageViewLevel3, menuButton, rectangle2);
     }
 
     public static void level1(){
@@ -138,6 +140,8 @@ public class TokyoDriftTheme {
     }
 
     public static void level1Setup(){
+        Player player = new Player(200,180);
+
         ImageView menuTokyoDrift = new ImageView(new Image("file:Tokyo/menuButtonTokyo.png"));
         menuTokyoDrift.setLayoutX(1030);
         menuTokyoDrift.setLayoutY(744);
@@ -155,10 +159,14 @@ public class TokyoDriftTheme {
         lapTimerText.setY(805);
         lapTimerText.setFont(font);
         lapTimerText.setFill(Color.color(1,0,0.7));
+
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
-                    updateTimer();
-                    setLapTimer();
+                    if (start) {
+                        isTimerRunning = true;
+                        updateTimer();
+                        updateLapTimer();
+                    }
                 })
 
         );
@@ -166,7 +174,7 @@ public class TokyoDriftTheme {
         timeline.play();
 
 
-        Player player = new Player(200,180);
+
         //player.setRotate(180);
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
@@ -193,7 +201,7 @@ public class TokyoDriftTheme {
     }
 
 
-    private static void setLapTimer() {
+    private static void updateLapTimer() {
         if (lap >= 0) {
             lapSeconds++; }
         if ( lapSeconds >= 0 && lapSeconds < 10) {
@@ -265,7 +273,7 @@ public class TokyoDriftTheme {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     updateTimer();
-                    setLapTimer();
+                    updateLapTimer();
                 })
 
         );
@@ -341,7 +349,7 @@ public class TokyoDriftTheme {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     updateTimer();
-                    setLapTimer();
+                    updateLapTimer();
                 })
 
         );

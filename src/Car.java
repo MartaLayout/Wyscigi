@@ -25,7 +25,10 @@ public class Car extends ImageView {
     public int checkpointCounter = 15;
     public boolean rightWay;
     public boolean finish;
-    public int lap;
+    public boolean start;
+    public int lap = 0;
+
+
 
 
 
@@ -254,7 +257,7 @@ public class Car extends ImageView {
 //        if (maskaColor == Color.WHITE){
 //
 //        }
-        if(maskaColor == Color.color(1,0.16,0.18));
+
 
 
 
