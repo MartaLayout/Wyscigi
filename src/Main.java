@@ -482,12 +482,11 @@ public class Main extends Application {
             rootChooseThemeScene.getChildren().addAll(babciaMowi, dymek, textDymek);
         });
 
-        Button menu3 = new Button("MENU");
-        menu3.setLayoutX(1088);
-        menu3.setLayoutY(10);
-        menu3.setPrefSize(100, 50);
-        menu3.setOnAction(event -> menu());
+        ImageView menuButton = new ImageView(new Image("file:imagesStart/menuButtonChooseTheme.png"));
+        menuButton.setLayoutX(1088);
+        menuButton.setLayoutY(10);
+        menuButton.setOnMouseClicked(event -> menu());
 
-        rootChooseThemeScene.getChildren().addAll(tokyoDriftTheme, magicalTheme, menu3, wBudowie);
+        rootChooseThemeScene.getChildren().addAll(tokyoDriftTheme, magicalTheme, menuButton, wBudowie);
     }
 }

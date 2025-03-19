@@ -57,11 +57,10 @@ public class TokyoDriftTheme {
 
         rootTokyoStart.getChildren().clear();
 
-        ImageView background = new ImageView(new Image("file:Tokyo/backgroundGenerate.png")); //add
+        ImageView background = new ImageView(new Image("file:Tokyo/backgroundGenerate.png"));
         background.setFitWidth(Main.WIDTH);
         background.setFitHeight(Main.HEIGHT);
         rootTokyoStart.getChildren().add(background);
-
 
         generateTokyoSetup();
 
@@ -105,13 +104,12 @@ public class TokyoDriftTheme {
 
         //TODO kłó∂ka --> when we know after how many points(idk) the next one unlocks
 
-        Button menuTokyo = new Button("MENU");
-        menuTokyo.setLayoutX(1088);
-        menuTokyo.setLayoutY(10);
-        menuTokyo.setPrefSize(100, 50);
-        menuTokyo.setOnAction(event -> Main.menu());
+        ImageView menuButton = new ImageView(new Image("file:Tokyo/menuButtonChooseLevel.png"));
+        menuButton.setLayoutX(1088);
+        menuButton.setLayoutY(10);
+        menuButton.setOnMouseClicked(event -> Main.menu());
 
-        rootTokyoStart.getChildren().addAll(textNaGorze, imageViewLevel1, imageViewLevel2, imageViewLevel3, menuTokyo, rectangle2);
+        rootTokyoStart.getChildren().addAll(textNaGorze, imageViewLevel1, imageViewLevel2, imageViewLevel3, menuButton, rectangle2);
     }
 
     public static void level1(){
