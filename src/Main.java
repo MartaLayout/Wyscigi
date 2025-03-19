@@ -276,6 +276,37 @@ public class Main extends Application {
         dymekSamouczek.setFitWidth(297);
         dymekSamouczek.setFitHeight(90);
 
+        //buttony do opisywania
+        //start, samouczek, wyjdz z gry
+        ImageView startShow = new ImageView(new Image("file:imagesStart/menu/powrotNaStart.png"));
+        startShow.setLayoutX(100);
+        startShow.setLayoutY(400);
+        startShow.setFitWidth(200); //2/3
+        startShow.setFitHeight(53.33);
+
+        ImageView samouczekShow = new ImageView(new Image("file:imagesStart/menu/samouczekMenu.png"));
+        samouczekShow.setLayoutX(100);
+        samouczekShow.setLayoutY(450);
+        samouczekShow.setFitWidth(200); //2/3
+        samouczekShow.setFitHeight(53.33);
+
+        ImageView wyjdzZGryShow = new ImageView(new Image("file:imagesStart/menu/wyjdzZGry.png"));
+        wyjdzZGryShow.setLayoutX(100);
+        wyjdzZGryShow.setLayoutY(500);
+        wyjdzZGryShow.setFitWidth(200); //2/3
+        wyjdzZGryShow.setFitHeight(53.33);
+
+        ImageView xShow = new ImageView(new Image("file:imagesStart/menu/menueXit.png"));
+        xShow.setLayoutX(100);
+        xShow.setLayoutY(550);
+
+        ImageView cofnijShow = new ImageView(new Image("file:imagesStart/menu/menuCofnij.png"));
+        cofnijShow.setLayoutX(100);
+        cofnijShow.setLayoutY(600);
+
+        rootSamouczek.getChildren().addAll(startShow, samouczekShow, wyjdzZGryShow, xShow, cofnijShow);
+        //koniec tych buttonów
+
         playerSamouczek = new Player(710, 210);
         playerSamouczek.setFitWidth(50);
         playerSamouczek.setFitHeight(24);
@@ -298,7 +329,7 @@ public class Main extends Application {
 
         animateTextUsingTimeline(dymekContentSamouczek, textDymekSamouczek, 3.4);
 
-        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, rectangleSamouczek, dymekSamouczek, babciaSamouczek, textDymekSamouczek, torMalutkiSamouczek, torSamouczekImageView, playerSamouczek);
+        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, dymekSamouczek, babciaSamouczek, textDymekSamouczek, torMalutkiSamouczek, torSamouczekImageView, playerSamouczek);
     }
 
     public static void fabulaScene() {
