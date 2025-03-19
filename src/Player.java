@@ -76,18 +76,26 @@ public class Player extends Car{
                     //slowDown();
                     // Move backward
                     moveBackwards = true;
+                    TokyoDriftTheme.start = true;
+
                 }
                 if (event.getCode() == KeyCode.UP) {
                     //speedUP();
                     moveForward = true;
+                    TokyoDriftTheme.start = true;
+
                 }
                 if (event.getCode() == KeyCode.LEFT) {
                     //turnRight();
                     moveLeft = true;
+                    TokyoDriftTheme.start = true;
+
                 }
                 if (event.getCode() == KeyCode.RIGHT) {
                     //turnLeft();
                     moveRight = true;
+                    TokyoDriftTheme.start = true;
+
                 }
             });
 
