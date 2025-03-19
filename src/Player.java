@@ -160,6 +160,12 @@ public class Player extends Car{
 
             //            speedIncrimentation -= 0.1;
 
+            //borders
+            if (carX < 0) carX = 0;
+            if (carX > 1200 - Main.playerSamouczek.getFitWidth()) carX = 1200 - Main.playerSamouczek.getFitWidth();
+            if (carY < 0) carY = 0;
+            if (carY > 800 - Main.playerSamouczek.getFitHeight()) carY = 800 - Main.playerSamouczek.getFitHeight();
+
             this.setTranslateX(carX);
             this.setTranslateY(carY);
             this.setRotate(carAngle);
