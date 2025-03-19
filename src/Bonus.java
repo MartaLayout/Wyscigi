@@ -10,7 +10,7 @@ public class Bonus extends ImageView {
     // aka only if you pick one up can new one appear and have a counter for how many times has one been picked up
     //it will reset to zero once you enter nitro
 
-    private int collectedCounter;
+    private static int collectedCounter;
     static Image image = new Image("file:Tokyo/Energy4Nitro.png");
 
     private Image maska = new Image("file:maska.png");
@@ -27,27 +27,49 @@ public class Bonus extends ImageView {
 
     }
 
+    public static int getCollectedCounter() {
+        return collectedCounter;
+    }
+
+    public static void setCollectedCounter(int collectedCounter) {
+        Bonus.collectedCounter = collectedCounter;
+    }
+
     public void appear(){
         double NewX = Math.random()*Main.WIDTH;
         double NewY = Math.random()*Main.HEIGHT;
         boolean foundNewPlace = false;
         while (foundNewPlace == false){
+
             Color maskaColor = maskaReader.getColor((int) NewX, (int) NewY);
-            if (maskaColor == Color.WHITE){
+            System.out.println("("+ NewX + NewY+ ")"+ maskaColor);
+            if (maskaColor.getRed() == 0 && maskaColor.getBlue() == 0 && maskaColor.getGreen() == 0){
                 foundNewPlace = true;
 
             }
             else{
                 NewX = Math.random()*Main.WIDTH;
-                 NewY = Math.random()*Main.HEIGHT;
+                NewY = Math.random()*Main.HEIGHT;
             }
         }
 
         setLayoutX(NewX);
         setLayoutY(NewY);
+        collectedCounter ++;
 
 
     }
+
+//    public void disappear (Player player){
+//        if (player.BonusCollision(this)){
+//            this.appear();
+//        }
+//    }
+
+
+//    public void disappear(){
+//
+//    }
 
 
 

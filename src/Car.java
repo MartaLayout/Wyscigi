@@ -34,7 +34,8 @@ public class Car extends ImageView {
     public double carX = -100;  // Initial X position
     public double carY = -200;  // Initial Y position
     protected double carAngle = 0; // Initial rotation angle (in degrees)
-    protected final double speed = 2; // Movement speed   //3
+    //NOTE HOW SPEED SHOULD NOT BE CHANGED (UNLESS FOR NITRO MODE OBVI)
+    protected double speed = 0.5; // Movement speed   //3
     protected final double rotationSpeed = 3; // Rotation speed (degrees) //5
     protected  double speedIncrimentation = 0.01; //1.0000
     protected  double speedIncrimentationBackwards = 0.01;
@@ -236,13 +237,16 @@ public class Car extends ImageView {
         }
     }
 
+//    protected void EnterNitroModeWroom(){
+//        speed *=2;
+//    }
+//
+//    protected void ExitNitroModeNotWroom(){
+//        speed*=2;
+//    }
 
-    protected boolean BonusCollision(Bonus bonus){
-        if (this.intersects(bonus.getX(), bonus.getY(), bonus.getFitWidth(), bonus.getFitHeight())){
-            return true;
-        }
-        return false;
-    }
+
+
 
 
 

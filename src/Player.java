@@ -14,6 +14,10 @@ public class Player extends Car{
     private boolean moveLeft;
     private boolean moveBackwards;
 
+    private int nitroMode = 0;
+
+
+
     static Timeline timelineCar;
 
     public Player(double x,double y) {
@@ -118,6 +122,12 @@ public class Player extends Car{
             });
         }
         timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
+            if (nitroMode >0){
+                nitroMode --;
+            }
+            if (nitroMode<=0){
+                //this.ExitNitroModeNotWroom();
+            }
             if (moveBackwards){
                 moveBackwardsAppliedForce();
             }
@@ -162,6 +172,23 @@ public class Player extends Car{
 
 
     }
+
+
+    protected boolean BonusCollision(Bonus bonus){
+        if (this.intersects(bonus.getX(), bonus.getY(), bonus.getFitWidth(), bonus.getFitHeight())){
+           if (bonus.getCollectedCounter() == 10){
+               nitroMode = 500;
+               //this.EnterNitroModeWroom();
+               bonus.setCollectedCounter(0);
+           }
+            return true;
+        }
+        return false;
+    }
+
+
+
+
 }
 
 

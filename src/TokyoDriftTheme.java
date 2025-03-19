@@ -167,6 +167,10 @@ public class TokyoDriftTheme {
         Player player = new Player(200,180);
         //player.setRotate(180);
 
+        Bonus bonus = new Bonus();
+        bonus.appear();
+        bonus.appear();
+
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
         //tworzymy wieżę - działa
@@ -186,7 +190,7 @@ public class TokyoDriftTheme {
         Rectangle checkpointMeta = new Rectangle(227, 16, 50, 255);
         Rectangle checkpoint = new Rectangle(227, 16, 25, 255);
 
-        level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDrift, timerText, lapTimerText);
+        level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDrift, timerText, lapTimerText, bonus);
     }
 
 
