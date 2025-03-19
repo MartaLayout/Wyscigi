@@ -34,6 +34,8 @@ public class TokyoDriftTheme {
     static AnchorPane level2Root = new AnchorPane();
     static AnchorPane level3Root = new AnchorPane();
 
+    static ImageView menuButton = new ImageView(new Image("file:Tokyo/menuButtonChooseLevel.png"));
+
     static boolean activeGenerateScene = false;
     static Scene startSceneTokyo = new Scene(rootTokyoStart, Main.WIDTH, Main.HEIGHT);
 
@@ -108,7 +110,6 @@ public class TokyoDriftTheme {
 
         //TODO kłó∂ka --> when we know after how many points(idk) the next one unlocks
 
-        ImageView menuButton = new ImageView(new Image("file:Tokyo/menuButtonChooseLevel.png"));
         menuButton.setLayoutX(1088);
         menuButton.setLayoutY(10);
         menuButton.setOnMouseClicked(event -> Main.menu());
