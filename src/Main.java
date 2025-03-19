@@ -426,7 +426,7 @@ public class Main extends Application {
         ImageView wBudowie = new ImageView(new Image("file:imagesStart/wBudowie.png"));
         wBudowie.setLayoutX(650);
         wBudowie.setLayoutY(210);
-        wBudowie.setOnMouseMoved(event -> {
+        wBudowie.setOnMouseClicked(event -> {
             ImageView babciaMowi = new ImageView(new Image("file:imagesStart/samouczek_fabula/babcia.png"));
             babciaMowi.setLayoutX(560);
             babciaMowi.setLayoutY(570);
