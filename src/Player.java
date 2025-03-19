@@ -80,18 +80,26 @@ public class Player extends Car{
                     //slowDown();
                     // Move backward
                     moveBackwards = true;
+                    TokyoDriftTheme.start = true;
+
                 }
                 if (event.getCode() == KeyCode.UP) {
                     //speedUP();
                     moveForward = true;
+                    TokyoDriftTheme.start = true;
+
                 }
                 if (event.getCode() == KeyCode.LEFT) {
                     //turnRight();
                     moveLeft = true;
+                    TokyoDriftTheme.start = true;
+
                 }
                 if (event.getCode() == KeyCode.RIGHT) {
                     //turnLeft();
                     moveRight = true;
+                    TokyoDriftTheme.start = true;
+
                 }
             });
 
@@ -162,9 +170,22 @@ public class Player extends Car{
 
             //            speedIncrimentation -= 0.1;
 
+            //borders
+            if (carX < 0) carX = 0;
+            if (carX > 1200 - Main.playerSamouczek.getFitWidth()) carX = 1200 - Main.playerSamouczek.getFitWidth();
+            if (carY < 0) carY = 0;
+            if (carY > 800 - Main.playerSamouczek.getFitHeight()) carY = 800 - Main.playerSamouczek.getFitHeight();
+
             this.setTranslateX(carX);
             this.setTranslateY(carY);
             this.setRotate(carAngle);
+
+            //checking if player intersects puddle
+            for (int i = 0; i < Puddle.puddleList.size(); i++) {
+                if (Puddle.puddleList.get(i).collision(this)){
+                    this.slowDown();
+                }
+            }
 
         }));
         timelineCar.setCycleCount(Animation.INDEFINITE);
