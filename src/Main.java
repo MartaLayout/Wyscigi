@@ -278,23 +278,56 @@ public class Main extends Application {
 
         //buttony do opisywania
         //start, samouczek, wyjdz z gry
+        ImageView podSpodRectangle = new ImageView(new Image("file:imagesStart/samouczek_fabula/podSpod.png"));
+        int initialX = 1500;
+        int initialY = 900;
+        podSpodRectangle.setLayoutX(initialX); //poza sceną
+        podSpodRectangle.setLayoutY(initialY); //poza sceną
+        podSpodRectangle.setFitWidth(221); //4/5 - 35
+        podSpodRectangle.setFitHeight(75); //-3
+        rootSamouczek.getChildren().add(podSpodRectangle);
+
         ImageView startShow = new ImageView(new Image("file:imagesStart/menu/powrotNaStart.png"));
         startShow.setLayoutX(100);
-        startShow.setLayoutY(400);
+        startShow.setLayoutY(250);
         startShow.setFitWidth(200); //2/3
         startShow.setFitHeight(53.33);
+        startShow.setOnMouseEntered(event -> {
+            podSpodRectangle.setLayoutX(90);
+            podSpodRectangle.setLayoutY(240);
+        });
+        startShow.setOnMouseExited(event -> {
+            podSpodRectangle.setLayoutX(initialX);
+            podSpodRectangle.setLayoutY(initialY);
+        });
 
         ImageView samouczekShow = new ImageView(new Image("file:imagesStart/menu/samouczekMenu.png"));
         samouczekShow.setLayoutX(100);
-        samouczekShow.setLayoutY(450);
+        samouczekShow.setLayoutY(350);
         samouczekShow.setFitWidth(200); //2/3
         samouczekShow.setFitHeight(53.33);
+        samouczekShow.setOnMouseEntered(event -> {
+            podSpodRectangle.setLayoutX(90);
+            podSpodRectangle.setLayoutY(340);
+        });
+        samouczekShow.setOnMouseExited(event -> {
+            podSpodRectangle.setLayoutX(initialX);
+            podSpodRectangle.setLayoutY(initialY);
+        });
 
         ImageView wyjdzZGryShow = new ImageView(new Image("file:imagesStart/menu/wyjdzZGry.png"));
         wyjdzZGryShow.setLayoutX(100);
-        wyjdzZGryShow.setLayoutY(500);
+        wyjdzZGryShow.setLayoutY(450);
         wyjdzZGryShow.setFitWidth(200); //2/3
         wyjdzZGryShow.setFitHeight(53.33);
+        wyjdzZGryShow.setOnMouseEntered(event -> {
+            podSpodRectangle.setLayoutX(90);
+            podSpodRectangle.setLayoutY(440);
+        });
+        wyjdzZGryShow.setOnMouseExited(event -> {
+            podSpodRectangle.setLayoutX(initialX);
+            podSpodRectangle.setLayoutY(initialY);
+        });
 
         ImageView xShow = new ImageView(new Image("file:imagesStart/menu/menueXit.png"));
         xShow.setLayoutX(100);
