@@ -22,6 +22,13 @@ public class Car extends ImageView {
     private double y;
     protected double direction;
 
+    public int checkpointCounter = 15;
+    public boolean rightWay;
+    public boolean finish;
+    public int lap;
+
+
+
 
     //here changed car initial position
     public double carX = -100;  // Initial X position
@@ -244,9 +251,12 @@ public class Car extends ImageView {
         Image maska = new Image("file:maska.png");
         PixelReader maskaReader = maska.getPixelReader();
         Color maskaColor = maskaReader.getColor((int) carX, (int) carY);
-        if (maskaColor == Color.WHITE){
+//        if (maskaColor == Color.WHITE){
+//
+//        }
+        if(maskaColor == Color.color(1,0.16,0.18));
 
-        }
+
 
     }
     //later add variations of move on different surfaces, with slightly different parameters
