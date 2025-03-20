@@ -2,6 +2,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -174,6 +175,17 @@ public class TokyoDriftTheme {
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+
+        menuButton.setOnMouseClicked(event -> {
+            timeline.stop();
+        });
+
+        Main.wyjdzZMenu.setOnMouseClicked(event -> {
+            timeline.play();
+        });
+
+
+
 
 
 
