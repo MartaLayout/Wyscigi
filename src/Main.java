@@ -35,6 +35,8 @@ public class Main extends Application {
     static AnchorPane rootFabula = new AnchorPane();
     static AnchorPane rootChooseThemeScene = new AnchorPane();
 
+    static ImageView wyjdzZMenu = new ImageView(new Image("file:imagesStart/menu/menueXit.png"));
+
     static Scene samouczekScene = new Scene(rootSamouczek, WIDTH, HEIGHT);
     static Scene fabulaScene = new Scene(rootFabula, WIDTH, HEIGHT);
     static Scene chooseThemeScene = new Scene(rootChooseThemeScene, WIDTH, HEIGHT);
@@ -106,7 +108,6 @@ public class Main extends Application {
         powrotNaStartButton.setFitHeight(80);
         powrotNaStartButton.setFitWidth(300);
 
-        ImageView wyjdzZMenu = new ImageView(new Image("file:imagesStart/menu/menueXit.png"));
         wyjdzZMenu.setLayoutX(30);
         wyjdzZMenu.setLayoutY(30);
         wyjdzZMenu.setFitWidth(100);
