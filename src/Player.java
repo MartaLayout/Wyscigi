@@ -32,6 +32,13 @@ public class Player extends Car{
         if(Main.activeSamouczekScene) {
             //pressed
             Main.samouczekScene.setOnKeyPressed(event -> {
+
+                //borders
+                if (carX < 0) carX = 0;
+                if (carX > 1200 - Main.playerSamouczek.getFitWidth()) carX = 1200 - Main.playerSamouczek.getFitWidth();
+                if (carY < 0) carY = 0;
+                if (carY > 800 - Main.playerSamouczek.getFitHeight()) carY = 800 - Main.playerSamouczek.getFitHeight();
+
                 if (event.getCode() == KeyCode.DOWN) {
                     //slowDown();
                     // Move backward
@@ -170,11 +177,6 @@ public class Player extends Car{
 
             //            speedIncrimentation -= 0.1;
 
-            //borders
-            if (carX < 0) carX = 0;
-            if (carX > 1200 - Main.playerSamouczek.getFitWidth()) carX = 1200 - Main.playerSamouczek.getFitWidth();
-            if (carY < 0) carY = 0;
-            if (carY > 800 - Main.playerSamouczek.getFitHeight()) carY = 800 - Main.playerSamouczek.getFitHeight();
 
             this.setTranslateX(carX);
             this.setTranslateY(carY);

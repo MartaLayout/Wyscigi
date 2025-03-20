@@ -176,13 +176,14 @@ public class TokyoDriftTheme {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 
-        menuButton.setOnMouseClicked(event -> {
-            timeline.stop();
-        });
-
-        Main.wyjdzZMenu.setOnMouseClicked(event -> {
-            timeline.play();
-        });
+//        //not working
+//        menuTokyoDriftLevel1.setOnMouseClicked(event -> {
+//            timeline.stop();
+//        });
+//
+//        Main.wyjdzZMenu.setOnMouseClicked(event -> {
+//            timeline.play();
+//        });
 
 
 
