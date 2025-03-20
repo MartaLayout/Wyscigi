@@ -36,6 +36,8 @@ public class TokyoDriftTheme {
 
     static ImageView menuButton = new ImageView(new Image("file:Tokyo/menuButtonChooseLevel.png"));
 
+    static ImageView menuTokyoDriftLevel1 = new ImageView(new Image("file:Tokyo/menuButtonTokyo.png"));
+
     static boolean activeGenerateScene = false;
     static Scene startSceneTokyo = new Scene(rootTokyoStart, Main.WIDTH, Main.HEIGHT);
 
@@ -143,12 +145,11 @@ public class TokyoDriftTheme {
     public static void level1Setup(){
         Player player = new Player(200,180);
 
-        ImageView menuTokyoDrift = new ImageView(new Image("file:Tokyo/menuButtonTokyo.png"));
-        menuTokyoDrift.setLayoutX(1030);
-        menuTokyoDrift.setLayoutY(744);
-        menuTokyoDrift.setFitWidth(100);
-        menuTokyoDrift.setFitHeight(50);
-        menuTokyoDrift.setOnMouseClicked(event -> Main.menu());
+        menuTokyoDriftLevel1.setLayoutX(1030);
+        menuTokyoDriftLevel1.setLayoutY(744);
+        menuTokyoDriftLevel1.setFitWidth(100);
+        menuTokyoDriftLevel1.setFitHeight(50);
+        menuTokyoDriftLevel1.setOnMouseClicked(event -> Main.menu());
 
         //timer
         timerText.setX(337);
@@ -201,7 +202,7 @@ public class TokyoDriftTheme {
         Rectangle checkpointMeta = new Rectangle(227, 16, 50, 255);
         Rectangle checkpoint = new Rectangle(227, 16, 25, 255);
 
-        level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDrift, timerText, lapTimerText, bonus);
+        level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDriftLevel1, timerText, lapTimerText, bonus);
         Puddle.puddleFactory(level1Root);
     }
 
