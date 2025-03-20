@@ -377,10 +377,10 @@ public class Main extends Application {
 
         //TODO
         ImageView podSpodRectangleMniejszy = new ImageView(new Image("file:imagesStart/samouczek_fabula/podSpod.png"));
-        podSpodRectangle.setLayoutX(initialX); //poza sceną
-        podSpodRectangle.setLayoutY(initialY); //poza sceną
-        podSpodRectangle.setFitWidth(221); //4/5 - 35
-        podSpodRectangle.setFitHeight(75); //-3
+        podSpodRectangleMniejszy.setLayoutX(initialX); //poza sceną
+        podSpodRectangleMniejszy.setLayoutY(initialY); //poza sceną
+        podSpodRectangleMniejszy.setFitWidth(121);
+        podSpodRectangleMniejszy.setFitHeight(71);
         rootSamouczek.getChildren().add(podSpodRectangleMniejszy);
 
         ImageView xShow = new ImageView(new Image("file:imagesStart/menu/menueXit.png"));
@@ -389,8 +389,8 @@ public class Main extends Application {
         Text text4 = new Text("");
         xShow.setOnMouseEntered(event -> {
             rootSamouczek.getChildren().remove(textDymekSamouczek);
-            podSpodRectangle.setLayoutX(115);
-            podSpodRectangle.setLayoutY(540);
+            podSpodRectangleMniejszy.setLayoutX(115);
+            podSpodRectangleMniejszy.setLayoutY(540);
             String[] dymek = {"Ten przycisk", "pozwala Ci wyjść", "z menu :)"};
             animateTextUsingTimeline(dymek, text4, 3.35);
             text4.setFont(font);
@@ -400,8 +400,8 @@ public class Main extends Application {
 
         });
         xShow.setOnMouseExited(event -> {
-            podSpodRectangle.setLayoutX(initialX);
-            podSpodRectangle.setLayoutY(initialY);
+            podSpodRectangleMniejszy.setLayoutX(initialX);
+            podSpodRectangleMniejszy.setLayoutY(initialY);
             rootSamouczek.getChildren().remove(text4);
         });
 
@@ -410,10 +410,10 @@ public class Main extends Application {
         cofnijShow.setLayoutX(125);
         cofnijShow.setLayoutY(625);
         Text text5 = new Text("");
-        xShow.setOnMouseEntered(event -> {
+        cofnijShow.setOnMouseEntered(event -> {
             rootSamouczek.getChildren().remove(textDymekSamouczek);
-            podSpodRectangle.setLayoutX(115);
-            podSpodRectangle.setLayoutY(615);
+            podSpodRectangleMniejszy.setLayoutX(115);
+            podSpodRectangleMniejszy.setLayoutY(615);
             String[] dymek = {"Ten przycisk", "cofnąć się do poprzedniej", "sceny"}; //TODO
             animateTextUsingTimeline(dymek, text5, 3.35);
             text5.setFont(font);
@@ -422,9 +422,9 @@ public class Main extends Application {
             rootSamouczek.getChildren().add(text5);
 
         });
-        xShow.setOnMouseExited(event -> {
-            podSpodRectangle.setLayoutX(initialX);
-            podSpodRectangle.setLayoutY(initialY);
+        cofnijShow.setOnMouseExited(event -> {
+            podSpodRectangleMniejszy.setLayoutX(initialX);
+            podSpodRectangleMniejszy.setLayoutY(initialY);
             rootSamouczek.getChildren().remove(text5);
         });
 
@@ -514,7 +514,7 @@ public class Main extends Application {
     private static void animateText(String content, Text textDymek) {
         final Animation typingAnimation = new Transition() {
             {
-                setCycleDuration(Duration.seconds(3.25)); // Duration of typing effect for each string
+                setCycleDuration(Duration.seconds(3.5)); // Duration of typing effect for each string ..
             }
 
             protected void interpolate(double frac) {
