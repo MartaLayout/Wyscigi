@@ -304,25 +304,24 @@ public class Main extends Application {
         startShow.setLayoutY(250);
         startShow.setFitWidth(200); //2/3
         startShow.setFitHeight(53.33);
-        Text text1 = new Text("");
+        Text text1 = new Text("Przycisk start jest dostępny w menu. Po jego naciśnięciu wrócisz na start.");
 
         startShow.setOnMouseEntered(event -> {
 //            rootSamouczek.getChildren().remove(text);
             rootSamouczek.getChildren().remove(textDymekSamouczek);
             podSpodRectangle.setLayoutX(170);
             podSpodRectangle.setLayoutY(240);
-            String[] dymek = {"Przycisk start", "jest dostępny w menu.", "Po jego naciśnięciu", "wrócisz na start."};
-            animateTextUsingTimeline(dymek, text1, 3.3);
             text1.setFont(font);
-            text1.setLayoutX(192);
-            text1.setLayoutY(70);
+            text1.setLayoutX(420); //192
+            text1.setLayoutY(260); //70
+            text1.setWrappingWidth(300);
             rootSamouczek.getChildren().add(text1);
 
         });
         startShow.setOnMouseExited(event -> {
+            rootSamouczek.getChildren().remove(text1);
             podSpodRectangle.setLayoutX(initialX);
             podSpodRectangle.setLayoutY(initialY);
-            rootSamouczek.getChildren().remove(text1);
         });
 
         ImageView samouczekShow = new ImageView(new Image("file:imagesStart/menu/samouczekMenu.png"));
@@ -330,17 +329,16 @@ public class Main extends Application {
         samouczekShow.setLayoutY(325);
         samouczekShow.setFitWidth(200); //2/3
         samouczekShow.setFitHeight(53.33);
-        Text text2 = new Text("");
+        Text text2 = new Text("Przcisk 'samouczek' jest dostępny w menu. Po jego naciśnięciu trafisz z powrotem do samouczka.");
 
         samouczekShow.setOnMouseEntered(event -> {
             rootSamouczek.getChildren().remove(textDymekSamouczek);
             podSpodRectangle.setLayoutX(170);
             podSpodRectangle.setLayoutY(315);
-            String[] dymek = {"Przycisk samouczek", "jest dostępny w menu.", "Po jego naciśnięciu", "trafisz z powrotem", "do samouczka."};
-            animateTextUsingTimeline(dymek, text2, 3.3);
             text2.setFont(font);
-            text2.setLayoutX(192);
-            text2.setLayoutY(70);
+            text2.setLayoutX(420);
+            text2.setLayoutY(345);
+            text2.setWrappingWidth(320);
             rootSamouczek.getChildren().add(text2);
         });
         samouczekShow.setOnMouseExited(event -> {
@@ -354,17 +352,16 @@ public class Main extends Application {
         wyjdzZGryShow.setLayoutY(400);
         wyjdzZGryShow.setFitWidth(200); //2/3
         wyjdzZGryShow.setFitHeight(53.33);
-        Text text3 = new Text("");
+        Text text3 = new Text("Przycisk 'wyjdź z gry również jest w menu. Po jego naciśnięciu możesz wyjść z gry.");
 
         wyjdzZGryShow.setOnMouseEntered(event -> {
             rootSamouczek.getChildren().remove(textDymekSamouczek);
             podSpodRectangle.setLayoutX(170);
             podSpodRectangle.setLayoutY(390);
-            String[] dymek = {"Przycisk wyjdż z gry", "również jest w menu.", "Po jego naciśnięciu", "możesz wyjść z gry."};
-            animateTextUsingTimeline(dymek, text3, 3.35);
             text3.setFont(font);
-            text3.setLayoutX(192);
-            text3.setLayoutY(70);
+            text3.setLayoutX(420);
+            text3.setLayoutY(415);
+            text3.setWrappingWidth(300);
             rootSamouczek.getChildren().add(text3);
 
         });
