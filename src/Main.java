@@ -286,6 +286,8 @@ public class Main extends Application {
         textDymekSamouczek.setLayoutY(70);
 
         animateTextUsingTimeline(dymekContentSamouczek, textDymekSamouczek, 3.4);
+        //TODO - usunąć dymek jak babcia skończy mówić, ale po jej naciśnięciu znowu się pojawi
+        //może zrobić napis pod spodem "click me" i dopiero wtedy to wgla aktywować?
 
         //buttony do opisywania
         //start, samouczek, wyjdz z gry
@@ -298,15 +300,21 @@ public class Main extends Application {
         podSpodRectangle.setFitHeight(75); //-3
         rootSamouczek.getChildren().add(podSpodRectangle);
 
+        //TODO - przestawić w bok tego buttona
         ImageView jazdaAutemButton = new ImageView(new Image("file:imagesStart/samouczek_fabula/jazdaAutem.png"));
         jazdaAutemButton.setLayoutX(500);
         jazdaAutemButton.setLayoutY(300);
-        jazdaAutemButton.setFitWidth(300);
-        jazdaAutemButton.setFitHeight(80);
+        jazdaAutemButton.setFitWidth(200);
+        jazdaAutemButton.setFitHeight(53.33);
+        jazdaAutemButton.setOnMouseClicked(event -> { //TODO Marta - zrobić tak żeby ten car się pojawiał kurde a nie
+            playerSamouczek = new Player(710, 210);
+            playerSamouczek.setFitWidth(50);
+            playerSamouczek.setFitHeight(24);
+        });
 
 
         //-10 w obu X i Y
-        ImageView startShow = new ImageView(new Image("file:imagesStart/menu/powrotNaStart.png"));
+        ImageView startShow = new ImageView(new Image("file:imagesStart/samouczek_fabula/startFiolet.png"));
         startShow.setLayoutX(180);
         startShow.setLayoutY(250);
         startShow.setFitWidth(200); //2/3
@@ -331,12 +339,12 @@ public class Main extends Application {
             podSpodRectangle.setLayoutY(initialY);
         });
 
-        ImageView samouczekShow = new ImageView(new Image("file:imagesStart/menu/samouczekMenu.png"));
+        ImageView samouczekShow = new ImageView(new Image("file:imagesStart/samouczek_fabula/samouczekFiolet.png"));
         samouczekShow.setLayoutX(180);
         samouczekShow.setLayoutY(325);
         samouczekShow.setFitWidth(200); //2/3
         samouczekShow.setFitHeight(53.33);
-        Text text2 = new Text("Przcisk 'samouczek' jest dostępny w menu. Po jego naciśnięciu trafisz z powrotem do samouczka.");
+        Text text2 = new Text("Przycisk 'samouczek' jest dostępny w menu. Po jego naciśnięciu trafisz z powrotem do samouczka.");
 
         samouczekShow.setOnMouseEntered(event -> {
             rootSamouczek.getChildren().remove(textDymekSamouczek);
@@ -345,7 +353,7 @@ public class Main extends Application {
             text2.setFont(font);
             text2.setLayoutX(420);
             text2.setLayoutY(345);
-            text2.setWrappingWidth(320);
+            text2.setWrappingWidth(320); //TODO inny wrapping width
             rootSamouczek.getChildren().add(text2);
         });
         samouczekShow.setOnMouseExited(event -> {
@@ -354,12 +362,12 @@ public class Main extends Application {
             podSpodRectangle.setLayoutY(initialY);
         });
 
-        ImageView wyjdzZGryShow = new ImageView(new Image("file:imagesStart/menu/wyjdzZGry.png"));
+        ImageView wyjdzZGryShow = new ImageView(new Image("file:imagesStart/samouczek_fabula/wyjdzZGryFiolet.png"));
         wyjdzZGryShow.setLayoutX(180);
         wyjdzZGryShow.setLayoutY(400);
         wyjdzZGryShow.setFitWidth(200); //2/3
         wyjdzZGryShow.setFitHeight(53.33);
-        Text text3 = new Text("Przycisk 'wyjdź z gry również jest w menu. Po jego naciśnięciu możesz wyjść z gry.");
+        Text text3 = new Text("Przycisk 'wyjdź z gry' również jest w menu. Po jego naciśnięciu możesz wyjść z gry.");
 
         wyjdzZGryShow.setOnMouseEntered(event -> {
             rootSamouczek.getChildren().remove(textDymekSamouczek);
@@ -378,8 +386,7 @@ public class Main extends Application {
             rootSamouczek.getChildren().remove(text3);
         });
 
-
-        //TODO
+        //TODO Martaaa (przestawić teksty na obok)
         ImageView podSpodRectangleMniejszy = new ImageView(new Image("file:imagesStart/samouczek_fabula/podSpod.png"));
         podSpodRectangleMniejszy.setLayoutX(initialX); //poza sceną
         podSpodRectangleMniejszy.setLayoutY(initialY); //poza sceną
@@ -387,7 +394,7 @@ public class Main extends Application {
         podSpodRectangleMniejszy.setFitHeight(71);
         rootSamouczek.getChildren().add(podSpodRectangleMniejszy);
 
-        ImageView xShow = new ImageView(new Image("file:imagesStart/menu/menueXit.png"));
+        ImageView xShow = new ImageView(new Image("file:imagesStart/samouczek_fabula/Xfiolet.png"));
         xShow.setLayoutX(125);
         xShow.setLayoutY(550);
         Text text4 = new Text("");
@@ -409,8 +416,7 @@ public class Main extends Application {
             rootSamouczek.getChildren().remove(text4);
         });
 
-
-        ImageView cofnijShow = new ImageView(new Image("file:imagesStart/menu/menuCofnij.png"));
+        ImageView cofnijShow = new ImageView(new Image("file:imagesStart/samouczek_fabula/cofnijFiolet.png"));
         cofnijShow.setLayoutX(125);
         cofnijShow.setLayoutY(625);
         Text text5 = new Text("");
@@ -435,11 +441,9 @@ public class Main extends Application {
         rootSamouczek.getChildren().addAll(startShow, samouczekShow, wyjdzZGryShow, xShow, cofnijShow, jazdaAutemButton);
         //koniec tych buttonów
 
-        playerSamouczek = new Player(710, 210);
-        playerSamouczek.setFitWidth(50);
-        playerSamouczek.setFitHeight(24);
+        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, dymekSamouczek, babciaSamouczek, textDymekSamouczek);
 
-        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, dymekSamouczek, babciaSamouczek, textDymekSamouczek, playerSamouczek);
+//TODO (pod sam koniec): wytłumaczenie kiedy się odblokowują levele?
     }
 
     public static void fabulaScene() {
