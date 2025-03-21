@@ -298,6 +298,13 @@ public class Main extends Application {
         podSpodRectangle.setFitHeight(75); //-3
         rootSamouczek.getChildren().add(podSpodRectangle);
 
+        ImageView jazdaAutemButton = new ImageView(new Image("file:imagesStart/samouczek_fabula/jazdaAutem.png"));
+        jazdaAutemButton.setLayoutX(500);
+        jazdaAutemButton.setLayoutY(300);
+        jazdaAutemButton.setFitWidth(300);
+        jazdaAutemButton.setFitHeight(80);
+
+
         //-10 w obu X i Y
         ImageView startShow = new ImageView(new Image("file:imagesStart/menu/powrotNaStart.png"));
         startShow.setLayoutX(180);
@@ -425,7 +432,7 @@ public class Main extends Application {
             rootSamouczek.getChildren().remove(text5);
         });
 
-        rootSamouczek.getChildren().addAll(startShow, samouczekShow, wyjdzZGryShow, xShow, cofnijShow);
+        rootSamouczek.getChildren().addAll(startShow, samouczekShow, wyjdzZGryShow, xShow, cofnijShow, jazdaAutemButton);
         //koniec tych buttonów
 
         playerSamouczek = new Player(710, 210);
