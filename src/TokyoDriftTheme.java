@@ -101,9 +101,6 @@ public class TokyoDriftTheme {
         imageViewLevel2.setFitWidth(300);
         imageViewLevel2.setOnMouseClicked(event -> level2());
 
-        Rectangle rectangle2 = new Rectangle(450, 300, 300, 300 );
-        rectangle2.setOnMouseClicked(event -> level2());
-
         ImageView imageViewLevel3 = new ImageView(new Image("file:Tokyo/level3Cover.png"));
         imageViewLevel3.setLayoutX(800);
         imageViewLevel3.setLayoutY(300);
@@ -117,7 +114,7 @@ public class TokyoDriftTheme {
         menuButton.setLayoutY(10);
         menuButton.setOnMouseClicked(event -> Main.menu());
 
-        rootTokyoStart.getChildren().addAll(textNaGorze, imageViewLevel1, imageViewLevel2, imageViewLevel3, menuButton, rectangle2);
+        rootTokyoStart.getChildren().addAll(textNaGorze, imageViewLevel1, imageViewLevel2, imageViewLevel3, menuButton);
     }
 
     public static void level1(){
@@ -184,10 +181,6 @@ public class TokyoDriftTheme {
 //        Main.wyjdzZMenu.setOnMouseClicked(event -> {
 //            timeline.play();
 //        });
-
-
-
-
 
 
         //player.setRotate(180);
