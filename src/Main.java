@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -91,7 +92,7 @@ public class Main extends Application {
         // Create the menu scene
         AnchorPane rootMenu = new AnchorPane();
 
-        ImageView backgroundMenu = new ImageView(new Image("file:Tokyo/backgroundGenerate.png")); //TODO?
+        ImageView backgroundMenu = new ImageView(new Image("file:Tokyo/backgroundGenerate.png"));
         backgroundMenu.setFitHeight(500);
         backgroundMenu.setFitWidth(750);
         rootMenu.getChildren().add(backgroundMenu);
@@ -265,29 +266,37 @@ public class Main extends Application {
         imageViewMenuSamouczek.setFitHeight(50);
         imageViewMenuSamouczek.setOnMouseClicked(event -> menu());
 
+        ImageView dymekSamouczek = new ImageView(new Image("file:imagesStart/samouczek_fabula/dymek.png"));
+        dymekSamouczek.setLayoutX(170);
+        dymekSamouczek.setLayoutY(31);
+        dymekSamouczek.setFitWidth(400); //hmm?
+        dymekSamouczek.setFitHeight(90);
+
+        String[] dymekContentSamouczek = {"Witaj młody graczu!", "Aby poznać podstawy tej gry,", "najeżdżaj na poszczególne przyciski.",
+                "Jeżeli chcesz pojeździć autkiem,", "naciśnij na przeznaczony", "do tego przycisk.", "Pamiętaj, że zawsze możesz", "pominąć samouczek przyciskiem", "'pomiń' na dole ekranu :)"};
+        final Text textDymekSamouczek = new Text("");
+        Font font = Font.loadFont("file:Minecraftia-Regular.ttf",15);
+        textDymekSamouczek.setFont(font);
+        textDymekSamouczek.setLayoutX(194);
+        textDymekSamouczek.setLayoutY(75);
+
+        Text textPodBabcia = new Text("Click me");
+        textPodBabcia.setTextAlignment(TextAlignment.CENTER);
+        textPodBabcia.setLayoutX(80);
+        textPodBabcia.setLayoutY(208);
+        textPodBabcia.setFont(font);
+        rootSamouczek.getChildren().add(textPodBabcia);
+
         ImageView babciaSamouczek = new ImageView(new Image("file:imagesStart/samouczek_fabula/babcia.png"));
         babciaSamouczek.setLayoutX(50);
         babciaSamouczek.setLayoutY(22);
         babciaSamouczek.setFitHeight(165);
         babciaSamouczek.setFitWidth(123);
-
-        ImageView dymekSamouczek = new ImageView(new Image("file:imagesStart/samouczek_fabula/dymek.png"));
-        dymekSamouczek.setLayoutX(170);
-        dymekSamouczek.setLayoutY(26);
-        dymekSamouczek.setFitWidth(297);
-        dymekSamouczek.setFitHeight(90);
-
-        String[] dymekContentSamouczek = {"Hej, to jest do samouczka", "damy tu taki tekst", "na zasadzie, że", "młody graczu, poznaj", "zasady itd"}; //todo tekst
-
-        final Text textDymekSamouczek = new Text("");
-        Font font = Font.loadFont("file:Minecraftia-Regular.ttf",15);
-        textDymekSamouczek.setFont(font);
-        textDymekSamouczek.setLayoutX(192);
-        textDymekSamouczek.setLayoutY(70);
-
-        animateTextUsingTimeline(dymekContentSamouczek, textDymekSamouczek, 3.4);
-        //TODO - usunąć dymek jak babcia skończy mówić, ale po jej naciśnięciu znowu się pojawi
-        //może zrobić napis pod spodem "click me" i dopiero wtedy to wgla aktywować?
+        babciaSamouczek.setOnMouseClicked(event -> {
+            rootSamouczek.getChildren().remove(textPodBabcia);
+            rootSamouczek.getChildren().addAll(dymekSamouczek, textDymekSamouczek);
+            animateTextUsingTimeline(dymekContentSamouczek, textDymekSamouczek, 3.6, 3.6);
+        });
 
         //buttony do opisywania
         //start, samouczek, wyjdz z gry
@@ -302,14 +311,23 @@ public class Main extends Application {
 
         //TODO - przestawić w bok tego buttona
         ImageView jazdaAutemButton = new ImageView(new Image("file:imagesStart/samouczek_fabula/jazdaAutem.png"));
-        jazdaAutemButton.setLayoutX(500);
-        jazdaAutemButton.setLayoutY(300);
+        jazdaAutemButton.setLayoutX(770);
+        jazdaAutemButton.setLayoutY(250);
         jazdaAutemButton.setFitWidth(200);
         jazdaAutemButton.setFitHeight(53.33);
-        jazdaAutemButton.setOnMouseClicked(event -> { //TODO Marta - zrobić tak żeby ten car się pojawiał kurde a nie
-            playerSamouczek = new Player(710, 210);
+        jazdaAutemButton.setOnMouseClicked(event -> {
+            Text textAutko = new Text("Aby poruszać się autkiem korzystaj ze strzałek na klawiaturze. Możesz się poruszać po całym ekranie samouczka :)");
+            textAutko.setFont(font);
+            textAutko.setWrappingWidth(300);
+            textAutko.setLayoutX(730);
+            textAutko.setLayoutY(350);
+            textAutko.setTextAlignment(TextAlignment.CENTER);
+            rootSamouczek.getChildren().add(textAutko);
+
+            playerSamouczek = new Player(825, 470);
             playerSamouczek.setFitWidth(50);
             playerSamouczek.setFitHeight(24);
+            rootSamouczek.getChildren().add(playerSamouczek);
         });
 
 
@@ -323,14 +341,14 @@ public class Main extends Application {
 
         startShow.setOnMouseEntered(event -> {
 //            rootSamouczek.getChildren().remove(text);
-            rootSamouczek.getChildren().remove(textDymekSamouczek);
+            rootSamouczek.getChildren().removeAll(textDymekSamouczek, dymekSamouczek);
             podSpodRectangle.setLayoutX(170);
             podSpodRectangle.setLayoutY(240);
             text1.setFont(font);
             text1.setLayoutX(420); //192
-            text1.setLayoutY(260); //70
-            text1.setWrappingWidth(300);
-            rootSamouczek.getChildren().add(text1);
+            text1.setLayoutY(262); //70
+            text1.setWrappingWidth(310);
+            rootSamouczek.getChildren().addAll(text1);
 
         });
         startShow.setOnMouseExited(event -> {
@@ -353,7 +371,7 @@ public class Main extends Application {
             text2.setFont(font);
             text2.setLayoutX(420);
             text2.setLayoutY(345);
-            text2.setWrappingWidth(320); //TODO inny wrapping width
+            text2.setWrappingWidth(350);
             rootSamouczek.getChildren().add(text2);
         });
         samouczekShow.setOnMouseExited(event -> {
@@ -386,7 +404,7 @@ public class Main extends Application {
             rootSamouczek.getChildren().remove(text3);
         });
 
-        //TODO Martaaa (przestawić teksty na obok)
+
         ImageView podSpodRectangleMniejszy = new ImageView(new Image("file:imagesStart/samouczek_fabula/podSpod.png"));
         podSpodRectangleMniejszy.setLayoutX(initialX); //poza sceną
         podSpodRectangleMniejszy.setLayoutY(initialY); //poza sceną
@@ -397,16 +415,15 @@ public class Main extends Application {
         ImageView xShow = new ImageView(new Image("file:imagesStart/samouczek_fabula/Xfiolet.png"));
         xShow.setLayoutX(125);
         xShow.setLayoutY(550);
-        Text text4 = new Text("");
+        Text text4 = new Text("Ten przycisk pozwala ci wyjść z menu :)");
         xShow.setOnMouseEntered(event -> {
             rootSamouczek.getChildren().remove(textDymekSamouczek);
             podSpodRectangleMniejszy.setLayoutX(115);
             podSpodRectangleMniejszy.setLayoutY(540);
-            String[] dymek = {"Ten przycisk", "pozwala Ci wyjść", "z menu :)"};
-            animateTextUsingTimeline(dymek, text4, 3.35);
             text4.setFont(font);
-            text4.setLayoutX(192);
-            text4.setLayoutY(70);
+            text4.setLayoutX(245);
+            text4.setLayoutY(578);
+            text4.setWrappingWidth(200);
             rootSamouczek.getChildren().add(text4);
 
         });
@@ -419,16 +436,15 @@ public class Main extends Application {
         ImageView cofnijShow = new ImageView(new Image("file:imagesStart/samouczek_fabula/cofnijFiolet.png"));
         cofnijShow.setLayoutX(125);
         cofnijShow.setLayoutY(625);
-        Text text5 = new Text("");
+        Text text5 = new Text("Ten przycisk pozwala Ci się cofnąć do poprzedniej sceny.");
         cofnijShow.setOnMouseEntered(event -> {
             rootSamouczek.getChildren().remove(textDymekSamouczek);
             podSpodRectangleMniejszy.setLayoutX(115);
             podSpodRectangleMniejszy.setLayoutY(615);
-            String[] dymek = {"Ten przycisk", "cofnąć się do poprzedniej", "sceny"}; //TODO
-            animateTextUsingTimeline(dymek, text5, 3.35);
             text5.setFont(font);
-            text5.setLayoutX(192);
-            text5.setLayoutY(70);
+            text5.setWrappingWidth(300);
+            text5.setLayoutX(245);
+            text5.setLayoutY(653);
             rootSamouczek.getChildren().add(text5);
 
         });
@@ -441,7 +457,7 @@ public class Main extends Application {
         rootSamouczek.getChildren().addAll(startShow, samouczekShow, wyjdzZGryShow, xShow, cofnijShow, jazdaAutemButton);
         //koniec tych buttonów
 
-        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, dymekSamouczek, babciaSamouczek, textDymekSamouczek);
+        rootSamouczek.getChildren().addAll(imageViewMenuSamouczek, imageViewPominSamouczek, babciaSamouczek);
 
 //TODO (pod sam koniec): wytłumaczenie kiedy się odblokowują levele?
     }
@@ -496,12 +512,12 @@ public class Main extends Application {
         textDymek.setLayoutX(651);
         textDymek.setLayoutY(370);
 
-        animateTextUsingTimeline(dymekContent, textDymek, 3.5);
+        animateTextUsingTimeline(dymekContent, textDymek, 3.5, 3.5);
 
         rootFabula.getChildren().addAll(imageViewMenuFabula, babcia, dymek, imageViewPominFabula, textDymek );
     }
 
-    public static void animateTextUsingTimeline(String[] contentArray, Text textDymek, double timeBetweenStrings) {
+    public static void animateTextUsingTimeline(String[] contentArray, Text textDymek, double timeBetweenStrings, double durationBetweenStrings) {
         Timeline timeline = new Timeline();
 
         for (int i = 0; i < contentArray.length; i++) {
@@ -510,7 +526,7 @@ public class Main extends Application {
 
             KeyFrame keyFrame = new KeyFrame(
                     Duration.seconds(i * timeBetweenStrings),  // seconds between each string
-                    e -> animateText(content, textDymek)
+                    e -> animateText(content, textDymek, durationBetweenStrings)
             );
             timeline.getKeyFrames().add(keyFrame);
         }
@@ -519,10 +535,10 @@ public class Main extends Application {
         timeline.play();
     }
 
-    private static void animateText(String content, Text textDymek) {
+    private static void animateText(String content, Text textDymek, double durationBetweenStrings) {
         final Animation typingAnimation = new Transition() {
             {
-                setCycleDuration(Duration.seconds(3.5)); // Duration of typing effect for each string ..
+                setCycleDuration(Duration.seconds(durationBetweenStrings)); // Duration of typing effect for each string ..
             }
 
             protected void interpolate(double frac) {
@@ -591,7 +607,7 @@ public class Main extends Application {
             textDymek.setLayoutX(751);
             textDymek.setLayoutY(616);
 
-            animateTextUsingTimeline(dymekContent, textDymek, 3.35);
+            animateTextUsingTimeline(dymekContent, textDymek, 3.35, 3.45);
 
             rootChooseThemeScene.getChildren().addAll(babciaMowi, dymek, textDymek);
         });
