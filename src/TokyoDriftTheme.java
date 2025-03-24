@@ -82,7 +82,7 @@ public class TokyoDriftTheme {
         Text textNaGorze = new Text("Wybierz level :");
         Font fontTokyo = Font.loadFont("file:Minecraftia-Regular.ttf",45);
         textNaGorze.setStyle("-fx-font-weight: bold;");
-        textNaGorze.setFill(Color.color(0.11, 0.54, 0.67)); //TODO Nati
+        textNaGorze.setFill(Color.color(0.11, 0.54, 0.67));
         textNaGorze.setFont(fontTokyo);
         textNaGorze.setLayoutX(400);
         textNaGorze.setLayoutY(200);

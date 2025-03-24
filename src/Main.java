@@ -309,7 +309,6 @@ public class Main extends Application {
         podSpodRectangle.setFitHeight(75); //-3
         rootSamouczek.getChildren().add(podSpodRectangle);
 
-        //TODO - przestawić w bok tego buttona
         ImageView jazdaAutemButton = new ImageView(new Image("file:imagesStart/samouczek_fabula/jazdaAutem.png"));
         jazdaAutemButton.setLayoutX(770);
         jazdaAutemButton.setLayoutY(250);
@@ -504,8 +503,7 @@ public class Main extends Application {
         imageViewPominFabula.setFitWidth(100);
         imageViewPominFabula.setOnMouseClicked(event -> chooseThemeScene());
 
-        //TODO button "dalej" w timeline?
-        String[] dymekContent = {"ok I can't believe it works", "testing again", "the babcia :)))", "I'm really happy", "with how that works"}; //todo tekst
+        String[] dymekContent = {"ok I can't believe it works", "testing again", "the babcia :)))", "I'm really happy", "with how that works"}; //TODO tekst (important)
         final Text textDymek = new Text("");
         Font font = Font.loadFont("file:Minecraftia-Regular.ttf",35);
         textDymek.setFont(font);
