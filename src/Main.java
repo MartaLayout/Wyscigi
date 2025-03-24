@@ -620,3 +620,5 @@ public class Main extends Application {
         rootChooseThemeScene.getChildren().addAll(tokyoDriftTheme, magicalTheme, menuButton, wBudowie);
     }
 }
+
+//TODO podorabiac mozliwosc cara do level2 i level3 + do level 2 dołozyć menu

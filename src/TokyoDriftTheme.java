@@ -255,7 +255,7 @@ public class TokyoDriftTheme {
 
         level2Setup();
 
-        ImageView imageViewTorLevel2Tokyo = new ImageView(new Image("file:Tokyo/torduzy.png")); //TODO plik
+        ImageView imageViewTorLevel2Tokyo = new ImageView(new Image("file:Tokyo/tory/level2Tor.png"));
         imageViewTorLevel2Tokyo.setFitHeight(800);
         imageViewTorLevel2Tokyo.setFitWidth(1200);
         level2Root.getChildren().add(imageViewTorLevel2Tokyo);
@@ -329,7 +329,7 @@ public class TokyoDriftTheme {
 
         rootTokyoStart.getChildren().clear();
 
-        ImageView imageViewTorLevel3Tokyo = new ImageView(new Image("file:Tokyo/torduzy.png")); //TODO plik
+        ImageView imageViewTorLevel3Tokyo = new ImageView(new Image("file:Tokyo/tory/level3Tor.png"));
         imageViewTorLevel3Tokyo.setFitHeight(800);
         imageViewTorLevel3Tokyo.setFitWidth(1200);
         level3Root.getChildren().add(imageViewTorLevel3Tokyo);
