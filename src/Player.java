@@ -14,7 +14,7 @@ public class Player extends Car{
     private boolean moveLeft;
     private boolean moveBackwards;
 
-    private int nitroMode = 0;
+    //private int nitroMode = 0;
 
 
 
@@ -79,7 +79,8 @@ public class Player extends Car{
                 }
             });
             //     }
-        } else if (TokyoDriftTheme.activeLevel1Scene) {
+        }
+        else if (TokyoDriftTheme.activeLevel1Scene) {
             TokyoDriftTheme.level1TokyoScene.setOnKeyPressed(event -> {
                 //UP z DOWN zamienione bo musiałam zrobić rotate imageView
                 //i right z left też
@@ -137,12 +138,12 @@ public class Player extends Car{
             });
         }
         timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
-            if (nitroMode >0){
-                nitroMode --;
-            }
-            if (nitroMode<=0){
-                //this.ExitNitroModeNotWroom();
-            }
+//            if (nitroMode >0){
+//                nitroMode --;
+//            }
+//            if (nitroMode<=0){
+//                //this.ExitNitroModeNotWroom();
+//            }
             if (moveBackwards){
                 moveBackwardsAppliedForce();
             }
@@ -182,12 +183,12 @@ public class Player extends Car{
             this.setTranslateY(carY);
             this.setRotate(carAngle);
 
-            //checking if player intersects puddle
-            for (int i = 0; i < Puddle.puddleList.size(); i++) {
-                if (Puddle.puddleList.get(i).collision(this)){
-                    this.slowDown();
-                }
-            }
+//            //checking if player intersects puddle
+//            for (int i = 0; i < Puddle.puddleList.size(); i++) {
+//                if (Puddle.puddleList.get(i).collision(this)){
+//                    this.slowDown();
+//                }
+//            }
 
         }));
         timelineCar.setCycleCount(Animation.INDEFINITE);
@@ -197,17 +198,17 @@ public class Player extends Car{
     }
 
 
-    protected boolean BonusCollision(Bonus bonus){
-        if (this.intersects(bonus.getX(), bonus.getY(), bonus.getFitWidth(), bonus.getFitHeight())){
-           if (bonus.getCollectedCounter() == 10){
-               nitroMode = 500;
-               //this.EnterNitroModeWroom();
-               bonus.setCollectedCounter(0);
-           }
-            return true;
-        }
-        return false;
-    }
+//    protected boolean BonusCollision(Bonus bonus){
+//        if (this.intersects(bonus.getX(), bonus.getY(), bonus.getFitWidth(), bonus.getFitHeight())){
+//           if (bonus.getCollectedCounter() == 10){
+//               nitroMode = 500;
+//               //this.EnterNitroModeWroom();
+//               bonus.setCollectedCounter(0);
+//           }
+//            return true;
+//        }
+//        return false;
+//    }
 
 
 
