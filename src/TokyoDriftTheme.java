@@ -194,7 +194,7 @@ public class TokyoDriftTheme {
         //tworzymy wieżę - działa
         Shooter shooter = new Shooter(283, 300, imageTowerShooter);
 
-        Timeline timelineFiring = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
+        Timeline timelineFiring = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
             shooter.fireBullet(player.carX, player.carY, 20);
 
         }));

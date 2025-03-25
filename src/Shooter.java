@@ -56,20 +56,25 @@ public class Shooter extends ImageView{
         double rotationInRadians = Math.toRadians(getRotate());
 
         // Get the center of the shooter image
-        double shooterCenterX = getLayoutX() + getFitWidth() / 2;
-        double shooterCenterY = getLayoutY() + getFitHeight() / 2;
+        double shooterCenterX = getLayoutX() + getBoundsInParent().getWidth() / 2;
+        double shooterCenterY = getLayoutY() + getBoundsInParent().getHeight() / 2;
 
-        // Calculate the bullet's starting position based on the rotation
-        double bulletStartX = shooterCenterX + Math.cos(rotationInRadians) * getFitWidth() / 2;
-        double bulletStartY = shooterCenterY + Math.sin(rotationInRadians) * getFitHeight() / 2;
+        // Move the bullet slightly in front of the shooter (based on the rotation)
+        double bulletOffset = 7;  // Fine-tune this value as needed
 
-        // Calculate the direction vector to the target
+        // Calculate the bullet's starting position in front of the shooter
+        double bulletStartX = shooterCenterX + Math.cos(rotationInRadians) * bulletOffset;
+        double bulletStartY = shooterCenterY + Math.sin(rotationInRadians) * bulletOffset;
+
+        // Calculate the direction vector for the bullet to move toward the target
         double distance = Math.hypot(targetX - bulletStartX, targetY - bulletStartY);
         double dx = speed * (targetX - bulletStartX) / distance;
         double dy = speed * (targetY - bulletStartY) / distance;
 
-        // Create and add the bullet
+        // Create the bullet
         Bullet bullet = new Bullet(dx, dy, bulletStartX, bulletStartY);
+
+        // Add the bullet to the game scene
         bullets.add(bullet);
         TokyoDriftTheme.level1Root.getChildren().add(bullet);
     }
