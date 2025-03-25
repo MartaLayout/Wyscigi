@@ -129,7 +129,7 @@ public class TokyoDriftTheme {
 
         level1Root.getChildren().clear();
 
-        ImageView imageViewTorLevel1Tokyo = new ImageView(new Image("file:Tokyo/torduzy.png"));
+        ImageView imageViewTorLevel1Tokyo = new ImageView(new Image("file:Tokyo/tory/torduzy.png"));
         imageViewTorLevel1Tokyo.setFitHeight(800);
         imageViewTorLevel1Tokyo.setFitWidth(1200);
         level1Root.getChildren().add(imageViewTorLevel1Tokyo);
@@ -192,16 +192,20 @@ public class TokyoDriftTheme {
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
         //tworzymy wieżę - działa
-        Shooter shooter = new Shooter(288, 300, imageTowerShooter);
+        Shooter shooter = new Shooter(283, 300, imageTowerShooter);
 
-        Timeline timelineShooter = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
+        Timeline timelineFiring = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
             shooter.fireBullet(player.carX, player.carY, 20);
-            shooter.rotateToTarget(player);
-
 
         }));
-        timelineShooter.setCycleCount(INDEFINITE);
-        timelineShooter.play();
+        timelineFiring.setCycleCount(INDEFINITE);
+        timelineFiring.play();
+
+        Timeline rotationTimeline = new Timeline(new KeyFrame(Duration.millis(20), event -> {
+            shooter.rotateToTarget(player);
+        }));
+        rotationTimeline.setCycleCount(INDEFINITE);
+        rotationTimeline.play();
 
         Rectangle rectangle = new Rectangle(10, 10);
 

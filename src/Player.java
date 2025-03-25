@@ -8,7 +8,7 @@ import javafx.util.Duration;
 
 public class Player extends Car{
 
-    static Image image = new Image("file:Tokyo/car.png");
+    static Image image = new Image("file:Tokyo/cars/car.png");
     private boolean moveForward;
     private boolean moveRight;
     private boolean moveLeft;
