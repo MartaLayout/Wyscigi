@@ -21,6 +21,12 @@ public class Car extends ImageView {
     private double x;
     private double y;
     protected double direction;
+    Image maska = new Image("file:maska.png");
+    ImageView mask = new ImageView(maska) {
+//        mask.setLayoutX(0);
+//        mask.setLayoutY(0);
+    };
+
 
     public int checkpointCounter = 15;
     public boolean rightWay;
@@ -255,16 +261,25 @@ public class Car extends ImageView {
 
 
     protected void kolorMaski(){
-        Image maska = new Image("file:maska.png");
+
         PixelReader maskaReader = maska.getPixelReader();
         Color maskaColor = maskaReader.getColor((int) carX, (int) carY);
-//        if (maskaColor == Color.WHITE){
-//
+        if (maskaColor == new Color(0, 0,0, 1)){
+            collide();
+
+        }
+//        else {
+//            System.out.println(maskaColor);
 //        }
 
 
 
 
+
+    }
+
+    private void collide() {
+        setRotate(getRotate() + 90);
     }
     //later add variations of move on different surfaces, with slightly different parameters
 }

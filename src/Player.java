@@ -137,6 +137,8 @@ public class Player extends Car{
             });
         }
         timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
+            kolorMaski();
+            ////BEWARE BITCHES, dont touch
             if (nitroMode >0){
                 nitroMode --;
             }
