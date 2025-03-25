@@ -10,6 +10,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -18,6 +20,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -49,6 +52,10 @@ public class Main extends Application {
 
     static List<Projectile> projectiles = new ArrayList<>();
 
+
+
+
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -58,10 +65,17 @@ public class Main extends Application {
         stage = primaryStage;
         startScene();
         stage.show();
+        String musicFile = "src/music/music.mp3";
+        playSound(musicFile);
+
     }
 
     public static void startScene() {
         // Create the start screen
+
+
+
+
         AnchorPane rootStart = new AnchorPane();
         ImageView imageViewStartScene = new ImageView(new Image("file:imagesStart/GRANDMA (STER).png"));
         imageViewStartScene.setFitHeight(HEIGHT);
@@ -617,6 +631,12 @@ public class Main extends Application {
 
         rootChooseThemeScene.getChildren().addAll(tokyoDriftTheme, magicalTheme, menuButton, wBudowie);
     }
-}
+
+    public void playSound(String fileName){
+        Media media = new Media(new File(fileName).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
+}};
 
 //TODO podorabiac mozliwosc cara do level2 i level3 + do level 2 dołozyć menu
