@@ -58,6 +58,9 @@ public class Main extends Application {
 
     static String musicFile = "src/music/music.mp3";
 
+    public static Media starterMusic = new Media(new File(musicFile).toURI().toString());
+    public static MediaPlayer mediaPlayer = new MediaPlayer(starterMusic);
+
 
     public static void main(String[] args) {
         launch(args);
@@ -68,7 +71,8 @@ public class Main extends Application {
         stage = primaryStage;
         startScene();
         stage.show();
-        playSound(musicFile);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
     }
 
     public static void startScene() {
@@ -139,11 +143,12 @@ public class Main extends Application {
             if(isMusicOn == false){
                 musicOnOffButton.setImage(musicOff);
                 isMusicOn = true;
+                mediaPlayer.stop();
             } else {
                 musicOnOffButton.setImage(musicOn);
                 isMusicOn = false;
+                mediaPlayer.play();
             }
-            //TODO Nati do it here please
         });
 
 
@@ -642,12 +647,6 @@ public class Main extends Application {
         rootChooseThemeScene.getChildren().addAll(tokyoDriftTheme, magicalTheme, menuButton, wBudowie);
     }
 
-    public static void playSound(String fileName){
-        Media media = new Media(new File(fileName).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.play();
-        //TODO nati prosze to zrobić tak żebym mogła tego używać
-}};
+};
 
 //TODO podorabiac mozliwosc cara do level2 i level3 + do level 2 dołozyć menu
