@@ -14,9 +14,6 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import static javafx.animation.Animation.INDEFINITE;
-import static javafx.scene.text.Font.font;
-import static javafx.scene.text.Font.getFamilies;
-
 
 public class TokyoDriftTheme {
     //hubhubhu
@@ -51,6 +48,8 @@ public class TokyoDriftTheme {
     static boolean activeLevel3Scene = false;
     static Scene level3TokyoScene = new Scene(level3Root, Main.WIDTH, Main.HEIGHT);
     private static boolean isTimerRunning;
+
+    static int iloscOkrazen = 20; //TODO change to 0 here once we finish setting everything up
 
 
     public static void generateTokyo(){
@@ -94,19 +93,30 @@ public class TokyoDriftTheme {
         imageViewLevel1.setFitWidth(300);
         imageViewLevel1.setOnMouseClicked(event -> level1());
 
+        ImageView klodkaLevel2 = new ImageView(new Image("file:Tokyo/klodka.png"));
+        klodkaLevel2.setFitWidth(400);
+        klodkaLevel2.setFitHeight(400);
+        klodkaLevel2.setLayoutX(400);
+        klodkaLevel2.setLayoutY(230);
+
+
         ImageView imageViewLevel2 = new ImageView(new Image("file:Tokyo/level2Cover.png"));
         imageViewLevel2.setLayoutX(450);
         imageViewLevel2.setLayoutY(300);
         imageViewLevel2.setFitHeight(300);
         imageViewLevel2.setFitWidth(300);
-        imageViewLevel2.setOnMouseClicked(event -> level2());
+
+        ImageView klodkaLevel3 = new ImageView(new Image("file:Tokyo/klodka.png"));
+        klodkaLevel3.setFitWidth(400);
+        klodkaLevel3.setFitHeight(400);
+        klodkaLevel3.setLayoutX(750);
+        klodkaLevel3.setLayoutY(230);
 
         ImageView imageViewLevel3 = new ImageView(new Image("file:Tokyo/level3Cover.png"));
         imageViewLevel3.setLayoutX(800);
         imageViewLevel3.setLayoutY(300);
         imageViewLevel3.setFitHeight(300);
         imageViewLevel3.setFitWidth(300);
-        imageViewLevel3.setOnMouseClicked(event -> level3());
 
         //TODO kłó∂ka --> when we know after how many points(idk) the next one unlocks
 
@@ -114,7 +124,17 @@ public class TokyoDriftTheme {
         menuButton.setLayoutY(10);
         menuButton.setOnMouseClicked(event -> Main.menu());
 
-        rootTokyoStart.getChildren().addAll(textNaGorze, imageViewLevel1, imageViewLevel2, imageViewLevel3, menuButton);
+        rootTokyoStart.getChildren().addAll(textNaGorze, imageViewLevel1, imageViewLevel2, imageViewLevel3, menuButton, klodkaLevel2, klodkaLevel3);
+
+        if(iloscOkrazen >= 10){
+            rootTokyoStart.getChildren().remove(klodkaLevel2);
+            imageViewLevel2.setOnMouseClicked(event -> level2());
+        }
+
+        if(iloscOkrazen >= 20){
+            rootTokyoStart.getChildren().remove(klodkaLevel3);
+            imageViewLevel3.setOnMouseClicked(event -> level3());
+        }
     }
 
     public static void level1(){
@@ -246,9 +266,6 @@ public class TokyoDriftTheme {
     }
 
     public static void level2(){
-//        Main.activeSamouczekScene = false;
-//        Main.activeFabulaScene = false;
-//        Main.activeChooseThemeScene = false;
         activeGenerateScene = false;
 
         activeLevel1Scene = false;
@@ -257,24 +274,24 @@ public class TokyoDriftTheme {
 
         level2Root.getChildren().clear();
 
-        level2Setup();
-
         ImageView imageViewTorLevel2Tokyo = new ImageView(new Image("file:Tokyo/tory/level2Tor.png"));
         imageViewTorLevel2Tokyo.setFitHeight(800);
         imageViewTorLevel2Tokyo.setFitWidth(1200);
         level2Root.getChildren().add(imageViewTorLevel2Tokyo);
+
+        level2Setup();
 
         Main.stage.setTitle("Level 2 Tokyo");
         Main.stage.setScene(level2TokyoScene);
     }
 
     public static void level2Setup(){
-        ImageView menuTokyoDrift = new ImageView(new Image("file:Tokyo/menuButtonTokyo.png"));
-        menuTokyoDrift.setLayoutX(1030);
-        menuTokyoDrift.setLayoutY(744);
-        menuTokyoDrift.setFitWidth(100);
-        menuTokyoDrift.setFitHeight(50);
-        menuTokyoDrift.setOnMouseClicked(event -> Main.menu());
+        ImageView menuTokyoDrift2 = new ImageView(new Image("file:Tokyo/menuButtonTokyo.png"));
+        menuTokyoDrift2.setLayoutX(1030);
+        menuTokyoDrift2.setLayoutY(744);
+        menuTokyoDrift2.setFitWidth(100);
+        menuTokyoDrift2.setFitHeight(50);
+        menuTokyoDrift2.setOnMouseClicked(event -> Main.menu());
 
         //timer
         timerText.setX(337);
@@ -298,40 +315,35 @@ public class TokyoDriftTheme {
 
 
         Player player = new Player(200,180);
-        //player.setRotate(180);
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
         //tworzymy wieżę - działa
-        Shooter shooter = new Shooter(288, 300, imageTowerShooter);
+        Shooter shooter = new Shooter(283, 300, imageTowerShooter);
 
-        Timeline timelineShooter = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
+        Timeline timelineFiring = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
             shooter.fireBullet(player.carX, player.carY, 20);
-            shooter.rotateToTarget(player);
-
 
         }));
-        timelineShooter.setCycleCount(INDEFINITE);
-        timelineShooter.play();
+        timelineFiring.setCycleCount(INDEFINITE);
+        timelineFiring.play();
 
-        Rectangle rectangle = new Rectangle(10, 10);
+        Timeline rotationTimeline = new Timeline(new KeyFrame(Duration.millis(20), event -> {
+            shooter.rotateToTarget(player);
+        }));
+        rotationTimeline.setCycleCount(INDEFINITE);
+        rotationTimeline.play();
 
-
-        level2Root.getChildren().addAll( rectangle, player, shooter, menuTokyoDrift, timerText, lapTimerText);
+        level2Root.getChildren().addAll( player, shooter, menuTokyoDrift2, timerText, lapTimerText);
     }
 
-
     public static void level3(){
-//        Main.activeSamouczekScene = false;
-//        Main.activeFabulaScene = false;
-//        Main.activeChooseThemeScene = false;
         activeGenerateScene = false;
-
         activeLevel1Scene = false;
         activeLevel2Scene = false;
         activeLevel3Scene = true;
 
-        rootTokyoStart.getChildren().clear();
+        level3Root.getChildren().clear();
 
         ImageView imageViewTorLevel3Tokyo = new ImageView(new Image("file:Tokyo/tory/level3Tor.png"));
         imageViewTorLevel3Tokyo.setFitHeight(800);
@@ -345,12 +357,12 @@ public class TokyoDriftTheme {
     }
 
     public static void level3Setup(){
-        ImageView menuTokyoDrift = new ImageView(new Image("file:Tokyo/menuButtonTokyo.png"));
-        menuTokyoDrift.setLayoutX(1030);
-        menuTokyoDrift.setLayoutY(744);
-        menuTokyoDrift.setFitWidth(100);
-        menuTokyoDrift.setFitHeight(50);
-        menuTokyoDrift.setOnMouseClicked(event -> Main.menu());
+        ImageView menuTokyoDrift3 = new ImageView(new Image("file:Tokyo/menuButtonTokyo.png"));
+        menuTokyoDrift3.setLayoutX(1030);
+        menuTokyoDrift3.setLayoutY(744);
+        menuTokyoDrift3.setFitWidth(100);
+        menuTokyoDrift3.setFitHeight(50);
+        menuTokyoDrift3.setOnMouseClicked(event -> Main.menu());
 
         //timer
         timerText.setX(337);
@@ -372,29 +384,29 @@ public class TokyoDriftTheme {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 
-
         //Puddle.puddleFactory(level1Root);
         Player player = new Player(200,180);
-        //player.setRotate(180);
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
         //tworzymy wieżę - działa
-        Shooter shooter = new Shooter(288, 300, imageTowerShooter);
+        Shooter shooter = new Shooter(283, 300, imageTowerShooter);
 
-        Timeline timelineShooter = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
+        Timeline timelineFiring = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
             shooter.fireBullet(player.carX, player.carY, 20);
-            shooter.rotateToTarget(player);
-
 
         }));
-        timelineShooter.setCycleCount(INDEFINITE);
-        timelineShooter.play();
+        timelineFiring.setCycleCount(INDEFINITE);
+        timelineFiring.play();
 
-        Rectangle rectangle = new Rectangle(10, 10);
+        Timeline rotationTimeline = new Timeline(new KeyFrame(Duration.millis(20), event -> {
+            shooter.rotateToTarget(player);
+        }));
+        rotationTimeline.setCycleCount(INDEFINITE);
+        rotationTimeline.play();
 
 
-        level3Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDrift, timerText, lapTimerText);
+        level3Root.getChildren().addAll(player, shooter, menuTokyoDrift3, timerText, lapTimerText);
     }
 
 }
