@@ -52,8 +52,11 @@ public class Main extends Application {
 
     static List<Projectile> projectiles = new ArrayList<>();
 
+    static Image musicOff = new Image("file:imagesStart/menu/muzyka0.png");
+    static Image musicOn = new Image("file:imagesStart/menu/muzyka1.png");
+    static boolean isMusicOn = true;
 
-
+    static String musicFile = "src/music/music.mp3";
 
 
     public static void main(String[] args) {
@@ -65,17 +68,10 @@ public class Main extends Application {
         stage = primaryStage;
         startScene();
         stage.show();
-        String musicFile = "src/music/music.mp3";
         playSound(musicFile);
-
     }
 
     public static void startScene() {
-        // Create the start screen
-
-
-
-
         AnchorPane rootStart = new AnchorPane();
         ImageView imageViewStartScene = new ImageView(new Image("file:imagesStart/GRANDMA (STER).png"));
         imageViewStartScene.setFitHeight(HEIGHT);
@@ -103,7 +99,7 @@ public class Main extends Application {
     }
 
     public static void menu() {
-        // Create the menu scene
+
         AnchorPane rootMenu = new AnchorPane();
 
         ImageView backgroundMenu = new ImageView(new Image("file:Tokyo/backgroundGenerate.png"));
@@ -134,7 +130,24 @@ public class Main extends Application {
         wyjdzZGry.setFitHeight(80);
         wyjdzZGry.setFitWidth(300);
 
-        rootMenu.getChildren().addAll(samouczekButtonMenu, powrotNaStartButton, wyjdzZMenu, wyjdzZGry);
+        ImageView musicOnOffButton = new ImageView(musicOn);
+        musicOnOffButton.setLayoutX(618);
+        musicOnOffButton.setLayoutY(30);
+        isMusicOn = true;
+
+        musicOnOffButton.setOnMouseClicked(event -> { //if it works it works guys :))
+            if(isMusicOn == false){
+                musicOnOffButton.setImage(musicOff);
+                isMusicOn = true;
+            } else {
+                musicOnOffButton.setImage(musicOn);
+                isMusicOn = false;
+            }
+            //TODO Nati do it here please
+        });
+
+
+        rootMenu.getChildren().addAll(samouczekButtonMenu, powrotNaStartButton, wyjdzZMenu, wyjdzZGry, musicOnOffButton);
 
         Scene menu = new Scene(rootMenu, 750, 500);
         Stage stageMenu = new Stage();
@@ -145,7 +158,6 @@ public class Main extends Application {
         stageMenu.show();
         stageMenu.setAlwaysOnTop(true);
 
-        // Only visible if in game or specific scenes
         if(TokyoDriftTheme.activeLevel1Scene || TokyoDriftTheme.activeLevel2Scene || TokyoDriftTheme.activeLevel3Scene || activeChooseThemeScene || TokyoDriftTheme.activeGenerateScene){
             ImageView cofnijButton = new ImageView(new Image("file:imagesStart/menu/menuCofnij.png"));
             cofnijButton.setLayoutX(30);
@@ -353,7 +365,6 @@ public class Main extends Application {
         Text text1 = new Text("Przycisk start jest dostępny w menu. Po jego naciśnięciu wrócisz na start.");
 
         startShow.setOnMouseEntered(event -> {
-//            rootSamouczek.getChildren().remove(text);
             rootSamouczek.getChildren().removeAll(textDymekSamouczek, dymekSamouczek);
             podSpodRectangle.setLayoutX(170);
             podSpodRectangle.setLayoutY(240);
@@ -533,7 +544,6 @@ public class Main extends Application {
         Timeline timeline = new Timeline();
 
         for (int i = 0; i < contentArray.length; i++) {
-            final int index = i;
             String content = contentArray[i];
 
             KeyFrame keyFrame = new KeyFrame(
@@ -568,7 +578,7 @@ public class Main extends Application {
         activeFabulaScene = false;
         activeChooseThemeScene = true;
 
-        rootChooseThemeScene.getChildren().clear(); // Clear previous elements
+        rootChooseThemeScene.getChildren().clear();
         ImageView background = new ImageView(new Image("file:Tokyo/backgroundTokyoLevel.png"));
         background.setFitWidth(WIDTH);
         background.setFitHeight(HEIGHT);
@@ -589,7 +599,7 @@ public class Main extends Application {
         tokyoDriftTheme.setFitHeight(300);
         tokyoDriftTheme.setOnMouseClicked(event -> TokyoDriftTheme.generateTokyo());
 
-        //magical theme --> we are not doing that probably
+        //magical theme --> under construction
         ImageView magicalTheme = new ImageView(new Image("file:imagesStart/menumagic.png"));
         magicalTheme.setLayoutX(650);
         magicalTheme.setLayoutY(250);
@@ -632,11 +642,12 @@ public class Main extends Application {
         rootChooseThemeScene.getChildren().addAll(tokyoDriftTheme, magicalTheme, menuButton, wBudowie);
     }
 
-    public void playSound(String fileName){
+    public static void playSound(String fileName){
         Media media = new Media(new File(fileName).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
+        //TODO nati prosze to zrobić tak żebym mogła tego używać
 }};
 
 //TODO podorabiac mozliwosc cara do level2 i level3 + do level 2 dołozyć menu
