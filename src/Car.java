@@ -39,9 +39,9 @@ public class Car extends ImageView {
     protected double carAngle = 0; // Initial rotation angle (in degrees)
     //NOTE HOW SPEED SHOULD NOT BE CHANGED (UNLESS FOR NITRO MODE OBVI)
     protected double speed = 0.5; // Movement speed   //3
-    protected final double rotationSpeed = 3; // Rotation speed (degrees) //5
-    protected  double speedIncrimentation = 0.01; //1.0000
-    protected  double speedIncrimentationBackwards = 0.01;
+    protected final double rotationSpeed = 1; // Rotation speed (degrees) //5
+    protected  double speedIncrimentation = 0.0001; //1.0000
+    protected  double speedIncrimentationBackwards = 0.0001;
 
     boolean moveBackwards;
     boolean moveForward;
