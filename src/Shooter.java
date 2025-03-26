@@ -76,14 +76,19 @@ public class Shooter extends ImageView{
 
         // Add the bullet to the game scene
         bullets.add(bullet);
-        TokyoDriftTheme.level1Root.getChildren().add(bullet);
+        if(TokyoDriftTheme.activeLevel1Scene){
+            TokyoDriftTheme.level1Root.getChildren().add(bullet);
+        } else if (TokyoDriftTheme.activeLevel2Scene) {
+            TokyoDriftTheme.level2Root.getChildren().add(bullet);
+        } else if(TokyoDriftTheme.activeLevel3Scene){
+            TokyoDriftTheme.level3Root.getChildren().add(bullet);
+        }
     }
 
     public void move() {
         for (int i = 0; i < bullets.size(); i++) {
             bullets.get(i).move();
         }
-
         //jeżeli trafi w car (collision)
 
     }
