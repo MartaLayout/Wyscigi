@@ -173,7 +173,7 @@ public class Car extends ImageView {
         carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
         carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentationBackwards;
         speedUpBackwards();
-        System.out.println(speedIncrimentationBackwards);
+        //System.out.println(speedIncrimentationBackwards);
     }
 
     protected void moveBackwardsNegForce(){
@@ -240,12 +240,15 @@ public class Car extends ImageView {
         }
     }
 
+
+//so i think here is the code for speeding up when the Player is in Nitro (part of the code at least)
 //    protected void EnterNitroModeWroom(){
-//        speed *=2;
+//        speed *=20;
+//        System.out.println("EnterNitroModeWroom");
 //    }
 //
 //    protected void ExitNitroModeNotWroom(){
-//        speed*=2;
+//        speed/=20;
 //    }
 
 

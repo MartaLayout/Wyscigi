@@ -14,7 +14,7 @@ public class Player extends Car{
     private boolean moveLeft;
     private boolean moveBackwards;
 
-    //private int nitroMode = 0;
+    private int nitroMode = 0;
 
 
 
@@ -67,6 +67,8 @@ public class Player extends Car{
                 TokyoDriftTheme.level1TokyoScene.setOnKeyPressed(event -> {
                 //UP z DOWN zamienione bo musiałam zrobić rotate imageView
                 //i right z left też
+
+                    BonusCollision(TokyoDriftTheme.bonus);
                     if (event.getCode() == KeyCode.DOWN) {
                     moveBackwards = true;
                     TokyoDriftTheme.start = true;
@@ -176,16 +178,19 @@ public class Player extends Car{
 //            if (nitroMode<=0){
 //                //this.ExitNitroModeNotWroom();
 //            }
-                if (moveBackwards) {
-                    moveBackwardsAppliedForce();
-                } else {
-                    moveBackwardsNegForce();
-                }
-                if (moveForward) {
-                    moveForwardAppliedForce();
-                } else {
-                    moveForwardNegForce();
-                }
+
+            if (moveBackwards) {
+                moveBackwardsAppliedForce();
+            }
+            else {
+                moveBackwardsNegForce();
+            }
+            if (moveForward) {
+                moveForwardAppliedForce();
+            }
+            else {
+                moveForwardNegForce();
+            }
 
 //            if (!moveForward){
 //                carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
@@ -228,17 +233,19 @@ public class Player extends Car{
         }
 
 
-//    protected boolean BonusCollision(Bonus bonus){
-//        if (this.intersects(bonus.getX(), bonus.getY(), bonus.getFitWidth(), bonus.getFitHeight())){
-//           if (bonus.getCollectedCounter() == 10){
-//               nitroMode = 500;
-//               //this.EnterNitroModeWroom();
-//               bonus.setCollectedCounter(0);
-//           }
-//            return true;
-//        }
-//        return false;
-//    }
+    protected boolean BonusCollision(Bonus bonus){
+        if (this.intersects(bonus.getX(), bonus.getY(), bonus.getFitWidth(), bonus.getFitHeight())){
+            System.out.println("Bonus collision");
+           if (bonus.getCollectedCounter() == 1){
+               nitroMode = 500;
+               //this.EnterNitroModeWroom();
+               bonus.setCollectedCounter(0);
+               System.out.println("if entered");
+           }
+            return true;
+        }
+        return false;
+    }
 
     }
 

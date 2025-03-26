@@ -51,6 +51,7 @@ public class TokyoDriftTheme {
 
     static int iloscOkrazen = 20; //TODO change to 0 here once we finish setting everything up
 
+    static Bonus bonus = new Bonus();
 
     public static void generateTokyo(){
         Main.activeSamouczekScene = false;
@@ -205,9 +206,9 @@ public class TokyoDriftTheme {
 
         //player.setRotate(180);
 
-//        Bonus bonus = new Bonus();
-//        bonus.appear();
-//        bonus.appear();
+
+        bonus.appear();
+        bonus.appear();
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
@@ -232,7 +233,7 @@ public class TokyoDriftTheme {
         Rectangle checkpointMeta = new Rectangle(227, 16, 50, 255);
         Rectangle checkpoint = new Rectangle(227, 16, 25, 255);
 
-        level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDriftLevel1, timerText, lapTimerText );
+        level1Root.getChildren().addAll(rectangle, bonus, player, shooter, menuTokyoDriftLevel1, timerText, lapTimerText);
         //Puddle.puddleFactory(level1Root);
     }
 
