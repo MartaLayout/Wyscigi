@@ -26,6 +26,7 @@ public class Car extends ImageView {
 //        mask.setLayoutX(0);
 //        mask.setLayoutY(0);
     };
+    private Color surface;
 
 
     public int checkpointCounter = 15;
@@ -66,6 +67,18 @@ public class Car extends ImageView {
         this.setTranslateX(carX);
         this.setTranslateY(carY);
         this.setRotate(carAngle);
+        if (carX >= Main.WIDTH){
+            carX = Main.WIDTH-10;
+        }
+        if (carX <= 1){
+            carX = 10;
+        }
+        if (carY >= Main.HEIGHT){
+            carY = Main.HEIGHT-10;
+        }
+        if (carY <= 1){
+            carY = 10;
+        }
 
         //direction = getRotate();
         //idk how this is made to be in main and racetrack, detect surface basically
@@ -261,25 +274,40 @@ public class Car extends ImageView {
 
 
     protected void kolorMaski(){
-
         PixelReader maskaReader = maska.getPixelReader();
         Color maskaColor = maskaReader.getColor((int) carX, (int) carY);
-        if (maskaColor == new Color(0, 0,0, 1)){
-            collide();
 
-        }
-//        else {
 //            System.out.println(maskaColor);
-//        }
-
-
-
-
+                if (maskaColor == Color.rgb(0, 0, 0, 1)) {
+                    System.out.println("BLACKKKKKKKKKKKKKKKKKKKKKKKKKKK");
+                    collide();
+                }
+                //pomarańczowy
+                if (maskaColor == Color.rgb(255, 127, 39, 1)) {
+                    System.out.println("ORANGGGGGGGGGGGGGGGGEEEEEEEEEEEEEEEEEEE");
+                }
+                //fioletowy
+                if (maskaColor == Color.rgb(190, 40, 254, 1)) {
+                    System.out.println("FIOLLLLLLLLLLLLLLLLLLLLLLL");
+                }
+                //czerwony
+                if (maskaColor == Color.rgb(255, 41, 46, 1)) {
+                    System.out.println("REEEEEEEEEEEEEEEEEEEEEEEDDDDDDDDDDDDd");
+                }
+                //zielony
+                if (maskaColor == Color.rgb(87, 254, 40, 1)) {
+                    System.out.println("GREEEEEEEEEEEEEEEEEEEEEEEEEEEEENNNNNNN");
+                }
 
     }
 
+    protected void checkpoint(){
+
+    }
     private void collide() {
-        setRotate(getRotate() + 90);
+        setRotate( getRotate() + 180-getRotate());
+        System.out.println("STOPPPPPP");
+
     }
     //later add variations of move on different surfaces, with slightly different parameters
 }
