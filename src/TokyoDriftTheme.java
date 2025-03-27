@@ -52,7 +52,7 @@ public class TokyoDriftTheme {
     static Scene level3TokyoScene = new Scene(level3Root, Main.WIDTH, Main.HEIGHT);
     private static boolean isTimerRunning;
 
-    static int iloscOkrazen = 20; //TODO change to 0 here once we finish setting everything up
+    static int iloscOkrazen = 0; //TODO change to 0 here once we finish setting everything up
 
     static Bonus bonus = new Bonus();
 
@@ -99,10 +99,10 @@ public class TokyoDriftTheme {
                 level1());
 
         ImageView klodkaLevel2 = new ImageView(new Image("file:Tokyo/klodka.png"));
-        klodkaLevel2.setFitWidth(400);
-        klodkaLevel2.setFitHeight(400);
-        klodkaLevel2.setLayoutX(400);
-        klodkaLevel2.setLayoutY(230);
+        klodkaLevel2.setFitWidth(300);
+        klodkaLevel2.setFitHeight(300);
+        klodkaLevel2.setLayoutX(450);
+        klodkaLevel2.setLayoutY(275);
 
 
         ImageView imageViewLevel2 = new ImageView(new Image("file:Tokyo/level2Cover.png"));
@@ -112,10 +112,10 @@ public class TokyoDriftTheme {
         imageViewLevel2.setFitWidth(300);
 
         ImageView klodkaLevel3 = new ImageView(new Image("file:Tokyo/klodka.png"));
-        klodkaLevel3.setFitWidth(400);
-        klodkaLevel3.setFitHeight(400);
-        klodkaLevel3.setLayoutX(750);
-        klodkaLevel3.setLayoutY(230);
+        klodkaLevel3.setFitWidth(300);
+        klodkaLevel3.setFitHeight(300);
+        klodkaLevel3.setLayoutX(800);
+        klodkaLevel3.setLayoutY(275);
 
         ImageView imageViewLevel3 = new ImageView(new Image("file:Tokyo/level3Cover.png"));
         imageViewLevel3.setLayoutX(800);
