@@ -24,16 +24,16 @@
 
 ## Jak grać
 
-## O nas
+## O nas 
 (tutaj wleci niespodzianka)
 
  <p> Jesteśmy uczennicami 3IB w III LO w Gdańsku oraz wszystkie rozszerzamy Computer Science (informatykę). Dodatkowo chodzimy na kółko z programowania gier w Javie, i od drugiej klasy razem pracujemy nad przeróżnymi projektami :) </p>
 
-<p> <b> Marta Oleszkiewicz </b> — nasza „kapitanka". Tworzyła interface, menu, przeszkody, samouczek i bazą danych. Także spinała naszą pracę w jednolitą całość. </p>
-<p> <b> Nati Wasilewska </b> — autorska grafika, autorska muzyczka i autorskie pomysły 😎. Też pisała tę dokumentację i pomagała przy programowaniu drobiazgów. </p>
-<p> <b> Zosia Geryk </b>— programistka, zajmowała się kolizją, maską na planszę, i pisała przeciwników. Również utajała się w tajemniki fizyki auta.</p>
-<p> <b> Darya Markevich</b> — programistka, zajmowała się autem i przeciwnikami. „Pookie” naszej drużyny.</p>
-<p> <b>  Pola Kowalska </b![pixil-frame-0(22)](https://github.com/user-attachments/assets/2ff51533-1575-4d68-a8d2-51c873c044ab)
+<p>──★  <b> Marta Oleszkiewicz </b> — nasza „kapitanka". Tworzyła interface, menu, przeszkody, samouczek i bazą danych. Także spinała naszą pracę w jednolitą całość. </p>
+<p>──★  <b> Nati Wasilewska </b> — autorska grafika, autorska muzyczka i autorskie pomysły 😎. Też pisała tę dokumentację i pomagała przy programowaniu drobiazgów. </p>
+<p>──★ <b> Zosia Geryk </b>— programistka, zajmowała się kolizją, maską na planszę, i pisała przeciwników. Również utajała się w tajemniki fizyki auta.</p>
+<p>──★  <b> Darya Markevich</b> — programistka, zajmowała się autem i przeciwnikami. „Pookie” naszej drużyny.</p>
+<p>──★  <b>  Pola Kowalska </b![pixil-frame-0(22)](https://github.com/user-attachments/assets/2ff51533-1575-4d68-a8d2-51c873c044ab)
 > — narysowała część grafiki i zajęła się przeszkodami na tory.</p>
 
 
