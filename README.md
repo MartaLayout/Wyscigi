@@ -33,8 +33,7 @@
 <p>──★  <b> Nati Wasilewska </b> — autorska grafika, autorska muzyczka i autorskie pomysły 😎. Też pisała tę dokumentację i pomagała przy programowaniu drobiazgów. </p>
 <p>──★ <b> Zosia Geryk </b>— programistka, zajmowała się kolizją, maską na planszę, i pisała przeciwników. Również utajała się w tajemniki fizyki auta.</p>
 <p>──★  <b> Darya Markevich</b> — programistka, zajmowała się autem i przeciwnikami. „Pookie” naszej drużyny.</p>
-<p>──★  <b>  Pola Kowalska </b![pixil-frame-0(22)](https://github.com/user-attachments/assets/2ff51533-1575-4d68-a8d2-51c873c044ab)
-> — narysowała część grafiki i zajęła się przeszkodami na tory.</p>
+<p>──★  <b>  Pola Kowalska </b> — narysowała część grafiki i zajęła się przeszkodami na tory.</p>
 
 
 
