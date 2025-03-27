@@ -11,9 +11,10 @@
 
 <p align="center">
   <a href="#cechy-gry">Cechy gry</a> •
-  <a href="#jak-grac">Jak grać</a> •
-  <a href="#nasza-przygoda">Nasza przygoda </a> •
-  <a href="#o-nas">O nas</a> 
+  <a href="#jak-grac">Jak grać</a> •  
+  <a href="#o-nas">O nas</a> •
+  <a href="#nasza-przygoda">Nasza przygoda </a> 
+
   <a><img src="https://dollect.net/wp-content/uploads/youzify/members/6150/2023/11/654ea96507f96-bp-cover-image.png"> </a>
 
 </p align="center">
@@ -23,12 +24,11 @@
 
 ## Jak grać
 
-
-
 ## O nas
 
 
 ## Nasza Przygoda
+
 
 
 
