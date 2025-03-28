@@ -45,6 +45,9 @@ public class Bonus extends ImageView {
             System.out.println("("+ NewX + NewY+ ")"+ maskaColor);
             if (maskaColor.getRed() == 0 && maskaColor.getBlue() == 0 && maskaColor.getGreen() == 0){
                 foundNewPlace = true;
+                setLayoutX(NewX);
+                setLayoutY(NewY);
+                collectedCounter ++;
 
             }
             else{
@@ -53,9 +56,7 @@ public class Bonus extends ImageView {
             }
         }
 
-        setLayoutX(NewX);
-        setLayoutY(NewY);
-        collectedCounter ++;
+
 
 
     }

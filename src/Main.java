@@ -58,8 +58,8 @@ public class Main extends Application {
 
     static String musicFile = "src/music/music.mp3";
 
-    public static Media starterMusic = new Media(new File(musicFile).toURI().toString());
-    public static MediaPlayer mediaPlayer = new MediaPlayer(starterMusic);
+    //public static Media starterMusic = new Media(new File(musicFile).toURI().toString());
+    //public static MediaPlayer mediaPlayer = new MediaPlayer(starterMusic);
 
 
     public static void main(String[] args) {
@@ -71,8 +71,8 @@ public class Main extends Application {
         stage = primaryStage;
         startScene();
         stage.show();
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.play();
+      //  mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        //mediaPlayer.play();
     }
 
     public static void startScene() {
@@ -143,11 +143,11 @@ public class Main extends Application {
             if(isMusicOn == false){
                 musicOnOffButton.setImage(musicOff);
                 isMusicOn = true;
-                mediaPlayer.stop();
+                //mediaPlayer.stop();
             } else {
                 musicOnOffButton.setImage(musicOn);
                 isMusicOn = false;
-                mediaPlayer.play();
+                //mediaPlayer.play();
             }
         });
 

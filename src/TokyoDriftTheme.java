@@ -208,7 +208,7 @@ public class TokyoDriftTheme {
 
 
         bonus.appear();
-        bonus.appear();
+        //bonus.appear();
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
