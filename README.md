@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-<h4 align="center"> *:･ﾟ✧*:･ﾟGra stworzona na konkurs Motrola Science Cup 2025*:･ﾟ✧*:･ﾟ <h4>
+<h4 align="center"> *:･ﾟ✧*:･ﾟGra stworzona na konkurs Motorola Science Cup 2025*:･ﾟ✧*:･ﾟ <h4>
 
 <p align="center">
   <a href="#cechy-gry">Cechy gry</a> •
