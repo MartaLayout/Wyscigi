@@ -1,3 +1,4 @@
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
@@ -7,6 +8,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -92,7 +95,8 @@ public class TokyoDriftTheme {
         imageViewLevel1.setLayoutY(300);
         imageViewLevel1.setFitHeight(300);
         imageViewLevel1.setFitWidth(300);
-        imageViewLevel1.setOnMouseClicked(event -> level1());
+        imageViewLevel1.setOnMouseClicked(event ->
+                level1());
 
         ImageView klodkaLevel2 = new ImageView(new Image("file:Tokyo/klodka.png"));
         klodkaLevel2.setFitWidth(400);
@@ -147,6 +151,10 @@ public class TokyoDriftTheme {
         activeLevel1Scene = true;
         activeLevel2Scene = false;
         activeLevel3Scene = false;
+
+        Main.mediaPlayer.stop();
+        Main.mediaPlayer = new MediaPlayer(Main.racingMusic);
+        Main.mediaPlayer.play();
 
         level1Root.getChildren().clear();
 

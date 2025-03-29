@@ -56,10 +56,12 @@ public class Main extends Application {
     static Image musicOn = new Image("file:imagesStart/menu/muzyka1.png");
     static boolean isMusicOn = true;
 
-    static String musicFile = "src/music/music.mp3";
+    static String musicFile1 = "src/music/music.mp3";
+    static String musicFile2 = "src/music/race.mp3";
+    public static Media starterMusic = new Media(new File(musicFile1).toURI().toString());
 
-    //public static Media starterMusic = new Media(new File(musicFile).toURI().toString());
-    //public static MediaPlayer mediaPlayer = new MediaPlayer(starterMusic);
+    public static Media racingMusic = new Media(new File(musicFile2).toURI().toString());
+    public static MediaPlayer mediaPlayer = new MediaPlayer(starterMusic);
 
 
     public static void main(String[] args) {
@@ -71,8 +73,8 @@ public class Main extends Application {
         stage = primaryStage;
         startScene();
         stage.show();
-      //  mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        //mediaPlayer.play();
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
     }
 
     public static void startScene() {
@@ -143,11 +145,11 @@ public class Main extends Application {
             if(isMusicOn == false){
                 musicOnOffButton.setImage(musicOff);
                 isMusicOn = true;
-                //mediaPlayer.stop();
+                mediaPlayer.stop();
             } else {
                 musicOnOffButton.setImage(musicOn);
                 isMusicOn = false;
-                //mediaPlayer.play();
+                mediaPlayer.play();
             }
         });
 
