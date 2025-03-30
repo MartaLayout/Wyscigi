@@ -172,12 +172,12 @@ public class Player extends Car{
 
 
         timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
-//            if (nitroMode >0){
-//                nitroMode --;
-//            }
-//            if (nitroMode<=0){
-//                //this.ExitNitroModeNotWroom();
-//            }
+            if (nitroMode >0){
+                nitroMode --;
+            }
+            if (nitroMode<=0){
+                this.ExitNitroModeNotWroom();
+            }
 
             if (moveBackwards) {
                 moveBackwardsAppliedForce();
@@ -235,45 +235,22 @@ public class Player extends Car{
 
     protected boolean BonusCollision(Bonus bonus){
 
+        if  (this.getBoundsInParent().intersects(bonus.getBoundsInParent())){
 
-
-        if (this.getBoundsInParent().intersects(bonus.getBoundsInParent())) {
-
-            // Debugging: Print correct positions
-            System.out.println("Car Bounds: " + this.getBoundsInParent());
-            System.out.println("Bonus Bounds: " + bonus.getBoundsInParent());
-
-            if (bonus.getCollectedCounter() == 1) {
-                nitroMode = 500;
-                bonus.setCollectedCounter(0);
-                System.out.println("Nitro mode activated!");
-            }
+            if (bonus.getCollectedCounter() == 1){
+                //normally the if condition would be 10, but for the sake of testing its 1
+               nitroMode = 500;
+               this.EnterNitroModeWroom();
+               bonus.setCollectedCounter(0);
+               System.out.println("if entered");
+           }
             return true;
         }
+
         return false;
-
-
     }
-//        //if  (this.getBoundsInParent().intersects(bonus.getBoundsInParent())){
-//        if (this.intersects(bonus.getX(), bonus.getY(), bonus.getFitWidth(), bonus.getFitHeight())){
-//
-//            System.out.println("Car coordinates:" + this.getLayoutX() + ","+ this.getLayoutY());
-//            System.out.println("Car size:" + this.getFitWidth() + ","+ this.getFitWidth());
-//            System.out.println("Bonus collision");
-//            System.out.println("Bonus coordinates:" + bonus.getX() +","+ bonus.getLayoutY());
-//            System.out.println("Bonus size:" + bonus.getFitWidth() +","+ bonus.getFitHeight());
-//           if (bonus.getCollectedCounter() == 1){
-//               nitroMode = 500;
-//               //this.EnterNitroModeWroom();
-//               bonus.setCollectedCounter(0);
-//               System.out.println("if entered");
-//           }
-//            return true;
-//        }
-//        return false;
-//    }
 
-    }
+}
 
 
 
