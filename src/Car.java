@@ -243,7 +243,7 @@ public class Car extends ImageView {
 
 //so i think here is the code for speeding up when the Player is in Nitro (part of the code at least)
     protected void EnterNitroModeWroom(){
-        speed *=20;
+        speed *=5;
         System.out.println("EnterNitroModeWroom");
     }
 
