@@ -525,7 +525,7 @@ public class Main extends Application {
         babcia.setLayoutY(520);
 
         ImageView dymek = new ImageView(new Image("file:imagesStart/samouczek_fabula/dymek.png"));
-        dymek.setLayoutX(610);
+        dymek.setLayoutX(615);
         dymek.setLayoutY(280);
         dymek.setFitHeight(300);
         dymek.setFitWidth(580);
@@ -537,22 +537,37 @@ public class Main extends Application {
         imageViewPominFabula.setFitWidth(100);
         imageViewPominFabula.setOnMouseClicked(event -> chooseThemeScene());
 
-        String[] dymekContent = { "Oh, witaj dziecko. Czy coś się stał-", "Ahh, to ty...", "Co się stało TERAZ, że wreszcie się zdecydowałeś odwiedzić swoją starą i 'nudną' staruszkę hm?",
-        "...Więc o to chodzi hmm.", "Nigdy nie sądziłam, że usłyszysz o tej historii gdziekolwiek. W końcu stało się to tak dawno temu..",
-        "Chyba plotki nigdy nie umierają...", "Ale tak, kiedyś byłam wyścigówką. Bardzo utalentowaną nawet!",
-        "...Co się tak patrzysz?", "Nie możesz uwierzyć, że babcia miała taką ciekawą karierę?", "Miałam naprawdę wiele osiągnięć i nagród za moje wyścigi!",
-        "..Oraz cóż, nigdy mnie nie zapytałeś czym się zajmowałam w przeszłości.", "Nawet miałam cudowne i piękne czerwone lamborghini.",
-        "Ale cóż, teraz jestem na to za stara. Jednak czemu się o to teraz wypytujesz?", "Ty? Chcesz się nauczyć jak być wyścigowcem?",
-        "Zawsze wiedziałam, że masz szalone marzenia w tej twojej głowie ale to...", "Hmmm...", "W porządku, w porządku. Nauczę Cię wszystkiego co musisz wiedzieć o wyścigach!",
-        "Jednak lepiej rób notatki bo ta stara babcia nie będzie sie powtarzać dwa razy.", "I nie martw się, ze mną jako mentor - zostaniesz najlepszym wyścigowcem w całym świecie."}; //TODO tekst (important)
+        String[] dymekContent = { "Oh, witaj dziecko. Czy coś się stał-",
+                "Ahh, to ty...",
+                "Co się stało TERAZ, że wreszcie się zdecydowałeś",
+                "odwiedzić swoją starą i 'nudną' staruszkę hm?",
+                "...Więc o to chodzi hmm.",
+                "Nigdy nie sądziłam, że usłyszysz o tej historii gdziekolwiek. ",
+                "W końcu stało się to tak dawno temu..",
+                "Chyba plotki nigdy nie umierają...",
+                "Ale tak, kiedyś byłam wyścigówką. Bardzo utalentowaną nawet!",
+                "...Co się tak patrzysz?",
+                "Nie możesz uwierzyć, że babcia miała taką ciekawą karierę?",
+                "Miałam naprawdę wiele osiągnięć i nagród za moje wyścigi!",
+                "..Oraz cóż, nigdy mnie nie zapytałeś czym się zajmowałam w przeszłości.",
+                "Nawet miałam cudowne i piękne czerwone lamborghini.",
+                "Ale cóż, teraz jestem na to za stara.",
+                " Jednak czemu się o to teraz wypytujesz?",
+                "Ty? Chcesz się nauczyć jak być wyścigowcem?",
+                "Zawsze wiedziałam, że masz szalone marzenia w tej twojej głowie ale to...",
+                "Hmmm...", "W porządku, w porządku.",
+                " Nauczę Cię wszystkiego co musisz wiedzieć o wyścigach!",
+                "Jednak lepiej rób notatki bo ta stara babcia",
+                " nie będzie sie powtarzać dwa razy.",
+                "I nie martw się, ze mną jako mentor - zostaniesz najlepszym wyścigowcem w całym świecie."};
         final Text textDymek = new Text("");
         Font font = Font.loadFont("file:Minecraftia-Regular.ttf",35);
         textDymek.setFont(font);
-        textDymek.setLayoutX(661);
-        textDymek.setLayoutY(370);
-        textDymek.setWrappingWidth(400);
+        textDymek.setLayoutX(667);
+        textDymek.setLayoutY(372);
+        textDymek.setWrappingWidth(430);
 
-        animateTextUsingTimeline(dymekContent, textDymek, 3.5, 3.5);
+        animateTextUsingTimeline(dymekContent, textDymek, 4.0, 3.7);
 
         rootFabula.getChildren().addAll(imageViewMenuFabula, babcia, dymek, imageViewPominFabula, textDymek );
     }
@@ -577,7 +592,7 @@ public class Main extends Application {
     private static void animateText(String content, Text textDymek, double durationBetweenStrings) {
         final Animation typingAnimation = new Transition() {
             {
-                setCycleDuration(Duration.seconds(durationBetweenStrings)); // Duration of typing effect for each string ..
+                setCycleDuration(Duration.seconds(durationBetweenStrings)); // Duration of typing effect for each string .
             }
 
             protected void interpolate(double frac) {
