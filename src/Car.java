@@ -288,10 +288,10 @@ public class Car extends ImageView {
     private void kolorMaski() {
         if(Main.activeSamouczekScene == false) {
 
-            System.out.println("kolorMaski() method called!");
+            //System.out.println("kolorMaski() method called!");
             PixelReader maskaReader = maska.getPixelReader();
             if (maskaReader == null) {
-                System.out.println("Error: Cannot read pixels from the mask image.");
+                //System.out.println("Error: Cannot read pixels from the mask image.");
                 return;
             }
 
@@ -299,14 +299,14 @@ public class Car extends ImageView {
             int y = (int) carY;
 
             if (x < 0 || y < 0 || x >= maska.getWidth() || y >= maska.getHeight()) {
-                System.out.println("Error: Coordinates out of bounds.");
+                //System.out.println("Error: Coordinates out of bounds.");
                 return;
             }
 
             Color maskaColor = maskaReader.getColor(x, y);
 
             if (maskaColor.equals(Color.rgb(0, 0, 0, 1))) {
-                System.out.println("BLACK detected.");
+                //System.out.println("BLACK detected.");
 
                 collide();
             } else if (maskaColor.equals(Color.rgb(255, 127, 39, 1))) {
@@ -315,7 +315,7 @@ public class Car extends ImageView {
 
 //            System.out.println("ORANGE detected.");
             } else if (maskaColor.equals(Color.rgb(190, 40, 254, 1))) {
-                System.out.println("PURPLE detected.");
+                //System.out.println("PURPLE detected.");
                 checkpointFIOL = true;
                 lap++;
                 finalCheckMetaLAP();
@@ -336,11 +336,11 @@ public class Car extends ImageView {
 
 
                 }
-                System.out.println("RED detected.");
+                //System.out.println("RED detected.");
             } else if (maskaColor.equals(Color.rgb(87, 254, 40, 1))) {
-                System.out.println("GREEN detected.");
+                //System.out.println("GREEN detected.");
             } else if (maskaColor.equals(Color.rgb(255, 255, 255, 1))) {
-                System.out.println("WHITE detected");
+                //System.out.println("WHITE detected");
 
             }
         }
@@ -355,11 +355,11 @@ public class Car extends ImageView {
         checkJEDEN = false;
         checkDWA = false;
         lap++;
-        System.out.println("NEEEEEEEEEEEEEEEWWWWWWWWWWWWWWWWWWWWWWWWWW LLLLLLLLLLLLLLLAP");
+        //System.out.println("NEEEEEEEEEEEEEEEWWWWWWWWWWWWWWWWWWWWWWWWWW LLLLLLLLLLLLLLLAP");
     }
 
     private void collide() {
-        System.out.println("Collision detected!");
+        //System.out.println("Collision detected!");
         carAngle = getRotate() + 45;
         // Add collision handling logic here
     }
