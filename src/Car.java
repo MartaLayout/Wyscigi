@@ -50,7 +50,7 @@ public class Car extends ImageView {
     protected  double speedIncrimentation = 0.0001; //1.0000
     protected  double speedIncrimentationBackwards = 0.0001;
 
-    protected int checkpointPOM = 0;
+    protected boolean checkpointPOM = false;
     protected boolean checkJEDEN = false;
     protected boolean checkDWA = false;
     protected boolean checkpointZIEL = false;
@@ -306,7 +306,8 @@ public class Car extends ImageView {
 
         else if (maskaColor.equals(Color.rgb(255, 127, 39, 1))) {
 //            checkpointFIRST();
-            checkpointPOM++;
+            checkpointPOM = true;
+
 //            System.out.println("ORANGE detected.");
         }
 
@@ -322,12 +323,16 @@ public class Car extends ImageView {
             if (checkpointZIEL){
                 checkpointZIEL = false;
                 checkpointRED = false;
-                if (checkpointPOM < 3) {
-                    checkJEDEN = true;
-                }
-                if (checkpointPOM > 4){
+
+                if (checkpointPOM == true && checkJEDEN == true){
                     checkDWA = true;
                 }
+
+                if (checkpointPOM == true) {
+                    checkJEDEN = true;
+                    checkpointPOM = false;
+                }
+
 
             }
             System.out.println("RED detected.");
@@ -336,11 +341,15 @@ public class Car extends ImageView {
         else if (maskaColor.equals(Color.rgb(87, 254, 40, 1))) {
             System.out.println("GREEN detected.");
         }
+        else if (maskaColor.equals(Color.rgb(255, 255, 255, 1))){
+            System.out.println("WHITE detected");
+
+        }
 
     }
 
     private void finalCheckMetaLAP() {
-        checkpointPOM = 0;
+        checkpointPOM = false;
         checkpointZIEL = false;
         checkpointFIOL = false;
         checkpointRED = false;
