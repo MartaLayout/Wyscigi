@@ -285,7 +285,32 @@ public class TokyoDriftTheme {
                 lapMinutes++;
             }
             lapTimerText.setText(lapMinutes + ":" + lapSeconds);
+        } if (lap == 1) {
+            timelineTimer.stop();
+           String firstLapTimer = lapTimerText.getText();
+            lapSeconds = 0;
+            lapMinutes = 0;
+        } if (lap == 2) {
+            timelineTimer.stop();
+            String secondLapTimer = lapTimerText.getText();
+            lapSeconds = 0;
+            lapMinutes = 0;
+        } if (lap == 3) {
+            timelineTimer.stop();
+            String thirdLapTimer = lapTimerText.getText();
+            lapSeconds = 0;
+            lapMinutes = 0;
+        }if (lap == 4) {
+            timelineTimer.stop();
+            String fourthLapTimer = lapTimerText.getText();
+            lapSeconds = 0;
+            lapMinutes = 0;
+        } if (lap == 5) {
+            timelineTimer.stop();
+            String fifthLapTimer = lapTimerText.getText();
+
         }
+
     }
 
     private static void updateTimer() {
@@ -299,8 +324,8 @@ public class TokyoDriftTheme {
             }
             timerText.setText(minutes + ":" + seconds);
         }
-
     }
+
 
     public static void level2(){
         activeGenerateScene = false;

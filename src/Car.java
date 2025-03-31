@@ -21,8 +21,15 @@ public class Car extends ImageView {
     private double x;
     private double y;
     protected double direction;
+    Image maska = new Image("file:maska.png");
+    ImageView mask = new ImageView(maska) {
+//        mask.setLayoutX(0);
+//        mask.setLayoutY(0);
+    };
+    private Color surface;
 
-    public int checkpointCounter = 15;
+
+
     public boolean rightWay;
     public boolean finish;
     public boolean start;
@@ -43,6 +50,13 @@ public class Car extends ImageView {
     protected  double speedIncrimentation = 0.0001; //1.0000
     protected  double speedIncrimentationBackwards = 0.0001;
 
+    protected int checkpointPOM = 0;
+    protected boolean checkJEDEN = false;
+    protected boolean checkDWA = false;
+    protected boolean checkpointZIEL = false;
+    protected boolean checkpointRED = false;
+    protected boolean checkpointFIOL = false;
+//    protected boolean
     boolean moveBackwards;
     boolean moveForward;
     boolean moveLeft;
@@ -60,6 +74,18 @@ public class Car extends ImageView {
         this.setTranslateX(carX);
         this.setTranslateY(carY);
         this.setRotate(carAngle);
+        if (carX >= Main.WIDTH){
+            carX = Main.WIDTH-10;
+        }
+        if (carX <= 1){
+            carX = 10;
+        }
+        if (carY >= Main.HEIGHT){
+            carY = Main.HEIGHT-10;
+        }
+        if (carY <= 1){
+            carY = 10;
+        }
 
         //direction = getRotate();
         //idk how this is made to be in main and racetrack, detect surface basically
@@ -167,6 +193,7 @@ public class Car extends ImageView {
         carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
         carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
         slowDown();
+        kolorMaski();
     }
 
     protected void moveBackwardsAppliedForce(){
@@ -253,21 +280,95 @@ public class Car extends ImageView {
 
 
 
-
-
-
-
-    protected void kolorMaski(){
-        Image maska = new Image("file:maska.png");
+    private void kolorMaski() {
+        System.out.println("kolorMaski() method called!");
         PixelReader maskaReader = maska.getPixelReader();
-        Color maskaColor = maskaReader.getColor((int) carX, (int) carY);
-//        if (maskaColor == Color.WHITE){
-//
-//        }
+        if (maskaReader == null) {
+            System.out.println("Error: Cannot read pixels from the mask image.");
+            return;
+        }
 
+        int x = (int) carX;
+        int y = (int) carY;
 
+        if (x < 0 || y < 0 || x >= maska.getWidth() || y >= maska.getHeight()) {
+            System.out.println("Error: Coordinates out of bounds.");
+            return;
+        }
 
+        Color maskaColor = maskaReader.getColor(x, y);
+
+        if (maskaColor.equals(Color.rgb(0, 0, 0, 1))) {
+            System.out.println("BLACK detected.");
+
+            collide();
+        }
+
+        else if (maskaColor.equals(Color.rgb(255, 127, 39, 1))) {
+//            checkpointFIRST();
+            checkpointPOM++;
+//            System.out.println("ORANGE detected.");
+        }
+
+        else if (maskaColor.equals(Color.rgb(190, 40, 254, 1))) {
+            System.out.println("PURPLE detected.");
+            checkpointFIOL = true;
+            lap++;
+            finalCheckMetaLAP();
+
+        }
+
+        else if (maskaColor.equals(Color.rgb(255, 41, 46, 1))) {
+            if (checkpointZIEL){
+                checkpointZIEL = false;
+                checkpointRED = false;
+                if (checkpointPOM < 3) {
+                    checkJEDEN = true;
+                }
+                if (checkpointPOM > 4){
+                    checkDWA = true;
+                }
+
+            }
+            System.out.println("RED detected.");
+        }
+
+        else if (maskaColor.equals(Color.rgb(87, 254, 40, 1))) {
+            System.out.println("GREEN detected.");
+        }
 
     }
+
+    private void finalCheckMetaLAP() {
+        checkpointPOM = 0;
+        checkpointZIEL = false;
+        checkpointFIOL = false;
+        checkpointRED = false;
+        checkJEDEN = false;
+        checkDWA = false;
+        lap++;
+        System.out.println("NEEEEEEEEEEEEEEEWWWWWWWWWWWWWWWWWWWWWWWWWW LLLLLLLLLLLLLLLAP");
+    }
+
+    private void collide() {
+        System.out.println("Collision detected!");
+        carAngle = getRotate() + 45;
+        // Add collision handling logic here
+    }
+
+
+//    protected void checkpointFIRST(){
+//        if (checkpointPOM == 5 && checkpointRED == 1 && checkpointZIEL == 1){
+//            checkJEDEN = true;
+//        }
+//        if (checkpointPOM == 13 && checkpointRED == 2 && checkpointZIEL == 2){
+//            checkDWA = true;
+//        }
+//    }
+//    private void collide() {
+//        setRotate( getRotate() + 180-getRotate());
+//        System.out.println("STOPPPPPP");
+//
+//    }
     //later add variations of move on different surfaces, with slightly different parameters
 }
