@@ -313,7 +313,7 @@ public class Car extends ImageView {
         else if (maskaColor.equals(Color.rgb(190, 40, 254, 1))) {
             System.out.println("PURPLE detected.");
             checkpointFIOL = true;
-
+            lap++;
             finalCheckMetaLAP();
 
         }

@@ -241,7 +241,7 @@ public class Main extends Application {
             TokyoDriftTheme.generateTokyo();
             stageMenu.close();
         } else if (TokyoDriftTheme.activeLevel1Scene) {
-            TokyoDriftTheme.level1();
+//            TokyoDriftTheme.level1();
             stageMenu.close();
         } else if (TokyoDriftTheme.activeLevel2Scene) {
             TokyoDriftTheme.level2();
