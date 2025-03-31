@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.input.KeyCode;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
@@ -37,9 +38,7 @@ public class Car extends ImageView {
 
 
     public static int lap = 0;
-    public int getLap() {
-        return lap;
-    }
+
 
 
 
