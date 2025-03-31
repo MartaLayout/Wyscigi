@@ -1,15 +1,9 @@
-import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -56,7 +50,7 @@ public class TokyoDriftTheme {
    public static Timeline timelineTimer;
    public static Timeline timelineFiring;
 
-    static int iloscOkrazen = 0; //TODO change to 0 here once we finish setting everything up
+    static int iloscOkrazen = 200; //TODO change to 0 here once we finish setting everything up
 
     static Bonus bonus = new Bonus();
 
@@ -381,6 +375,10 @@ public class TokyoDriftTheme {
 
 
         Player player = new Player(200,180);
+
+        //ObstacleDoor obstacleDoor = new ObstacleDoor(100,100);
+
+        ObstacleDoor.doorCreation();
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
