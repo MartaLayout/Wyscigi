@@ -690,5 +690,3 @@ public class Main extends Application {
     }
 
 };
-
-//TODO podorabiac mozliwosc cara do level2 i level3 + do level 2 dołozyć menu

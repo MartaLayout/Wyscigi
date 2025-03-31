@@ -131,15 +131,32 @@ public class TokyoDriftTheme {
 
         rootTokyoStart.getChildren().addAll(textNaGorze, imageViewLevel1, imageViewLevel2, imageViewLevel3, menuButton, klodkaLevel2, klodkaLevel3);
 
-        if(iloscOkrazen >= 10){
+        //level 2 --> po 5 okrazen w pierwszym
+        //level 3 --> po 5 okrazeniach w drugim
+        final Text textTlumaczenie = new Text("Level 2 odblokowuje się po ukończeniu 5 okrążeń w levelu 1, a level 3 po ukończeniu 5 okrążeń w levelu 2 :))");
+        textTlumaczenie.setWrappingWidth(500);
+        Font font = Font.loadFont("file:Minecraftia-Regular.ttf",15);
+        klodkaLevel2.setOnMouseClicked(event -> {
+            textTlumaczenie.setFont(font);
+            textTlumaczenie.setLayoutX(487);
+            textTlumaczenie.setLayoutY(650);
+        });
+        klodkaLevel3.setOnMouseClicked(event -> {
+            textTlumaczenie.setFont(font);
+            textTlumaczenie.setLayoutX(487);
+            textTlumaczenie.setLayoutY(650);
+        });
+
+        if(iloscOkrazen >= 5){
             rootTokyoStart.getChildren().remove(klodkaLevel2);
             imageViewLevel2.setOnMouseClicked(event -> level2());
         }
 
-        if(iloscOkrazen >= 20){
+        if(iloscOkrazen >= 5){ //ilosc okrazen od levelu 2
             rootTokyoStart.getChildren().remove(klodkaLevel3);
             imageViewLevel3.setOnMouseClicked(event -> level3());
         }
+        rootTokyoStart.getChildren().add(textTlumaczenie);
     }
 
     public static void level1(){
@@ -176,7 +193,10 @@ public class TokyoDriftTheme {
         menuTokyoDriftLevel1.setLayoutY(744);
         menuTokyoDriftLevel1.setFitWidth(100);
         menuTokyoDriftLevel1.setFitHeight(50);
-        menuTokyoDriftLevel1.setOnMouseClicked(event -> Main.menu());
+//        menuTokyoDriftLevel1.setOnMouseClicked(
+//                event -> Main.menu()
+//        );
+
 
         //timer
         timerText.setX(337);
@@ -189,7 +209,7 @@ public class TokyoDriftTheme {
         lapTimerText.setFont(font);
         lapTimerText.setFill(Color.color(1,0,0.7));
 
-        Timeline timeline = new Timeline(
+        Timeline timelineTimer = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     if (start) {
                         isTimerRunning = true;
@@ -199,24 +219,24 @@ public class TokyoDriftTheme {
                 })
 
         );
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
+        timelineTimer.setCycleCount(Timeline.INDEFINITE);
+        timelineTimer.play();
+
+        menuTokyoDriftLevel1.setOnMouseClicked(event -> {
+            Main.menu();
+            timelineTimer.stop();
+        });
 
 //        //not working
 //        menuTokyoDriftLevel1.setOnMouseClicked(event -> {
-//            timeline.stop();
+//            timelineTimer.stop();
 //        });
-//
+
 //        Main.wyjdzZMenu.setOnMouseClicked(event -> {
-//            timeline.play();
+//            timelineTimer.play();
 //        });
-
-
-        //player.setRotate(180);
-
 
         bonus.appear();
-        //bonus.appear();
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
