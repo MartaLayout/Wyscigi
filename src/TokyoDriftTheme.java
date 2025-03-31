@@ -207,7 +207,7 @@ public class TokyoDriftTheme {
         lapTimerText.setY(805);
         lapTimerText.setFont(font);
         lapTimerText.setFill(Color.color(1,0,0.7));
-        lapText.setX(685);
+        lapText.setX(755);
         lapText.setY(805);
         lapText.setFill(Color.color(0.5,0,0.9));
 
