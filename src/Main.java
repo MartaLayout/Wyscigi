@@ -525,10 +525,10 @@ public class Main extends Application {
         babcia.setLayoutY(520);
 
         ImageView dymek = new ImageView(new Image("file:imagesStart/samouczek_fabula/dymek.png"));
-        dymek.setLayoutX(615);
+        dymek.setLayoutX(626);
         dymek.setLayoutY(280);
-        dymek.setFitHeight(300);
-        dymek.setFitWidth(580);
+        dymek.setFitHeight(290);
+        dymek.setFitWidth(550);
 
         ImageView imageViewPominFabula = new ImageView(new Image("file:imagesStart/pominFabula.png"));
         imageViewPominFabula.setLayoutX(1088);
@@ -539,33 +539,48 @@ public class Main extends Application {
 
         String[] dymekContent = { "Oh, witaj dziecko. Czy coś się stał-",
                 "Ahh, to ty...",
-                "Co się stało TERAZ, że wreszcie się zdecydowałeś",
-                "odwiedzić swoją starą i 'nudną' staruszkę hm?",
+                "Co się stało TERAZ,",
+                "że wreszcie się zdecydowałeś",
+                "odwiedzić swoją starą i 'nudną'",
+                " staruszkę hm?",
                 "...Więc o to chodzi hmm.",
-                "Nigdy nie sądziłam, że usłyszysz o tej historii gdziekolwiek. ",
+                "Nigdy nie sądziłam, że usłyszysz",
+                " o tej historii gdziekolwiek. ",
                 "W końcu stało się to tak dawno temu..",
                 "Chyba plotki nigdy nie umierają...",
-                "Ale tak, kiedyś byłam wyścigówką. Bardzo utalentowaną nawet!",
+                "Ale tak, kiedyś byłam wyścigówką.",
+                " Bardzo utalentowaną nawet!",
                 "...Co się tak patrzysz?",
-                "Nie możesz uwierzyć, że babcia miała taką ciekawą karierę?",
-                "Miałam naprawdę wiele osiągnięć i nagród za moje wyścigi!",
-                "..Oraz cóż, nigdy mnie nie zapytałeś czym się zajmowałam w przeszłości.",
-                "Nawet miałam cudowne i piękne czerwone lamborghini.",
+                "Nie możesz uwierzyć, że babcia miała",
+                " taką ciekawą karierę?",
+                "Miałam naprawdę wiele osiągnięć i ",
+                "nagród za moje wyścigi!",
+                "...Oraz cóż, nigdy mnie nie zapytałeś",
+                "czym się zajmowałam w przeszłości.",
+                "Nawet miałam cudowne",
+                " i piękne czerwone lamborghini.",
                 "Ale cóż, teraz jestem na to za stara.",
-                " Jednak czemu się o to teraz wypytujesz?",
-                "Ty? Chcesz się nauczyć jak być wyścigowcem?",
-                "Zawsze wiedziałam, że masz szalone marzenia w tej twojej głowie ale to...",
+                "Jednak czemu się o to teraz wypytujesz?",
+                "Ty? Ty? Chcesz się nauczyć",
+                "jak być wyścigowcem?",
+                "Zawsze wiedziałam, że",
+                " masz szalone marzenia",
+                "w tej twojej głowie ale to...",
                 "Hmmm...", "W porządku, w porządku.",
-                " Nauczę Cię wszystkiego co musisz wiedzieć o wyścigach!",
-                "Jednak lepiej rób notatki bo ta stara babcia",
-                " nie będzie sie powtarzać dwa razy.",
-                "I nie martw się, ze mną jako mentor - zostaniesz najlepszym wyścigowcem w całym świecie."};
+                "Nauczę Cię wszystkiego co musisz",
+                "wiedzieć o wyścigach!",
+                "Jednak lepiej rób notatki",
+                "bo ta stara babcia nie będzie",
+                "się powtarzać dwa razy.",
+                "I nie martw się, ze mną jako mentor",
+                "zostaniesz najlepszym",
+                "wyścigowcem w całym świecie."};
         final Text textDymek = new Text("");
         Font font = Font.loadFont("file:Minecraftia-Regular.ttf",35);
         textDymek.setFont(font);
-        textDymek.setLayoutX(667);
-        textDymek.setLayoutY(372);
-        textDymek.setWrappingWidth(430);
+        textDymek.setLayoutX(678);
+        textDymek.setLayoutY(373);
+        textDymek.setWrappingWidth(475);
 
         animateTextUsingTimeline(dymekContent, textDymek, 4.0, 3.7);
 
