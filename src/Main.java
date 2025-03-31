@@ -56,12 +56,12 @@ public class Main extends Application {
     static Image musicOn = new Image("file:imagesStart/menu/muzyka1.png");
     static boolean isMusicOn = true;
 
-    static String musicFile1 = "src/music/music.mp3";
-    static String musicFile2 = "src/music/race.mp3";
-    public static Media starterMusic = new Media(new File(musicFile1).toURI().toString());
+    //static String musicFile1 = "src/music/music.mp3";
+    //static String musicFile2 = "src/music/race.mp3";
+    //public static Media starterMusic = new Media(new File(musicFile1).toURI().toString());
 
-    public static Media racingMusic = new Media(new File(musicFile2).toURI().toString());
-    public static MediaPlayer mediaPlayer = new MediaPlayer(starterMusic);
+    //public static Media racingMusic = new Media(new File(musicFile2).toURI().toString());
+    //public static MediaPlayer mediaPlayer = new MediaPlayer(starterMusic);
 
 
     public static void main(String[] args) {
@@ -73,8 +73,8 @@ public class Main extends Application {
         stage = primaryStage;
         startScene();
         stage.show();
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.play();
+        //mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        //mediaPlayer.play();
     }
 
     public static void startScene() {
@@ -145,11 +145,11 @@ public class Main extends Application {
             if(isMusicOn == false){
                 musicOnOffButton.setImage(musicOff);
                 isMusicOn = true;
-                mediaPlayer.stop();
+                //mediaPlayer.stop();
             } else {
                 musicOnOffButton.setImage(musicOn);
                 isMusicOn = false;
-                mediaPlayer.play();
+                //mediaPlayer.play();
             }
         });
 
@@ -525,10 +525,10 @@ public class Main extends Application {
         babcia.setLayoutY(520);
 
         ImageView dymek = new ImageView(new Image("file:imagesStart/samouczek_fabula/dymek.png"));
-        dymek.setLayoutX(610);
+        dymek.setLayoutX(626);
         dymek.setLayoutY(280);
-        dymek.setFitHeight(300);
-        dymek.setFitWidth(580);
+        dymek.setFitHeight(290);
+        dymek.setFitWidth(550);
 
         ImageView imageViewPominFabula = new ImageView(new Image("file:imagesStart/pominFabula.png"));
         imageViewPominFabula.setLayoutX(1088);
@@ -537,22 +537,52 @@ public class Main extends Application {
         imageViewPominFabula.setFitWidth(100);
         imageViewPominFabula.setOnMouseClicked(event -> chooseThemeScene());
 
-        String[] dymekContent = { "Oh, witaj dziecko. Czy coś się stał-", "Ahh, to ty...", "Co się stało TERAZ, że wreszcie się zdecydowałeś odwiedzić swoją starą i 'nudną' staruszkę hm?",
-        "...Więc o to chodzi hmm.", "Nigdy nie sądziłam, że usłyszysz o tej historii gdziekolwiek. W końcu stało się to tak dawno temu..",
-        "Chyba plotki nigdy nie umierają...", "Ale tak, kiedyś byłam wyścigówką. Bardzo utalentowaną nawet!",
-        "...Co się tak patrzysz?", "Nie możesz uwierzyć, że babcia miała taką ciekawą karierę?", "Miałam naprawdę wiele osiągnięć i nagród za moje wyścigi!",
-        "..Oraz cóż, nigdy mnie nie zapytałeś czym się zajmowałam w przeszłości.", "Nawet miałam cudowne i piękne czerwone lamborghini.",
-        "Ale cóż, teraz jestem na to za stara. Jednak czemu się o to teraz wypytujesz?", "Ty? Chcesz się nauczyć jak być wyścigowcem?",
-        "Zawsze wiedziałam, że masz szalone marzenia w tej twojej głowie ale to...", "Hmmm...", "W porządku, w porządku. Nauczę Cię wszystkiego co musisz wiedzieć o wyścigach!",
-        "Jednak lepiej rób notatki bo ta stara babcia nie będzie sie powtarzać dwa razy.", "I nie martw się, ze mną jako mentor - zostaniesz najlepszym wyścigowcem w całym świecie."}; //TODO tekst (important)
+        String[] dymekContent = { "Oh, witaj dziecko. Czy coś się stał-",
+                "Ahh, to ty...",
+                "Co się stało TERAZ,",
+                "że wreszcie się zdecydowałeś",
+                "odwiedzić swoją starą i 'nudną'",
+                " staruszkę hm?",
+                "...Więc o to chodzi hmm.",
+                "Nigdy nie sądziłam, że usłyszysz",
+                " o tej historii gdziekolwiek. ",
+                "W końcu stało się to tak dawno temu..",
+                "Chyba plotki nigdy nie umierają...",
+                "Ale tak, kiedyś byłam wyścigówką.",
+                " Bardzo utalentowaną nawet!",
+                "...Co się tak patrzysz?",
+                "Nie możesz uwierzyć, że babcia miała",
+                " taką ciekawą karierę?",
+                "Miałam naprawdę wiele osiągnięć i ",
+                "nagród za moje wyścigi!",
+                "...Oraz cóż, nigdy mnie nie zapytałeś",
+                "czym się zajmowałam w przeszłości.",
+                "Nawet miałam cudowne",
+                " i piękne czerwone lamborghini.",
+                "Ale cóż, teraz jestem na to za stara.",
+                "Jednak czemu się o to teraz wypytujesz?",
+                "Ty? Ty? Chcesz się nauczyć",
+                "jak być wyścigowcem?",
+                "Zawsze wiedziałam, że",
+                " masz szalone marzenia",
+                "w tej twojej głowie ale to...",
+                "Hmmm...", "W porządku, w porządku.",
+                "Nauczę Cię wszystkiego co musisz",
+                "wiedzieć o wyścigach!",
+                "Jednak lepiej rób notatki",
+                "bo ta stara babcia nie będzie",
+                "się powtarzać dwa razy.",
+                "I nie martw się, ze mną jako mentor",
+                "zostaniesz najlepszym",
+                "wyścigowcem w całym świecie."};
         final Text textDymek = new Text("");
         Font font = Font.loadFont("file:Minecraftia-Regular.ttf",35);
         textDymek.setFont(font);
-        textDymek.setLayoutX(661);
-        textDymek.setLayoutY(370);
-        textDymek.setWrappingWidth(400);
+        textDymek.setLayoutX(678);
+        textDymek.setLayoutY(373);
+        textDymek.setWrappingWidth(475);
 
-        animateTextUsingTimeline(dymekContent, textDymek, 3.5, 3.5);
+        animateTextUsingTimeline(dymekContent, textDymek, 4.0, 3.7);
 
         rootFabula.getChildren().addAll(imageViewMenuFabula, babcia, dymek, imageViewPominFabula, textDymek );
     }
@@ -577,7 +607,7 @@ public class Main extends Application {
     private static void animateText(String content, Text textDymek, double durationBetweenStrings) {
         final Animation typingAnimation = new Transition() {
             {
-                setCycleDuration(Duration.seconds(durationBetweenStrings)); // Duration of typing effect for each string ..
+                setCycleDuration(Duration.seconds(durationBetweenStrings)); // Duration of typing effect for each string .
             }
 
             protected void interpolate(double frac) {
@@ -660,5 +690,3 @@ public class Main extends Application {
     }
 
 };
-
-//TODO podorabiac mozliwosc cara do level2 i level3 + do level 2 dołozyć menu

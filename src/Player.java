@@ -219,12 +219,19 @@ public class Player extends Car{
                 this.setTranslateY(carY);
                 this.setRotate(carAngle);
 
-//            //checking if player intersects puddle
-//            for (int i = 0; i < Puddle.puddleList.size(); i++) {
-//                if (Puddle.puddleList.get(i).collision(this)){
-//                    this.slowDown();
-//                }
-//            }
+            //checking if player intersects puddle
+            for (int i = 0; i < Puddle.puddleList.size(); i++) {
+                Puddle.puddleList.get(i).setTimer(Puddle.puddleList.get(i).getTimer() -1);
+                if (Puddle.puddleList.get(i).collision(this)){
+                    this.slowDown();
+                    System.out.println("SPEED:" + speed);
+
+                }
+                if (Puddle.puddleList.get(i).getTimer() <= 0){
+                    Puddle.puddleList.get(i).delete();
+                    System.out.println("SHOULD BE DELETED");
+                }
+            }
 
             }));
             timelineCar.setCycleCount(Animation.INDEFINITE);
