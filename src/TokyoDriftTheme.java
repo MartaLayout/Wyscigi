@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -50,6 +51,7 @@ public class TokyoDriftTheme {
     static Player player = new Player(200, 180);
    public static Timeline timelineTimer;
    public static Timeline timelineFiring;
+
 
     static int iloscOkrazen = 200; //TODO change to 0 here once we finish setting everything up
 
@@ -205,9 +207,11 @@ public class TokyoDriftTheme {
         lapTimerText.setY(805);
         lapTimerText.setFont(font);
         lapTimerText.setFill(Color.color(1,0,0.7));
-        lapText.setX(685);
+        lapText.setX(755);
         lapText.setY(805);
-        lapTimerText.setFill(Color.color(0.5,0,0.9));
+        lapText.setFill(Color.color(0.5,0,0.9));
+
+
 
          timelineTimer = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
