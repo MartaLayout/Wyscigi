@@ -52,6 +52,10 @@ public class TokyoDriftTheme {
     static Scene level3TokyoScene = new Scene(level3Root, Main.WIDTH, Main.HEIGHT);
     private static boolean isTimerRunning;
 
+    static Player player = new Player(200, 180);
+    static Timeline timelineTimer;
+    static Timeline timelineFiring;
+
     static int iloscOkrazen = 0; //TODO change to 0 here once we finish setting everything up
 
     static Bonus bonus = new Bonus();
@@ -135,6 +139,8 @@ public class TokyoDriftTheme {
         //level 3 --> po 5 okrazeniach w drugim
         final Text textTlumaczenie = new Text("Level 2 odblokowuje się po ukończeniu 5 okrążeń w levelu 1, a level 3 po ukończeniu 5 okrążeń w levelu 2 :))");
         textTlumaczenie.setWrappingWidth(500);
+        textTlumaczenie.setLayoutX(-100);
+        textTlumaczenie.setLayoutY(-100);
         Font font = Font.loadFont("file:Minecraftia-Regular.ttf",15);
         klodkaLevel2.setOnMouseClicked(event -> {
             textTlumaczenie.setFont(font);
@@ -193,10 +199,6 @@ public class TokyoDriftTheme {
         menuTokyoDriftLevel1.setLayoutY(744);
         menuTokyoDriftLevel1.setFitWidth(100);
         menuTokyoDriftLevel1.setFitHeight(50);
-//        menuTokyoDriftLevel1.setOnMouseClicked(
-//                event -> Main.menu()
-//        );
-
 
         //timer
         timerText.setX(337);
@@ -221,11 +223,6 @@ public class TokyoDriftTheme {
         );
         timelineTimer.setCycleCount(Timeline.INDEFINITE);
         timelineTimer.play();
-
-        menuTokyoDriftLevel1.setOnMouseClicked(event -> {
-            Main.menu();
-            timelineTimer.stop();
-        });
 
 //        //not working
 //        menuTokyoDriftLevel1.setOnMouseClicked(event -> {
@@ -255,6 +252,17 @@ public class TokyoDriftTheme {
         }));
         rotationTimeline.setCycleCount(INDEFINITE);
         rotationTimeline.play();
+
+        menuTokyoDriftLevel1.setOnMouseClicked(event -> {
+            Main.menu();
+            timelineTimer.stop();
+            timelineFiring.stop();
+        });
+
+        if(activeLevel1Scene == false){
+            timelineTimer.stop();
+            timelineFiring.stop();
+        }
 
         Rectangle rectangle = new Rectangle(10, 10);
 
