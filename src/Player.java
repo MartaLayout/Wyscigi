@@ -224,12 +224,12 @@ public class Player extends Car{
                 Puddle.puddleList.get(i).setTimer(Puddle.puddleList.get(i).getTimer() -1);
                 if (Puddle.puddleList.get(i).collision(this)){
                     this.slowDown();
-                    System.out.println("SPEED:" + speed);
+                    //'System.out.println("SPEED:" + speed);
 
                 }
                 if (Puddle.puddleList.get(i).getTimer() <= 0){
                     Puddle.puddleList.get(i).delete();
-                    System.out.println("SHOULD BE DELETED");
+                    //System.out.println("SHOULD BE DELETED");
                 }
             }
 
