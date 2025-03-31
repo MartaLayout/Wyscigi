@@ -51,7 +51,7 @@ public class TokyoDriftTheme {
     static Player player = new Player(200, 180);
    public static Timeline timelineTimer;
    public static Timeline timelineFiring;
-   public static AudioClip carStarting = new AudioClip(TokyoDriftTheme.class.getResource("music/Car Start Up Sound Effect.mp3").toExternalForm());
+
 
     static int iloscOkrazen = 200; //TODO change to 0 here once we finish setting everything up
 
@@ -210,7 +210,7 @@ public class TokyoDriftTheme {
         lapText.setX(685);
         lapText.setY(805);
         lapText.setFill(Color.color(0.5,0,0.9));
-        carStarting.play();
+
 
 
          timelineTimer = new Timeline(
