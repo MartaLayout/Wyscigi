@@ -243,6 +243,8 @@ public class Main extends Application {
         } else if (TokyoDriftTheme.activeLevel1Scene) {
 //            TokyoDriftTheme.level1();
             stageMenu.close();
+            Timeline timelineTimer = TokyoDriftTheme.timelineTimer;
+            Timeline timelineFiring = TokyoDriftTheme.timelineFiring;
         } else if (TokyoDriftTheme.activeLevel2Scene) {
             TokyoDriftTheme.level2();
             stageMenu.close();
