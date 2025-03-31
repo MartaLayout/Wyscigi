@@ -44,12 +44,20 @@
 Oto nasza historia. Zaczęło się od długiego czekania na temat i po 15 minutach już byłyśmy pewne, że wybierzemy wyścigi. 
 Dużo omawiałyśmy i dyskutowałyśmy koncept, wygląd oraz funkcjonalność gry.
 
-![9eM6pg4f](https://github.com/user-attachments/assets/901e36dc-d996-48e2-813f-6c18bbd86bca)
-
-
+<a> <img src=https://github.com/user-attachments/assets/901e36dc-d996-48e2-813f-6c18bbd86bca width = 200 height = 200> 
+<img src=https://github.com/user-attachments/assets/58415a05-76f9-4b0c-ad20-c9bf48c460d5 width = 200 height = 200>
+<img src=https://github.com/user-attachments/assets/f3cead3b-31d3-4806-b829-b4e8fc23b72d width = 200 height = 200>
+</a>
 
   
-<a> <img src=https://github.com/user-attachments/assets/58415a05-76f9-4b0c-ad20-c9bf48c460d5> </a>
+<a> I ot tak zaczęły się 2 miesiące ciężkiej pracy -> programowanie, rysowanie no i idea babci przewodniczki :3 </a>
+<a>
+<img src=https://github.com/user-attachments/assets/159c547f-e67d-48f3-9df2-acbe69a07f73 width = 300 height = 200>
+<img src=https://github.com/user-attachments/assets/58f79dd0-cee1-46e8-8d55-5d3ee67945a5 width = 200 height = 200>
+ 
+</a>
+
+
 
 
 
