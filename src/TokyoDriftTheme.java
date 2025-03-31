@@ -18,11 +18,12 @@ public class TokyoDriftTheme {
 
     static Text timerText = new Text(" ");
     public static Text lapTimerText = new Text(" ");
+    static Text lapText = new Text(" ");
     static int seconds = 0;
     static int minutes = 0;
     static int lapSeconds = 0;
     static int lapMinutes = 0;
-    static int lap = 0;
+    static int lap = Player.lap;
 
     static AnchorPane rootTokyoStart = new AnchorPane();
     static AnchorPane level1Root = new AnchorPane();
@@ -204,6 +205,9 @@ public class TokyoDriftTheme {
         lapTimerText.setY(805);
         lapTimerText.setFont(font);
         lapTimerText.setFill(Color.color(1,0,0.7));
+        lapText.setX(685);
+        lapText.setY(805);
+        lapTimerText.setFill(Color.color(0.5,0,0.9));
 
          timelineTimer = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
@@ -211,6 +215,7 @@ public class TokyoDriftTheme {
                         isTimerRunning = true;
                         updateTimer();
                         updateLapTimer();
+                        lap();
                     }
                 })
 
@@ -322,6 +327,9 @@ public class TokyoDriftTheme {
             }
             timerText.setText(minutes + ":" + seconds);
         }
+    }
+    private static void lap() {
+        lapText.setText(String.valueOf(lap + 1));
     }
 
 

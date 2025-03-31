@@ -33,8 +33,13 @@ public class Car extends ImageView {
     public boolean rightWay;
     public boolean finish;
     public boolean start;
-    public int lap = 0;
 
+
+
+    public static int lap = 0;
+    public int getLap() {
+        return lap;
+    }
 
 
 
