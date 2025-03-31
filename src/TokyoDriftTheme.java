@@ -1,3 +1,4 @@
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
@@ -7,6 +8,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -49,8 +52,9 @@ public class TokyoDriftTheme {
     static Scene level3TokyoScene = new Scene(level3Root, Main.WIDTH, Main.HEIGHT);
     private static boolean isTimerRunning;
 
-    static int iloscOkrazen = 20; //TODO change to 0 here once we finish setting everything up
+    static int iloscOkrazen = 0; //TODO change to 0 here once we finish setting everything up
 
+    static Bonus bonus = new Bonus();
 
     public static void generateTokyo(){
         Main.activeSamouczekScene = false;
@@ -91,13 +95,14 @@ public class TokyoDriftTheme {
         imageViewLevel1.setLayoutY(300);
         imageViewLevel1.setFitHeight(300);
         imageViewLevel1.setFitWidth(300);
-        imageViewLevel1.setOnMouseClicked(event -> level1());
+        imageViewLevel1.setOnMouseClicked(event ->
+                level1());
 
         ImageView klodkaLevel2 = new ImageView(new Image("file:Tokyo/klodka.png"));
-        klodkaLevel2.setFitWidth(400);
-        klodkaLevel2.setFitHeight(400);
-        klodkaLevel2.setLayoutX(400);
-        klodkaLevel2.setLayoutY(230);
+        klodkaLevel2.setFitWidth(300);
+        klodkaLevel2.setFitHeight(300);
+        klodkaLevel2.setLayoutX(450);
+        klodkaLevel2.setLayoutY(275);
 
 
         ImageView imageViewLevel2 = new ImageView(new Image("file:Tokyo/level2Cover.png"));
@@ -107,10 +112,10 @@ public class TokyoDriftTheme {
         imageViewLevel2.setFitWidth(300);
 
         ImageView klodkaLevel3 = new ImageView(new Image("file:Tokyo/klodka.png"));
-        klodkaLevel3.setFitWidth(400);
-        klodkaLevel3.setFitHeight(400);
-        klodkaLevel3.setLayoutX(750);
-        klodkaLevel3.setLayoutY(230);
+        klodkaLevel3.setFitWidth(300);
+        klodkaLevel3.setFitHeight(300);
+        klodkaLevel3.setLayoutX(800);
+        klodkaLevel3.setLayoutY(275);
 
         ImageView imageViewLevel3 = new ImageView(new Image("file:Tokyo/level3Cover.png"));
         imageViewLevel3.setLayoutX(800);
@@ -146,6 +151,10 @@ public class TokyoDriftTheme {
         activeLevel1Scene = true;
         activeLevel2Scene = false;
         activeLevel3Scene = false;
+
+        Main.mediaPlayer.stop();
+        Main.mediaPlayer = new MediaPlayer(Main.racingMusic);
+        Main.mediaPlayer.play();
 
         level1Root.getChildren().clear();
 
@@ -205,9 +214,9 @@ public class TokyoDriftTheme {
 
         //player.setRotate(180);
 
-//        Bonus bonus = new Bonus();
-//        bonus.appear();
-//        bonus.appear();
+
+        bonus.appear();
+        //bonus.appear();
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
@@ -232,7 +241,7 @@ public class TokyoDriftTheme {
         Rectangle checkpointMeta = new Rectangle(227, 16, 50, 255);
         Rectangle checkpoint = new Rectangle(227, 16, 25, 255);
 
-        level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDriftLevel1, timerText, lapTimerText );
+        level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDriftLevel1, timerText, lapTimerText);
         //Puddle.puddleFactory(level1Root);
     }
 

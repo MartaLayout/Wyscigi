@@ -56,7 +56,12 @@ public class Main extends Application {
     static Image musicOn = new Image("file:imagesStart/menu/muzyka1.png");
     static boolean isMusicOn = true;
 
-    static String musicFile = "src/music/music.mp3";
+    static String musicFile1 = "src/music/music.mp3";
+    static String musicFile2 = "src/music/race.mp3";
+    public static Media starterMusic = new Media(new File(musicFile1).toURI().toString());
+
+    public static Media racingMusic = new Media(new File(musicFile2).toURI().toString());
+    public static MediaPlayer mediaPlayer = new MediaPlayer(starterMusic);
 
 
     public static void main(String[] args) {
@@ -68,7 +73,8 @@ public class Main extends Application {
         stage = primaryStage;
         startScene();
         stage.show();
-        playSound(musicFile);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
     }
 
     public static void startScene() {
@@ -139,11 +145,12 @@ public class Main extends Application {
             if(isMusicOn == false){
                 musicOnOffButton.setImage(musicOff);
                 isMusicOn = true;
+                mediaPlayer.stop();
             } else {
                 musicOnOffButton.setImage(musicOn);
                 isMusicOn = false;
+                mediaPlayer.play();
             }
-            //TODO Nati do it here please
         });
 
 
@@ -518,8 +525,10 @@ public class Main extends Application {
         babcia.setLayoutY(520);
 
         ImageView dymek = new ImageView(new Image("file:imagesStart/samouczek_fabula/dymek.png"));
-        dymek.setLayoutX(600);
+        dymek.setLayoutX(610);
         dymek.setLayoutY(280);
+        dymek.setFitHeight(300);
+        dymek.setFitWidth(580);
 
         ImageView imageViewPominFabula = new ImageView(new Image("file:imagesStart/pominFabula.png"));
         imageViewPominFabula.setLayoutX(1088);
@@ -528,12 +537,20 @@ public class Main extends Application {
         imageViewPominFabula.setFitWidth(100);
         imageViewPominFabula.setOnMouseClicked(event -> chooseThemeScene());
 
-        String[] dymekContent = {"ok I can't believe it works", "testing again", "the babcia :)))", "I'm really happy", "with how that works"}; //TODO tekst (important)
+        String[] dymekContent = { "Oh, witaj dziecko. Czy coś się stał-", "Ahh, to ty...", "Co się stało TERAZ, że wreszcie się zdecydowałeś odwiedzić swoją starą i 'nudną' staruszkę hm?",
+        "...Więc o to chodzi hmm.", "Nigdy nie sądziłam, że usłyszysz o tej historii gdziekolwiek. W końcu stało się to tak dawno temu..",
+        "Chyba plotki nigdy nie umierają...", "Ale tak, kiedyś byłam wyścigówką. Bardzo utalentowaną nawet!",
+        "...Co się tak patrzysz?", "Nie możesz uwierzyć, że babcia miała taką ciekawą karierę?", "Miałam naprawdę wiele osiągnięć i nagród za moje wyścigi!",
+        "..Oraz cóż, nigdy mnie nie zapytałeś czym się zajmowałam w przeszłości.", "Nawet miałam cudowne i piękne czerwone lamborghini.",
+        "Ale cóż, teraz jestem na to za stara. Jednak czemu się o to teraz wypytujesz?", "Ty? Chcesz się nauczyć jak być wyścigowcem?",
+        "Zawsze wiedziałam, że masz szalone marzenia w tej twojej głowie ale to...", "Hmmm...", "W porządku, w porządku. Nauczę Cię wszystkiego co musisz wiedzieć o wyścigach!",
+        "Jednak lepiej rób notatki bo ta stara babcia nie będzie sie powtarzać dwa razy.", "I nie martw się, ze mną jako mentor - zostaniesz najlepszym wyścigowcem w całym świecie."}; //TODO tekst (important)
         final Text textDymek = new Text("");
         Font font = Font.loadFont("file:Minecraftia-Regular.ttf",35);
         textDymek.setFont(font);
-        textDymek.setLayoutX(651);
+        textDymek.setLayoutX(661);
         textDymek.setLayoutY(370);
+        textDymek.setWrappingWidth(400);
 
         animateTextUsingTimeline(dymekContent, textDymek, 3.5, 3.5);
 
@@ -642,12 +659,6 @@ public class Main extends Application {
         rootChooseThemeScene.getChildren().addAll(tokyoDriftTheme, magicalTheme, menuButton, wBudowie);
     }
 
-    public static void playSound(String fileName){
-        Media media = new Media(new File(fileName).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.play();
-        //TODO nati prosze to zrobić tak żebym mogła tego używać
-}};
+};
 
 //TODO podorabiac mozliwosc cara do level2 i level3 + do level 2 dołozyć menu

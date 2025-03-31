@@ -14,7 +14,7 @@ public class Player extends Car{
     private boolean moveLeft;
     private boolean moveBackwards;
 
-    //private int nitroMode = 0;
+    private int nitroMode = 0;
 
 
 
@@ -67,6 +67,8 @@ public class Player extends Car{
                 TokyoDriftTheme.level1TokyoScene.setOnKeyPressed(event -> {
                 //UP z DOWN zamienione bo musiałam zrobić rotate imageView
                 //i right z left też
+
+                    BonusCollision(TokyoDriftTheme.bonus);
                     if (event.getCode() == KeyCode.DOWN) {
                     moveBackwards = true;
                     TokyoDriftTheme.start = true;
@@ -170,23 +172,26 @@ public class Player extends Car{
 
 
         timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
-            kolorMaski();
-//            if (nitroMode >0){
-//                nitroMode --;
-//            }
-//            if (nitroMode<=0){
-//                //this.ExitNitroModeNotWroom();
-//            }
-                if (moveBackwards) {
-                    moveBackwardsAppliedForce();
-                } else {
-                    moveBackwardsNegForce();
+            if (nitroMode >0){
+                nitroMode --;
+                if (nitroMode<=0){
+                    this.ExitNitroModeNotWroom();
                 }
-                if (moveForward) {
-                    moveForwardAppliedForce();
-                } else {
-                    moveForwardNegForce();
-                }
+            }
+
+
+            if (moveBackwards) {
+                moveBackwardsAppliedForce();
+            }
+            else {
+                moveBackwardsNegForce();
+            }
+            if (moveForward) {
+                moveForwardAppliedForce();
+            }
+            else {
+                moveForwardNegForce();
+            }
 
 //            if (!moveForward){
 //                carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
@@ -229,19 +234,30 @@ public class Player extends Car{
         }
 
 
-//    protected boolean BonusCollision(Bonus bonus){
-//        if (this.intersects(bonus.getX(), bonus.getY(), bonus.getFitWidth(), bonus.getFitHeight())){
-//           if (bonus.getCollectedCounter() == 10){
-//               nitroMode = 500;
-//               //this.EnterNitroModeWroom();
-//               bonus.setCollectedCounter(0);
-//           }
-//            return true;
-//        }
-//        return false;
-//    }
+    protected boolean BonusCollision(Bonus bonus){
 
+        if  (this.getBoundsInParent().intersects(bonus.getBoundsInParent())){
+
+            bonus.appear();
+            System.out.println("first if - sees collision");
+            System.out.println(bonus.getCollectedCounter());
+
+            if (bonus.getCollectedCounter() >= 10){
+                System.out.println("second if - sees the change in the counter");
+                //normally the if condition would be 10, but for the sake of testing its 1
+                nitroMode = 500;
+                this.EnterNitroModeWroom();
+                System.out.println("speed" + speed);
+                bonus.setCollectedCounter(0);
+                System.out.println("if entered");
+           }
+            return true;
+        }
+
+        return false;
     }
+
+}
 
 
 
