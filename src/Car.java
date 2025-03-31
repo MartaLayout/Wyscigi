@@ -281,69 +281,63 @@ public class Car extends ImageView {
 
 
     private void kolorMaski() {
-        System.out.println("kolorMaski() method called!");
-        PixelReader maskaReader = maska.getPixelReader();
-        if (maskaReader == null) {
-            System.out.println("Error: Cannot read pixels from the mask image.");
-            return;
-        }
+        if(Main.activeSamouczekScene == false) {
 
-        int x = (int) carX;
-        int y = (int) carY;
+            System.out.println("kolorMaski() method called!");
+            PixelReader maskaReader = maska.getPixelReader();
+            if (maskaReader == null) {
+                System.out.println("Error: Cannot read pixels from the mask image.");
+                return;
+            }
 
-        if (x < 0 || y < 0 || x >= maska.getWidth() || y >= maska.getHeight()) {
-            System.out.println("Error: Coordinates out of bounds.");
-            return;
-        }
+            int x = (int) carX;
+            int y = (int) carY;
 
-        Color maskaColor = maskaReader.getColor(x, y);
+            if (x < 0 || y < 0 || x >= maska.getWidth() || y >= maska.getHeight()) {
+                System.out.println("Error: Coordinates out of bounds.");
+                return;
+            }
 
-        if (maskaColor.equals(Color.rgb(0, 0, 0, 1))) {
-            System.out.println("BLACK detected.");
+            Color maskaColor = maskaReader.getColor(x, y);
 
-            collide();
-        }
+            if (maskaColor.equals(Color.rgb(0, 0, 0, 1))) {
+                System.out.println("BLACK detected.");
 
-        else if (maskaColor.equals(Color.rgb(255, 127, 39, 1))) {
+                collide();
+            } else if (maskaColor.equals(Color.rgb(255, 127, 39, 1))) {
 //            checkpointFIRST();
-            checkpointPOM = true;
+                checkpointPOM = true;
 
 //            System.out.println("ORANGE detected.");
-        }
+            } else if (maskaColor.equals(Color.rgb(190, 40, 254, 1))) {
+                System.out.println("PURPLE detected.");
+                checkpointFIOL = true;
+                lap++;
+                finalCheckMetaLAP();
 
-        else if (maskaColor.equals(Color.rgb(190, 40, 254, 1))) {
-            System.out.println("PURPLE detected.");
-            checkpointFIOL = true;
-            lap++;
-            finalCheckMetaLAP();
+            } else if (maskaColor.equals(Color.rgb(255, 41, 46, 1))) {
+                if (checkpointZIEL) {
+                    checkpointZIEL = false;
+                    checkpointRED = false;
 
-        }
+                    if (checkpointPOM == true && checkJEDEN == true) {
+                        checkDWA = true;
+                    }
 
-        else if (maskaColor.equals(Color.rgb(255, 41, 46, 1))) {
-            if (checkpointZIEL){
-                checkpointZIEL = false;
-                checkpointRED = false;
+                    if (checkpointPOM == true) {
+                        checkJEDEN = true;
+                        checkpointPOM = false;
+                    }
 
-                if (checkpointPOM == true && checkJEDEN == true){
-                    checkDWA = true;
+
                 }
-
-                if (checkpointPOM == true) {
-                    checkJEDEN = true;
-                    checkpointPOM = false;
-                }
-
+                System.out.println("RED detected.");
+            } else if (maskaColor.equals(Color.rgb(87, 254, 40, 1))) {
+                System.out.println("GREEN detected.");
+            } else if (maskaColor.equals(Color.rgb(255, 255, 255, 1))) {
+                System.out.println("WHITE detected");
 
             }
-            System.out.println("RED detected.");
-        }
-
-        else if (maskaColor.equals(Color.rgb(87, 254, 40, 1))) {
-            System.out.println("GREEN detected.");
-        }
-        else if (maskaColor.equals(Color.rgb(255, 255, 255, 1))){
-            System.out.println("WHITE detected");
-
         }
 
     }
