@@ -152,9 +152,9 @@ public class TokyoDriftTheme {
         activeLevel2Scene = false;
         activeLevel3Scene = false;
 
-        Main.mediaPlayer.stop();
-        Main.mediaPlayer = new MediaPlayer(Main.racingMusic);
-        Main.mediaPlayer.play();
+        //Main.mediaPlayer.stop();
+        //Main.mediaPlayer = new MediaPlayer(Main.racingMusic);
+        //Main.mediaPlayer.play();
 
         level1Root.getChildren().clear();
 
@@ -242,7 +242,7 @@ public class TokyoDriftTheme {
         Rectangle checkpoint = new Rectangle(227, 16, 25, 255);
 
         level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDriftLevel1, timerText, lapTimerText);
-        //Puddle.puddleFactory(level1Root);
+        Puddle.puddleFactory(level1Root);
     }
 
 
@@ -393,7 +393,7 @@ public class TokyoDriftTheme {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 
-        //Puddle.puddleFactory(level1Root);
+        Puddle.puddleFactory(level1Root);
         Player player = new Player(200,180);
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
