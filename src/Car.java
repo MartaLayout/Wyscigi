@@ -272,7 +272,7 @@ public class Car extends ImageView {
 //so i think here is the code for speeding up when the Player is in Nitro (part of the code at least)
     protected void EnterNitroModeWroom(){
         speed *=5;
-        System.out.println("EnterNitroModeWroom");
+        //System.out.println("EnterNitroModeWroom");
     }
 
     protected void ExitNitroModeNotWroom(){
@@ -283,10 +283,10 @@ public class Car extends ImageView {
 
     private void kolorMaski() {
         if (!Main.activeSamouczekScene) {
-            System.out.println("kolorMaski() method called!");
+            //System.out.println("kolorMaski() method called!");
             PixelReader maskaReader = maska.getPixelReader();
             if (maskaReader == null) {
-                System.out.println("Error: Cannot read pixels from the mask image.");
+                //System.out.println("Error: Cannot read pixels from the mask image.");
                 return;
             }
 
@@ -294,14 +294,14 @@ public class Car extends ImageView {
             int y = (int) carY;
 
             if (x < 0 || y < 0 || x >= maska.getWidth() || y >= maska.getHeight()) {
-                System.out.println("Error: Coordinates out of bounds.");
+                //System.out.println("Error: Coordinates out of bounds.");
                 return;
             }
 
             Color maskaColor = maskaReader.getColor(x, y);
 
             if (maskaColor.equals(Color.rgb(0, 0, 0, 1))) {
-                System.out.println("BLACK detected.");
+                //System.out.println("BLACK detected.");
 
                 collide();
             }
@@ -314,7 +314,7 @@ public class Car extends ImageView {
             }
 
             else if (maskaColor.equals(Color.rgb(190, 40, 254, 1))) {
-                System.out.println("PURPLE detected.");
+                //System.out.println("PURPLE detected.");
                 checkpointFIOL = true;
                 lap++;
                 if (checkJEDEN && checkDWA) {
@@ -329,16 +329,16 @@ public class Car extends ImageView {
                     checkJEDEN = true;
                     checkDWA = true;
                 }
-                System.out.println("RED detected.");
+                //System.out.println("RED detected.");
             }
 
             else if (maskaColor.equals(Color.rgb(87, 254, 40, 1))) {
                 checkpointZIEL = true;
-                System.out.println("GREEN detected.");
+                //System.out.println("GREEN detected.");
             }
 
             else if (maskaColor.equals(Color.rgb(255, 255, 255, 1))) {
-                System.out.println("WHITE detected");
+               // System.out.println("WHITE detected");
 
             }
 
