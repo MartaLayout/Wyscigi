@@ -51,7 +51,7 @@
 <p>──★  <b> Marta Oleszkiewicz </b> — nasza „kapitanka". Tworzyła interface, menu, przeszkody, samouczek i bazą danych. Także spinała naszą pracę w jednolitą całość. </p>
 <p>──★  <b> Nati Wasilewska </b> — autorska grafika, autorska muzyczka i autorskie pomysły 😎. Też pisała tę dokumentację i pomagała przy programowaniu drobiazgów. </p>
 <p>──★ <b> Zosia Geryk </b>— programistka, zajmowała się kolizją, maską na planszę, i pisała przeciwników. Również utajała się w tajemniki fizyki auta.</p>
-<p>──★  <b> Darya Markevich</b> — programistka, zajmowała się autem i przeciwnikami. „Pookie” naszej drużyny.</p>
+<p>──★  <b> Daria Markevich</b> — programistka, zajmowała się autem i przeciwnikami. „Pookie” naszej drużyny.</p>
 <p>──★  <b>  Pola Kowalska </b> — narysowała część grafiki i zajęła się przeszkodami na tory.</p>
 
 <p>──★I oczywiście, nasz fantastyczny mentor <b>Bartosz Budniak :) </b> </p>
