@@ -65,7 +65,6 @@ public class ObstacleDoor {
         for (int i = 0; i < 9; i++) {
             obstacleDoor.imageView.setRotate(90);
         }
-
     }
 
     public static void doorCreation() {

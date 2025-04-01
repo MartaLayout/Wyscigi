@@ -51,7 +51,7 @@
 <p>──★  <b> Marta Oleszkiewicz </b> — nasza „kapitanka". Tworzyła interface, menu, przeszkody, samouczek i bazą danych. Także spinała naszą pracę w jednolitą całość. </p>
 <p>──★  <b> Nati Wasilewska </b> — autorska grafika, autorska muzyczka i autorskie pomysły 😎. Też pisała tę dokumentację i pomagała przy programowaniu drobiazgów. </p>
 <p>──★ <b> Zosia Geryk </b>— programistka, zajmowała się kolizją, maską na planszę, i pisała przeciwników. Również utajała się w tajemniki fizyki auta.</p>
-<p>──★  <b> Darya Markevich</b> — programistka, zajmowała się autem i przeciwnikami. „Pookie” naszej drużyny.</p>
+<p>──★  <b> Daria Markevich</b> — programistka, zajmowała się autem i przeciwnikami. „Pookie” naszej drużyny.</p>
 <p>──★  <b>  Pola Kowalska </b> — narysowała część grafiki i zajęła się przeszkodami na tory.</p>
 
 <p>──★I oczywiście, nasz fantastyczny mentor <b>Bartosz Budniak :) </b> </p>
@@ -101,11 +101,12 @@ Były oczywiście problemy...... i zabawne bugi
 <a> 
   
 BONUS:
-Darya nie umie siedzieć prosto </a>
+Daria nie umie siedzieć prosto </a>
   
   <img src= https://github.com/user-attachments/assets/e375a0bb-cefd-4540-a007-171e2f72e573 width =250 height = 300>
 <img src = https://github.com/user-attachments/assets/d0630797-7a2d-4a39-945a-275d0108e5c7 width= 300 height = 300>
 <img src = https://github.com/user-attachments/assets/8030db77-764c-492e-969e-b5b0ce0e83d7 width= 300 height = 300>
+<img src = https://github.com/user-attachments/assets/0d62b9f1-f25a-4174-891f-4616926462dc  width = 200, height = 300>
 
 
 
