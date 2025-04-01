@@ -365,7 +365,7 @@ public class Car extends ImageView {
 
     private void finalCheckMetaLAP() {
         lap++;
-        System.out.println(lap);
+        System.out.println("lap                 lap            lap" + lap);
         checkpointPOM = false;
         checkpointZIEL = false;
         checkpointFIOL = false;
