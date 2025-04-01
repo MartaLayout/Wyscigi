@@ -304,12 +304,13 @@ public class Car extends ImageView {
                 System.out.println("BLACK detected.");
 
                 collide();
+                return;
             }
 
             else if (maskaColor.equals(Color.rgb(255, 127, 39, 1))) {
 //            checkpointFIRST();
                 checkpointPOM = true;
-
+                return;
 //            System.out.println("ORANGE detected.");
             }
 
@@ -320,6 +321,7 @@ public class Car extends ImageView {
                 if (checkJEDEN && checkDWA) {
                     finalCheckMetaLAP();
                 }
+                return;
 
             }
 
@@ -330,16 +332,18 @@ public class Car extends ImageView {
                     checkDWA = true;
                 }
                 System.out.println("RED detected.");
+                return;
             }
 
             else if (maskaColor.equals(Color.rgb(87, 254, 40, 1))) {
                 checkpointZIEL = true;
                 System.out.println("GREEN detected.");
+                return;
             }
 
             else if (maskaColor.equals(Color.rgb(255, 255, 255, 1))) {
                 System.out.println("WHITE detected");
-
+                return;
             }
 
         }
