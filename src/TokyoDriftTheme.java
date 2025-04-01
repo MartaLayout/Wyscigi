@@ -204,6 +204,8 @@ public class TokyoDriftTheme {
         lapText.setFont(font);
         lapText.setFill(Color.color(0.5,0,0.9));
         Main.mediaPlayerStarter.stop();
+        Main.mediaPlayerRacer.setCycleCount(MediaPlayer.INDEFINITE);
+        Main.mediaPlayerRacer.setMute(false);
         Main.mediaPlayerRacer.play();
 
 
