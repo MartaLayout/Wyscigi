@@ -1,15 +1,10 @@
-import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -24,11 +19,12 @@ public class TokyoDriftTheme {
 
     static Text timerText = new Text(" ");
     public static Text lapTimerText = new Text(" ");
+    static Text lapText = new Text(" ");
     static int seconds = 0;
     static int minutes = 0;
     static int lapSeconds = 0;
     static int lapMinutes = 0;
-    static int lap = 0;
+    static int lap = Player.lap;
 
     static AnchorPane rootTokyoStart = new AnchorPane();
     static AnchorPane level1Root = new AnchorPane();
@@ -53,10 +49,11 @@ public class TokyoDriftTheme {
     private static boolean isTimerRunning;
 
     static Player player = new Player(200, 180);
-    static Timeline timelineTimer;
-    static Timeline timelineFiring;
+   public static Timeline timelineTimer;
+   public static Timeline timelineFiring;
 
-    static int iloscOkrazen = 0; //TODO change to 0 here once we finish setting everything up
+
+    static int iloscOkrazen = 200; //TODO change to 0 here once we finish setting everything up
 
     static Bonus bonus = new Bonus();
 
@@ -210,13 +207,19 @@ public class TokyoDriftTheme {
         lapTimerText.setY(805);
         lapTimerText.setFont(font);
         lapTimerText.setFill(Color.color(1,0,0.7));
+        lapText.setX(755);
+        lapText.setY(805);
+        lapText.setFill(Color.color(0.5,0,0.9));
 
-        Timeline timelineTimer = new Timeline(
+
+
+         timelineTimer = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     if (start) {
                         isTimerRunning = true;
                         updateTimer();
                         updateLapTimer();
+                        lap();
                     }
                 })
 
@@ -240,7 +243,7 @@ public class TokyoDriftTheme {
         //tworzymy wieżę - działa
         Shooter shooter = new Shooter(283, 300, imageTowerShooter);
 
-        Timeline timelineFiring = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
+         timelineFiring = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
             shooter.fireBullet(player.carX, player.carY, 20);
 
         }));
@@ -290,21 +293,25 @@ public class TokyoDriftTheme {
            String firstLapTimer = lapTimerText.getText();
             lapSeconds = 0;
             lapMinutes = 0;
+            timelineTimer.play();
         } if (lap == 2) {
             timelineTimer.stop();
             String secondLapTimer = lapTimerText.getText();
             lapSeconds = 0;
             lapMinutes = 0;
+            timelineTimer.play();
         } if (lap == 3) {
             timelineTimer.stop();
             String thirdLapTimer = lapTimerText.getText();
             lapSeconds = 0;
             lapMinutes = 0;
+            timelineTimer.play();
         }if (lap == 4) {
             timelineTimer.stop();
             String fourthLapTimer = lapTimerText.getText();
             lapSeconds = 0;
             lapMinutes = 0;
+            timelineTimer.play();
         } if (lap == 5) {
             timelineTimer.stop();
             String fifthLapTimer = lapTimerText.getText();
@@ -324,6 +331,9 @@ public class TokyoDriftTheme {
             }
             timerText.setText(minutes + ":" + seconds);
         }
+    }
+    private static void lap() {
+        lapText.setText(String.valueOf(lap + 1));
     }
 
 
@@ -377,6 +387,10 @@ public class TokyoDriftTheme {
 
 
         Player player = new Player(200,180);
+
+        //ObstacleDoor obstacleDoor = new ObstacleDoor(100,100);
+
+        ObstacleDoor.doorCreation();
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
