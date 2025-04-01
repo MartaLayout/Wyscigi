@@ -52,7 +52,7 @@ public class ObstacleDoor {
 
         TokyoDriftTheme.level2Root.getChildren().add(imageView);
 
-        timeline = new Timeline(new KeyFrame(Duration.millis(70), event -> {
+        timeline = new Timeline(new KeyFrame(Duration.millis(450), event -> {
             currentImage = (currentImage + 1) % images.size();
             imageView.setImage(images.get(currentImage));
             imageView.setFitWidth(175);
@@ -64,19 +64,18 @@ public class ObstacleDoor {
 
     public static void doorCreation() {
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) { //TODO do we want 3 doors or just 2?
             ObstacleDoor obstacleDoor = new ObstacleDoor(i*500+20,Main.HEIGHT/2 -20);
             doorsList.add(obstacleDoor);
-
         }
-
     }
-
-    public void collision(Player player){
+    public void collision(Player player){ //TODO this plis (im crying)
         if (this.imageView.getBoundsInParent().intersects(player.getBoundsInParent())){
             System.out.println("collision with doors");
+            Car.moveForward = false;
             if (currentImage <=3 || currentImage>= 14){
                 System.out.println("pass");
+                Car.moveForward = true;
             }
         }
     }
