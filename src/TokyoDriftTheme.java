@@ -212,15 +212,13 @@ public class TokyoDriftTheme {
         lapText.setFont(font);
         lapText.setFill(Color.color(0.5,0,0.9));
         Main.mediaPlayerStarter.stop();
-        Main.mediaPlayerRacer.setCycleCount(MediaPlayer.INDEFINITE);
-
-        Main.mediaPlayerRacer.play();
 
 
          timelineTimer = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     if (start) {
-
+                        Main.mediaPlayerRacer.setCycleCount(MediaPlayer.INDEFINITE);
+                        Main.mediaPlayerRacer.play();
                         isTimerRunning = true;
                         updateTimer();
                         updateLapTimer();
