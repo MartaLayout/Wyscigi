@@ -2,7 +2,6 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 
@@ -15,8 +14,8 @@ static Image image = new Image("file:Tokyo/cars/car.png");
     private boolean moveBackwards;
 
     private int nitroMode = 0;
-
-
+    Image imageNitro = new Image("file:Tokyo/cars/carWithNitro.png");
+    Image imageNotNitro= new Image("file:Tokyo/cars/car.png");
 
     static Timeline timelineCar;
 
@@ -148,7 +147,7 @@ static Image image = new Image("file:Tokyo/cars/car.png");
                     if (event.getCode() == KeyCode.UP) {
                         moveForward = true;
                         TokyoDriftTheme.start = true;
-//                        if (chanceOfSlipping<=0.1){
+//                        if (chanceOfSlipping<=0.1){ //TODO
 //                            System.out.println("slip");
 //                            moveLeft = true;
 //                        }
@@ -194,7 +193,6 @@ static Image image = new Image("file:Tokyo/cars/car.png");
                 }
             }
 
-
             if (moveBackwards) {
                 moveBackwardsAppliedForce();
             }
@@ -208,17 +206,6 @@ static Image image = new Image("file:Tokyo/cars/car.png");
                 moveForwardNegForce();
             }
 
-//            if (!moveForward){
-//                carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
-//                carY += speed * Math.sin(Math.toRadians(carAngle))* speedIncrimentation;
-//                if (speedIncrimentation>=0){
-//                    slowDown();
-//                    System.out.println(speedIncrimentation);
-//                }
-//                else{
-//                    speedIncrimentation =0;
-//                }
-                //}
                 if (moveLeft) {
                     turnLeft();
                 }
@@ -226,9 +213,6 @@ static Image image = new Image("file:Tokyo/cars/car.png");
                 if (moveRight) {
                     turnRight();
                 }
-
-                //            speedIncrimentation -= 0.1;
-
 
                 this.setTranslateX(carX);
                 this.setTranslateY(carY);
@@ -239,39 +223,27 @@ static Image image = new Image("file:Tokyo/cars/car.png");
                 Puddle.puddleList.get(i).setTimer(Puddle.puddleList.get(i).getTimer() -1);
                 if (Puddle.puddleList.get(i).collision(this)){
                     this.slowDown();
-                    //'System.out.println("SPEED:" + speed);
 
                 }
                 if (Puddle.puddleList.get(i).getTimer() <= 0){
-                    Puddle.puddleList.get(i).delete();
-                    //System.out.println("SHOULD BE DELETED");
+                    Puddle.puddleList.get(i).delete();;
                 }
             }
 
             for (int i = 0; i < Shooter.bullets.size(); i++) {
-//                Shooter.bullets.get(i).setTimer(Shooter.bullets.get(i).getTimer() -1);
                 if (Shooter.bullets.get(i).collision(this)){
                     this.slowDown();
-                    this.carAngle = getRotate() + 8;
-
+                    this.carAngle = getRotate() + 2;
                 }
-//                if (Shooter.bullets.get(i).getTimer() <= 0){
-//                    Shooter.bullets.get(i).delete();
-//                }
             }
 
             }));
             timelineCar.setCycleCount(Animation.INDEFINITE);
             timelineCar.play();
-
-
         }
 
-
     protected boolean BonusCollision(Bonus bonus){
-
         if  (this.getBoundsInParent().intersects(bonus.getBoundsInParent())){
-
             bonus.appear();
 //            System.out.println("first if - sees collision");
 //            System.out.println(bonus.getCollectedCounter());
@@ -284,12 +256,14 @@ static Image image = new Image("file:Tokyo/cars/car.png");
                 nitroMode = 500;
                 this.EnterNitroModeWroom();
 //                System.out.println("speed" + speed);
+                this.setImage(imageNitro);
+//                System.out.println("speed" + speed);
                 bonus.setCollectedCounter(0);
 //                System.out.println("if entered");
            }
             return true;
         }
-
+        this.setImage(imageNotNitro);
         return false;
     }
 

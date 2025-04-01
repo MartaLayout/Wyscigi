@@ -5,14 +5,12 @@ import javafx.animation.Transition;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -45,10 +43,7 @@ public class Main extends Application {
     static Scene fabulaScene = new Scene(rootFabula, WIDTH, HEIGHT);
     static Scene chooseThemeScene = new Scene(rootChooseThemeScene, WIDTH, HEIGHT);
 
-    static Rectangle rectangleSamouczek = new Rectangle(100, 100);
     static Player playerSamouczek;
-    static Rectangle torMalutkiSamouczek = new Rectangle(700, 200, 350, 200);
-    static ImageView torSamouczekImageView = new ImageView(new Image("file:imagesStart/samouczek_fabula/torMaly.png"));
 
     static List<Projectile> projectiles = new ArrayList<>();
 
@@ -250,15 +245,12 @@ public class Main extends Application {
             TokyoDriftTheme.generateTokyo();
             stageMenu.close();
         } else if (TokyoDriftTheme.activeLevel1Scene) {
-//            TokyoDriftTheme.level1();
             stageMenu.close();
              TokyoDriftTheme.timelineTimer.play();
              TokyoDriftTheme.timelineFiring.play();
         } else if (TokyoDriftTheme.activeLevel2Scene) {
-//            TokyoDriftTheme.level2();
             stageMenu.close();
         } else if (TokyoDriftTheme.activeLevel3Scene) {
-//            TokyoDriftTheme.level3();
             stageMenu.close();
         }
     }
@@ -349,8 +341,8 @@ public class Main extends Application {
         int initialY = 900;
         podSpodRectangle.setLayoutX(initialX); //poza sceną
         podSpodRectangle.setLayoutY(initialY); //poza sceną
-        podSpodRectangle.setFitWidth(221); //4/5 - 35
-        podSpodRectangle.setFitHeight(75); //-3
+        podSpodRectangle.setFitWidth(221);
+        podSpodRectangle.setFitHeight(75);
         rootSamouczek.getChildren().add(podSpodRectangle);
 
         ImageView jazdaAutemButton = new ImageView(new Image("file:imagesStart/samouczek_fabula/jazdaAutem.png"));
@@ -373,12 +365,10 @@ public class Main extends Application {
             rootSamouczek.getChildren().add(playerSamouczek);
         });
 
-
-        //-10 w obu X i Y
         ImageView startShow = new ImageView(new Image("file:imagesStart/samouczek_fabula/startFiolet.png"));
         startShow.setLayoutX(180);
         startShow.setLayoutY(250);
-        startShow.setFitWidth(200); //2/3
+        startShow.setFitWidth(200);
         startShow.setFitHeight(53.33);
         Text text1 = new Text("Przycisk start jest dostępny w menu. Po jego naciśnięciu wrócisz na start.");
 
@@ -387,8 +377,8 @@ public class Main extends Application {
             podSpodRectangle.setLayoutX(170);
             podSpodRectangle.setLayoutY(240);
             text1.setFont(font);
-            text1.setLayoutX(420); //192
-            text1.setLayoutY(262); //70
+            text1.setLayoutX(420);
+            text1.setLayoutY(262);
             text1.setWrappingWidth(310);
             rootSamouczek.getChildren().addAll(text1);
 
@@ -620,7 +610,7 @@ public class Main extends Application {
     private static void animateText(String content, Text textDymek, double durationBetweenStrings) {
         final Animation typingAnimation = new Transition() {
             {
-                setCycleDuration(Duration.seconds(durationBetweenStrings)); // Duration of typing effect for each string .
+                setCycleDuration(Duration.seconds(durationBetweenStrings));
             }
 
             protected void interpolate(double frac) {

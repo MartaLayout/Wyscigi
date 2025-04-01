@@ -1,11 +1,7 @@
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
-import javafx.scene.input.KeyCode;
-import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -27,23 +23,16 @@ public class Car extends ImageView {
     Image maska = new Image("file:maskaNowa.png");
     private Color surface;
 
-
-
     public boolean rightWay;
     public boolean finish;
     public static boolean start;
     public static int lap = 0;
 
-
-
-
-
-
     //here changed car initial position
     public double carX = -100;  // Initial X position
     public double carY = -200;  // Initial Y position
     protected double carAngle = 0; // Initial rotation angle (in degrees)
-    //NOTE HOW SPEED SHOULD NOT BE CHANGED (UNLESS FOR NITRO MODE OBVI)
+    //NOTE HOW SPEED SHOULD NOT BE CHANGED (UNLESS FOR NITRO MODE OBVIOUS)
     protected double speed = 0.5; // Movement speed   //3
     protected final double rotationSpeed = 1; // Rotation speed (degrees) //5
     protected  double speedIncrimentation = 0.0001; //1.0000
@@ -55,7 +44,6 @@ public class Car extends ImageView {
     protected boolean checkpointZIEL = false;
     protected boolean checkpointRED = false;
     protected boolean checkpointFIOL = false;
-//    protected boolean
     boolean moveBackwards;
     static boolean moveForward;
     boolean moveLeft;
@@ -93,76 +81,6 @@ public class Car extends ImageView {
         if (carY <= 1){
             carY = 10;
         }
-
-        //direction = getRotate();
-        //idk how this is made to be in main and racetrack, detect surface basically
-        //Surface = Main.roadget
-//        if (velocity > 0){
-//            isSpeeding = true;
-//        }
-
-//        Timeline timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
-
-
-//            if (moveBackwards){
-//                carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
-//                carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentationBackwards;
-//                speedUpBackwards();
-//                System.out.println(speedIncrimentationBackwards);
-//
-//            }
-//            else{
-//                carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
-//                carY -= speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentationBackwards;
-//                slowDownBackwards();
-//            }
-//            if (moveForward){
-//                carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
-//                carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
-//                speedUP();
-//                //System.out.println(speedIncrimentation);
-//            }
-//            else {
-//                carX += speed * Math.cos(Math.toRadians(carAngle))* speedIncrimentation;
-//                carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
-//                slowDown();
-//            }
-
-
-//            if (moveLeft){
-//                // Rotate left
-//                //+-->-
-//                carAngle -= rotationSpeed;
-//                //- --> +
-//                carX += speed * Math.cos(Math.toRadians(carAngle));
-//                carY += speed * Math.sin(Math.toRadians(carAngle));
-//                if (moveForward){
-//                    slowDown();
-//                }
-//                if (moveBackwards){
-//                    slowDownBackwards();
-//                }
-//            }
-
-//            if (moveRight){
-//                carAngle += rotationSpeed;
-//                //- --> +
-//                carX += speed * Math.cos(Math.toRadians(carAngle));
-//                carY +=speed * Math.sin(Math.toRadians(carAngle));
-//                if (moveForward){}
-//            }
-
-            //            speedIncrimentation -= 0.1;
-
-
-//            this.setTranslateX(carX);
-//            this.setTranslateY(carY);
-//            this.setRotate(carAngle);
-//
-//        }));
-//        timelineCar.setCycleCount(Animation.INDEFINITE);
-//        timelineCar.play();
-
 
     }
 
@@ -283,7 +201,6 @@ public class Car extends ImageView {
         speed *=5;
 //        System.out.println("EnterNitroModeWroom");
     }
-
     protected void ExitNitroModeNotWroom(){
         speed = 0.5;
     }
