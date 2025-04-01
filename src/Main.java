@@ -436,7 +436,6 @@ public class Main extends Application {
             rootSamouczek.getChildren().remove(text3);
         });
 
-
         ImageView podSpodRectangleMniejszy = new ImageView(new Image("file:imagesStart/samouczek_fabula/podSpod.png"));
         podSpodRectangleMniejszy.setLayoutX(initialX); //poza sceną
         podSpodRectangleMniejszy.setLayoutY(initialY); //poza sceną
@@ -636,7 +635,7 @@ public class Main extends Application {
 
         chooseThemeSceneSetup();
 
-        stage.setTitle("Choose Theme");
+        stage.setTitle("Wybierz motyw");
         stage.setScene(chooseThemeScene);
     }
 

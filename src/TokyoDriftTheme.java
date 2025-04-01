@@ -77,7 +77,7 @@ public class TokyoDriftTheme {
 
         generateTokyoSetup();
 
-        Main.stage.setTitle("TokyoDrift Start");
+        Main.stage.setTitle("Wybierz level");
         Main.stage.setScene(startSceneTokyo);
     }
 
@@ -203,14 +203,10 @@ public class TokyoDriftTheme {
         lapText.setY(805);
         lapText.setFont(font);
         lapText.setFill(Color.color(0.5,0,0.9));
-        //Main.mediaPlayerStarter.stop();
-        //Main.mediaPlayerRacer.setCycleCount(MediaPlayer.INDEFINITE);
-        //Main.mediaPlayerRacer.setMute(false);
-        //Main.mediaPlayerRacer.play();
-        //Main.mediaPlayerStartingCar.play();
-
-
-
+        Main.mediaPlayerStarter.stop();
+        Main.mediaPlayerRacer.setCycleCount(MediaPlayer.INDEFINITE);
+        Main.mediaPlayerRacer.setMute(false);
+        Main.mediaPlayerRacer.play();
 
 
          timelineTimer = new Timeline(
