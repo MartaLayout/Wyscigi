@@ -61,13 +61,21 @@ public class ObstacleDoor {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
+    public static void setRotate(ObstacleDoor obstacleDoor) {
+        for (int i = 0; i < 9; i++) {
+            obstacleDoor.imageView.setRotate(90);
+        }
+
+    }
 
     public static void doorCreation() {
-
-        for (int i = 0; i < 3; i++) { //TODO do we want 3 doors or just 2?
-            ObstacleDoor obstacleDoor = new ObstacleDoor(i*500+20,Main.HEIGHT/2 -20);
-            doorsList.add(obstacleDoor);
-        }
+        ObstacleDoor obstacleDoorLeft = new ObstacleDoor(20, Main.HEIGHT/2 );
+        ObstacleDoor obstacleDoorMiddle = new ObstacleDoor(180, 560);
+        setRotate(obstacleDoorMiddle);
+        ObstacleDoor obstacleDoorRight = new ObstacleDoor(1010, Main.HEIGHT/2 - 20);
+        doorsList.add(obstacleDoorRight);
+        doorsList.add(obstacleDoorLeft);
+        doorsList.add(obstacleDoorMiddle);
     }
     public void collision(Player player){ //TODO this plis (im crying)
         if (this.imageView.getBoundsInParent().intersects(player.getBoundsInParent())){
@@ -79,5 +87,6 @@ public class ObstacleDoor {
             }
         }
     }
+
 
 }
