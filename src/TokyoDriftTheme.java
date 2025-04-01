@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -70,7 +71,7 @@ public class TokyoDriftTheme {
 
 
         rootTokyoStart.getChildren().clear();
-        Main.mediaPlayer = new MediaPlayer(Main.racingMusic);
+
 
         ImageView background = new ImageView(new Image("file:Tokyo/backgroundGenerate.png"));
         background.setFitWidth(Main.WIDTH);
@@ -209,16 +210,16 @@ public class TokyoDriftTheme {
         lapText.setY(805);
         lapText.setFont(font);
         lapText.setFill(Color.color(0.5,0,0.9));
+        Main.mediaPlayerStarter.stop();
+        Main.mediaPlayerRacer.play();
 
-        Main.mediaPlayer.play();
 
 
 
          timelineTimer = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     if (start) {
-                        AudioClip startCar = new AudioClip("file:src/music/Car starting sound effect.mp3");
-                        startCar.play();
+
                         isTimerRunning = true;
                         updateTimer();
                         updateLapTimer();
