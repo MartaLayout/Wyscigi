@@ -57,7 +57,7 @@ public class Main extends Application {
     static boolean isMusicOn = true;
 
     static String musicFile1 = "src/music/music.mp3";
-    static String musicFile2 = "src/music/race.mp3";
+    static String musicFile2 = "race.mp3";
     static String musicFile3 = "src/music/Car starting sound effect.mp3";
     public static Media starterMusic = new Media(new File(musicFile1).toURI().toString());
 
