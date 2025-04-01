@@ -60,7 +60,7 @@
 <p>──★  <b> Marta Oleszkiewicz </b> — nasza „kapitanka".</p>
 <p>──★  <b> Nati Wasilewska </b> - autorska grafika, autorska muzyczka i autorskie pomysły 😎. </p>
 <p>──★ <b> Zosia Geryk </b> - dostawca racji żywnościowych, (de)koder. </p>
-<p>──★  <b> Daria Markevich</b> —„Pookie” naszej drużyny.</p>
+<p>──★  <b> Daria Markevich</b> —„Pookie” naszej drużyny, koder:D.</p>
 <p>──★  <b>  Pola Kowalska </b> - the woman, the myth, the legend. </p>
 
 <p>──★I oczywiście, nasz fantastyczny mentor <b>Bartosz Budniak :) </b> </p>
