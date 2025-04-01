@@ -49,7 +49,7 @@ public class TokyoDriftTheme {
     static Scene level3TokyoScene = new Scene(level3Root, Main.WIDTH, Main.HEIGHT);
     private static boolean isTimerRunning;
 
-    static Player player = new Player(200, 180);
+   static Player player;
    public static Timeline timelineTimer;
    public static Timeline timelineFiring;
 
@@ -191,7 +191,7 @@ public class TokyoDriftTheme {
     }
 
     public static void level1Setup(){
-        Player player = new Player(200,180);
+        player = new Player(200,180);
 
         menuTokyoDriftLevel1.setLayoutX(1030);
         menuTokyoDriftLevel1.setLayoutY(744);
@@ -393,7 +393,7 @@ public class TokyoDriftTheme {
         timeline.play();
 
 
-        Player player = new Player(200,180);
+        player = new Player(200,180);
 
         //ObstacleDoor obstacleDoor = new ObstacleDoor(100,100);
 
@@ -472,7 +472,7 @@ public class TokyoDriftTheme {
         timeline.play();
 
         Puddle.puddleFactory(level1Root);
-        Player player = new Player(200,180);
+        player = new Player(200,180);
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 

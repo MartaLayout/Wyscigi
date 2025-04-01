@@ -7,6 +7,7 @@ import javafx.scene.image.PixelReader;
 import javafx.scene.input.KeyCode;
 import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 
@@ -22,11 +23,7 @@ public class Car extends ImageView {
     private double x;
     private double y;
     protected double direction;
-    Image maska = new Image("file:maska.png");
-    ImageView mask = new ImageView(maska) {
-//        mask.setLayoutX(0);
-//        mask.setLayoutY(0);
-    };
+    Image maska = new Image("file:maskaNowa.png");
     private Color surface;
 
 
@@ -69,12 +66,15 @@ public class Car extends ImageView {
 
     public Car(double x, double y, Image imageView) {
         super(imageView);
+        System.out.println("created");
         this.carX = x;
         this.carY = y;
 
         this.setTranslateX(carX);
         this.setTranslateY(carY);
         this.setRotate(carAngle);
+//        mask.setVisible(false);
+//        TokyoDriftTheme.level1Root.getChildren().add(mask);
         if (carX >= Main.WIDTH){
             carX = Main.WIDTH-10;
         }
@@ -290,15 +290,17 @@ public class Car extends ImageView {
                 return;
             }
 
+
             int x = (int) carX;
             int y = (int) carY;
-
+            //System.out.println(carX + "     " + carY);
             if (x < 0 || y < 0 || x >= maska.getWidth() || y >= maska.getHeight()) {
                 System.out.println("Error: Coordinates out of bounds.");
                 return;
             }
 
             Color maskaColor = maskaReader.getColor(x, y);
+            System.out.println(maskaColor);
 
             if (maskaColor.equals(Color.rgb(0, 0, 0, 1))) {
                 System.out.println("BLACK detected.");
@@ -307,14 +309,14 @@ public class Car extends ImageView {
                 return;
             }
 
-            else if (maskaColor.equals(Color.rgb(255, 127, 39, 1))) {
+            else if (maskaColor.equals(Color.rgb(255, 100, 0, 1))) {
 //            checkpointFIRST();
                 checkpointPOM = true;
                 return;
 //            System.out.println("ORANGE detected.");
             }
 
-            else if (maskaColor.equals(Color.rgb(190, 40, 254, 1))) {
+            else if (maskaColor.equals(Color.rgb(255, 0, 255, 1))) {
                 System.out.println("PURPLE detected.");
                 checkpointFIOL = true;
                 lap++;
@@ -325,7 +327,7 @@ public class Car extends ImageView {
 
             }
 
-            else if (maskaColor.equals(Color.rgb(255, 41, 46, 1))) {
+            else if (maskaColor.equals(Color.rgb(255, 41, 47, 1))) {
                 if (checkpointZIEL) {
                     checkpointRED = true;
                     checkJEDEN = true;
@@ -335,16 +337,16 @@ public class Car extends ImageView {
                 return;
             }
 
-            else if (maskaColor.equals(Color.rgb(87, 254, 40, 1))) {
+            else if (maskaColor.equals(Color.rgb(100, 255, 0, 1))) {
                 checkpointZIEL = true;
                 System.out.println("GREEN detected.");
                 return;
             }
 
-            else if (maskaColor.equals(Color.rgb(255, 255, 255, 1))) {
-                System.out.println("WHITE detected");
-                return;
-            }
+//            else if (maskaColor.equals(Color.rgb(255, 255, 255, 1))) {
+////                System.out.println("WHITE detected");
+////                return;
+//            }
 
         }
     }
@@ -358,6 +360,9 @@ public class Car extends ImageView {
         checkDWA = false;
         lap++;
         System.out.println("NEEEEEEEEEEEEEEEWWWWWWWWWWWWWWWWWWWWWWWWWW LLLLLLLLLLLLLLLAP");
+//        TokyoDriftTheme.level1Root.getChildren().remove(TokyoDriftTheme.lapText);
+//        TokyoDriftTheme.lapTimerText = new Text("" + lap);
+//        TokyoDriftTheme.level1Root.getChildren().add(TokyoDriftTheme.lapText);
     }
 
     private void collide() {
