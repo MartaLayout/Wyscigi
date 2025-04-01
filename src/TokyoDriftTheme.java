@@ -3,6 +3,7 @@ import javafx.animation.Timeline;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
@@ -53,7 +54,7 @@ public class TokyoDriftTheme {
    public static Timeline timelineFiring;
 
 
-    static int iloscOkrazen = 200; //TODO change to 0 here once we finish setting everything up
+    static int iloscOkrazen = 0;
 
     static Bonus bonus = new Bonus();
 
@@ -123,8 +124,6 @@ public class TokyoDriftTheme {
         imageViewLevel3.setFitHeight(300);
         imageViewLevel3.setFitWidth(300);
 
-        //TODO kłó∂ka --> when we know after how many points(idk) the next one unlocks
-
         menuButton.setLayoutX(1088);
         menuButton.setLayoutY(10);
         menuButton.setOnMouseClicked(event -> Main.menu());
@@ -149,15 +148,24 @@ public class TokyoDriftTheme {
             textTlumaczenie.setLayoutY(650);
         });
 
-        if(iloscOkrazen >= 5){
-            rootTokyoStart.getChildren().remove(klodkaLevel2);
-            imageViewLevel2.setOnMouseClicked(event -> level2());
-        }
+        startSceneTokyo.setOnKeyPressed(event -> {
+            if(event.getCode() == KeyCode.K){
+                rootTokyoStart.getChildren().remove(klodkaLevel2);
+                rootTokyoStart.getChildren().remove(klodkaLevel3);
+                iloscOkrazen = 100;
+            }
 
-        if(iloscOkrazen >= 5){ //ilosc okrazen od levelu 2
-            rootTokyoStart.getChildren().remove(klodkaLevel3);
+        });
+
+        //if(iloscOkrazen > 5){
+//            rootTokyoStart.getChildren().remove(klodkaLevel2);
+            imageViewLevel2.setOnMouseClicked(event -> level2());
+       // }
+
+        //if(iloscOkrazen > 5){ //ilosc okrazen od levelu 2
+//            rootTokyoStart.getChildren().remove(klodkaLevel3);
             imageViewLevel3.setOnMouseClicked(event -> level3());
-        }
+        //}
         rootTokyoStart.getChildren().add(textTlumaczenie);
     }
 
@@ -203,16 +211,14 @@ public class TokyoDriftTheme {
         lapText.setY(805);
         lapText.setFont(font);
         lapText.setFill(Color.color(0.5,0,0.9));
-        //Main.mediaPlayerStarter.stop();
-        //Main.mediaPlayerRacer.setCycleCount(MediaPlayer.INDEFINITE);
-        //Main.mediaPlayerRacer.setMute(false);
-        //Main.mediaPlayerRacer.play();
+        Main.mediaPlayerStarter.stop();
 
 
          timelineTimer = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     if (start) {
-
+                        Main.mediaPlayerRacer.setCycleCount(MediaPlayer.INDEFINITE);
+                        Main.mediaPlayerRacer.play();
                         isTimerRunning = true;
                         updateTimer();
                         updateLapTimer();
