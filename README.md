@@ -45,6 +45,8 @@
 <p>Gra niestety jest dalej zaledwie cieniem swojego pełnego potencjału. Oto kilka rzeczy, które chciałyśmy wprowadzić, ale z powodu ograniczeń czasowych zdążyłyśmy zaledwie opisać : </p>
 <p>──★ <b> tryb "Magiczny Wyścig" </b> - dwuosobowy tryb, działający na podobnej zasadzie do trybu głównego. Dwaj gracze mieli ścigać się ze sobą przy użyciu strzałek i klawiszy AWSD. Tryb ten wyróżniałby się nieco innymi typami przeszkód oraz nową szatą graficzną z odrębną fabułą (dzieło podekscytowanej członkini zainteresowanej DnD). </p>
 <p>──★ <b> wskaźniki opisujące ilość okrążeń i wynik </b> - niestety problemy techniczne spowodowały, iż okrążenia się nie naliczają, ale docelowy wynik miał być równy ich poczwórnej wartości. Wynik miał zagwarantować możliwość szybkiego zdobywania punktów i przewagi nad przeciwników. Okrążenia miały być też warunkiem odblokowania następnych poziomów, ale obecnie jest to osiągalne przy kliknięciu klawisza "K" </p>
+<p>──★ <b> maska kolorów </b> Kopia toru złożona z kilku kolorów, miała kontrolować naliczanie okrążeń, zapewniać uczciwe przebycie całego toru przez regularne checkpointy i zapobiegać wyjeżdżaniu samochodu poza tor. Jesteśmy dalej bardzo dumne z tego pomysłu nawet mimo tego, że niemalże cała sekcja kodu opisująca go musiała być usunięta</p>
+
 <p>──★ <b>inne funkcje opisane w punktacji </b> - Niestety skupiłyśmy się na dodatkach zamiast programowaniu punktowanych metod i obiektów. Pomimo tego liczymy, że gra  pokazuje chociaż namiastkę tego co chciałyśmy i że, przyniesie graczom tak dużo radości jak nam przyniosło jej tworzenie. </p>
 
 ## Jak grać
