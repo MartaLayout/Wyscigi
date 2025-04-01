@@ -8,7 +8,7 @@ import javafx.util.Duration;
 
 public class Player extends Car{
 
-    static Image image = new Image("file:Tokyo/cars/car.png");
+static Image image = new Image("file:Tokyo/cars/car.png");
     private boolean moveForward;
     private boolean moveRight;
     private boolean moveLeft;
@@ -186,8 +186,11 @@ public class Player extends Car{
         timelineCar = new Timeline(new KeyFrame(Duration.millis(10), event -> {
             if (nitroMode >0){
                 nitroMode --;
+                image = new Image("file:Tokyo/cars/car with nitro.png");
                 if (nitroMode<=0){
+                    image = new Image("file:Tokyo/cars/car.png");
                     this.ExitNitroModeNotWroom();
+
                 }
             }
 
@@ -272,6 +275,9 @@ public class Player extends Car{
             bonus.appear();
             System.out.println("first if - sees collision");
             System.out.println(bonus.getCollectedCounter());
+
+
+
 
             if (bonus.getCollectedCounter() >= 10){
                 System.out.println("second if - sees the change in the counter");
