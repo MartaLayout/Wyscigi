@@ -119,7 +119,7 @@ Daria nie umie siedzieć prosto </a>
 
 
 
-
+<a> Filmik instruktażowy na yt :  ------<3  https://youtu.be/n4OGIn7wlaY?si=DypSchojqeRyUCzg  E>------</a>
 
 
 </p>
