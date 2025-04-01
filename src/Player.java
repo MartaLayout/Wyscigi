@@ -136,10 +136,10 @@ public class Player extends Car{
                 });
             } //koniec level2
             else if (TokyoDriftTheme.activeLevel3Scene) {
-                this.speedIncrimentation = 4;
-                this.speedIncrimentationBackwards = 4;
+//                this.speedIncrimentation = 4;
+//                this.speedIncrimentationBackwards = 4;
                 TokyoDriftTheme.level3TokyoScene.setOnKeyPressed(event -> {
-                    double chanceOfSlipping = Math.random();
+//                    double chanceOfSlipping = Math.random();
                     if (event.getCode() == KeyCode.DOWN) {
                         moveBackwards = true;
                         TokyoDriftTheme.start = true;
@@ -148,13 +148,13 @@ public class Player extends Car{
                     if (event.getCode() == KeyCode.UP) {
                         moveForward = true;
                         TokyoDriftTheme.start = true;
-                        if (chanceOfSlipping<=0.1){
-                            System.out.println("slip");
-                            moveLeft = true;
-                        }
-                        else if (chanceOfSlipping<=0.2){
-                            moveRight = true;
-                        }
+//                        if (chanceOfSlipping<=0.1){
+//                            System.out.println("slip");
+//                            moveLeft = true;
+//                        }
+//                        else if (chanceOfSlipping<=0.2){
+//                            moveRight = true;
+//                        }
 
                     }
                     if (event.getCode() == KeyCode.LEFT) {

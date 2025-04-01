@@ -33,7 +33,7 @@ public class Car extends ImageView {
 
     public boolean rightWay;
     public boolean finish;
-    public boolean start;
+    public static boolean start;
     public static int lap = 0;
 
 
@@ -359,7 +359,8 @@ public class Car extends ImageView {
     private void collide() {
         System.out.println("Collision detected!");
         slowDown();
-        carAngle = getRotate() + 45;
+
+        carAngle = getRotate() + Math.abs(360 - 2*getRotate());
         // Add collision handling logic here
     }
 
