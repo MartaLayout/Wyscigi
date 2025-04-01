@@ -29,7 +29,7 @@ public class Puddle extends ImageView implements Obstacle{
             Puddle puddle = new Puddle(Math.random() * Main.WIDTH, Math.random() * (Main.HEIGHT - 200), Math.random() < 0.5 );
             puddle.getPuddlesInRightRange();
             puddleList.add(puddle);
-            root.getChildren().add(puddle);
+//            root.getChildren().add(puddle);
 
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
