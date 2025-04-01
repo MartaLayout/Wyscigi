@@ -321,24 +321,15 @@ public class Car extends ImageView {
 
         else if (maskaColor.equals(Color.rgb(255, 41, 46, 1))) {
             if (checkpointZIEL){
-                checkpointZIEL = false;
-                checkpointRED = false;
-
-                if (checkpointPOM == true && checkJEDEN == true){
-                    checkDWA = true;
-                }
-
-                if (checkpointPOM == true) {
-                    checkJEDEN = true;
-                    checkpointPOM = false;
-                }
-
-
+                checkpointRED = true;
+                checkJEDEN = true;
+                checkDWA = true;
             }
             System.out.println("RED detected.");
         }
 
         else if (maskaColor.equals(Color.rgb(87, 254, 40, 1))) {
+            checkpointZIEL = true;
             System.out.println("GREEN detected.");
         }
         else if (maskaColor.equals(Color.rgb(255, 255, 255, 1))){
@@ -361,23 +352,10 @@ public class Car extends ImageView {
 
     private void collide() {
         System.out.println("Collision detected!");
+        slowDown();
         carAngle = getRotate() + 45;
         // Add collision handling logic here
     }
 
-
-//    protected void checkpointFIRST(){
-//        if (checkpointPOM == 5 && checkpointRED == 1 && checkpointZIEL == 1){
-//            checkJEDEN = true;
-//        }
-//        if (checkpointPOM == 13 && checkpointRED == 2 && checkpointZIEL == 2){
-//            checkDWA = true;
-//        }
-//    }
-//    private void collide() {
-//        setRotate( getRotate() + 180-getRotate());
-//        System.out.println("STOPPPPPP");
-//
-//    }
     //later add variations of move on different surfaces, with slightly different parameters
 }
