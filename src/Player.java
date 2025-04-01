@@ -136,6 +136,8 @@ public class Player extends Car{
                 });
             } //koniec level2
             else if (TokyoDriftTheme.activeLevel3Scene) {
+                this.speedIncrimentation = 4;
+                this.speedIncrimentationBackwards = 4;
                 TokyoDriftTheme.level3TokyoScene.setOnKeyPressed(event -> {
                     if (event.getCode() == KeyCode.DOWN) {
                         moveBackwards = true;

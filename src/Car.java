@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.input.KeyCode;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
@@ -33,7 +34,7 @@ public class Car extends ImageView {
     public boolean rightWay;
     public boolean finish;
     public boolean start;
-    public int lap = 0;
+    public static int lap = 0;
 
 
 
@@ -281,62 +282,67 @@ public class Car extends ImageView {
 
 
     private void kolorMaski() {
-        System.out.println("kolorMaski() method called!");
-        PixelReader maskaReader = maska.getPixelReader();
-        if (maskaReader == null) {
-            System.out.println("Error: Cannot read pixels from the mask image.");
-            return;
-        }
+        if (!Main.activeSamouczekScene) {
+            System.out.println("kolorMaski() method called!");
+            PixelReader maskaReader = maska.getPixelReader();
+            if (maskaReader == null) {
+                System.out.println("Error: Cannot read pixels from the mask image.");
+                return;
+            }
 
-        int x = (int) carX;
-        int y = (int) carY;
+            int x = (int) carX;
+            int y = (int) carY;
 
-        if (x < 0 || y < 0 || x >= maska.getWidth() || y >= maska.getHeight()) {
-            System.out.println("Error: Coordinates out of bounds.");
-            return;
-        }
+            if (x < 0 || y < 0 || x >= maska.getWidth() || y >= maska.getHeight()) {
+                System.out.println("Error: Coordinates out of bounds.");
+                return;
+            }
 
-        Color maskaColor = maskaReader.getColor(x, y);
+            Color maskaColor = maskaReader.getColor(x, y);
 
-        if (maskaColor.equals(Color.rgb(0, 0, 0, 1))) {
-            System.out.println("BLACK detected.");
+            if (maskaColor.equals(Color.rgb(0, 0, 0, 1))) {
+                System.out.println("BLACK detected.");
 
-            collide();
-        }
+                collide();
+            }
 
-        else if (maskaColor.equals(Color.rgb(255, 127, 39, 1))) {
+            else if (maskaColor.equals(Color.rgb(255, 127, 39, 1))) {
 //            checkpointFIRST();
-            checkpointPOM = true;
+                checkpointPOM = true;
 
 //            System.out.println("ORANGE detected.");
-        }
-
-        else if (maskaColor.equals(Color.rgb(190, 40, 254, 1))) {
-            System.out.println("PURPLE detected.");
-            checkpointFIOL = true;
-            lap++;
-            finalCheckMetaLAP();
-
-        }
-
-        else if (maskaColor.equals(Color.rgb(255, 41, 46, 1))) {
-            if (checkpointZIEL){
-                checkpointRED = true;
-                checkJEDEN = true;
-                checkDWA = true;
             }
-            System.out.println("RED detected.");
-        }
 
-        else if (maskaColor.equals(Color.rgb(87, 254, 40, 1))) {
-            checkpointZIEL = true;
-            System.out.println("GREEN detected.");
-        }
-        else if (maskaColor.equals(Color.rgb(255, 255, 255, 1))){
-            System.out.println("WHITE detected");
+            else if (maskaColor.equals(Color.rgb(190, 40, 254, 1))) {
+                System.out.println("PURPLE detected.");
+                checkpointFIOL = true;
+                lap++;
+                if (checkJEDEN && checkDWA) {
+                    finalCheckMetaLAP();
+                }
+
+            }
+
+            else if (maskaColor.equals(Color.rgb(255, 41, 46, 1))) {
+                if (checkpointZIEL) {
+                    checkpointRED = true;
+                    checkJEDEN = true;
+                    checkDWA = true;
+                }
+                System.out.println("RED detected.");
+            }
+
+            else if (maskaColor.equals(Color.rgb(87, 254, 40, 1))) {
+                checkpointZIEL = true;
+                System.out.println("GREEN detected.");
+            }
+
+            else if (maskaColor.equals(Color.rgb(255, 255, 255, 1))) {
+                System.out.println("WHITE detected");
+
+            }
 
         }
-
     }
 
     private void finalCheckMetaLAP() {

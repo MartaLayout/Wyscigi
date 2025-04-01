@@ -24,7 +24,7 @@ public class TokyoDriftTheme {
     static int minutes = 0;
     static int lapSeconds = 0;
     static int lapMinutes = 0;
-    static int lap = Player.lap;
+    static int lap = Car.lap;
 
     static AnchorPane rootTokyoStart = new AnchorPane();
     static AnchorPane level1Root = new AnchorPane();
