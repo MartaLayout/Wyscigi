@@ -204,17 +204,7 @@ public class Car extends ImageView {
         checkpoint();
     }
 
-    private void checkpoint() {
-        if (checkpoint1.intersects(carX, carY, 10, 10)){
-            checkJEDEN = true;
-        }
-        if (checkpoint2.intersects(carX, carY, 10, 10)){
-            checkDWA = true;
-        }
-        if (meta.intersects(carX, carY, 10, 10) && checkJEDEN && checkDWA){
-            finalCheckMetaLAP();
-        }
-    }
+
 
     protected void moveBackwardsAppliedForce(){
         carX -= speed * Math.cos(Math.toRadians(carAngle))*speedIncrimentationBackwards;
@@ -298,7 +288,17 @@ public class Car extends ImageView {
         speed = 0.5;
     }
 
-
+    private void checkpoint() {
+        if (checkpoint1.intersects(carX, carY, 10, 10)){
+            checkJEDEN = true;
+        }
+        if (checkpoint2.intersects(carX, carY, 10, 10)){
+            checkDWA = true;
+        }
+        if (meta.intersects(carX, carY, 10, 10) && checkJEDEN && checkDWA){
+            finalCheckMetaLAP();
+        }
+    }
 
     private void kolorMaski() {
         if (!Main.activeSamouczekScene) {
@@ -322,7 +322,7 @@ public class Car extends ImageView {
 //            System.out.println(maskaColor);
 
             if (maskaColor.equals(Color.rgb(0, 0, 0, 1))) {
-//                System.out.println("BLACK detected.");
+                System.out.println("BLACK detected.");
                 collide();
             }
 
@@ -364,14 +364,14 @@ public class Car extends ImageView {
     }
 
     private void finalCheckMetaLAP() {
+        lap++;
+        System.out.println(lap);
         checkpointPOM = false;
         checkpointZIEL = false;
         checkpointFIOL = false;
         checkpointRED = false;
         checkJEDEN = false;
         checkDWA = false;
-        lap++;
-        System.out.println(lap);
 //        System.out.println("NEEEEEEEEEEEEEEEWWWWWWWWWWWWWWWWWWWWWWWWWW LLLLLLLLLLLLLLLAP");
 //        TokyoDriftTheme.level1Root.getChildren().remove(TokyoDriftTheme.lapText);
 //        TokyoDriftTheme.lapTimerText = new Text("" + lap);
