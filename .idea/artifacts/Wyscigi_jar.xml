@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Wyscigi:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Wyscigi_jar</output-path>
+    <root id="archive" name="Wyscigi.jar">
+      <element id="module-output" name="Wyscigi" />
+    </root>
+  </artifact>
+</component>

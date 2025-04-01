@@ -345,7 +345,7 @@ public class Main extends Application {
         rootSamouczek.getChildren().add(podSpodRectangle);
 
         ImageView jazdaAutemButton = new ImageView(new Image("file:imagesStart/samouczek_fabula/jazdaAutem.png"));
-        jazdaAutemButton.setLayoutX(770);
+        jazdaAutemButton.setLayoutX(795);
         jazdaAutemButton.setLayoutY(250);
         jazdaAutemButton.setFitWidth(200);
         jazdaAutemButton.setFitHeight(53.33);
@@ -353,7 +353,7 @@ public class Main extends Application {
             Text textAutko = new Text("Aby poruszać się autkiem korzystaj ze strzałek na klawiaturze. Możesz się poruszać po całym ekranie samouczka :)");
             textAutko.setFont(font);
             textAutko.setWrappingWidth(300);
-            textAutko.setLayoutX(730);
+            textAutko.setLayoutX(750);
             textAutko.setLayoutY(350);
             textAutko.setTextAlignment(TextAlignment.CENTER);
             rootSamouczek.getChildren().add(textAutko);
