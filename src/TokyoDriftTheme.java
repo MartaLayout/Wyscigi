@@ -77,7 +77,7 @@ public class TokyoDriftTheme {
 
         generateTokyoSetup();
 
-        Main.stage.setTitle("TokyoDrift Start");
+        Main.stage.setTitle("Wybierz level");
         Main.stage.setScene(startSceneTokyo);
     }
 
@@ -208,9 +208,6 @@ public class TokyoDriftTheme {
         Main.mediaPlayerRacer.setMute(false);
         Main.mediaPlayerRacer.play();
         Main.mediaPlayerStartingCar.play();
-
-
-
 
 
          timelineTimer = new Timeline(

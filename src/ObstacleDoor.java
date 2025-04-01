@@ -70,7 +70,7 @@ public class ObstacleDoor {
     public static void doorCreation() {
         ObstacleDoor obstacleDoorLeft = new ObstacleDoor(20, Main.HEIGHT/2 );
         ObstacleDoor obstacleDoorMiddle = new ObstacleDoor(180, 560);
-//        setRotate(obstacleDoorMiddle);
+        setRotate(obstacleDoorMiddle);
         ObstacleDoor obstacleDoorRight = new ObstacleDoor(1010, Main.HEIGHT/2 - 20);
         doorsList.add(obstacleDoorRight);
         doorsList.add(obstacleDoorLeft);
