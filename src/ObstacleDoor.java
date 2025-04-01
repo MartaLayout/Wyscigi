@@ -78,11 +78,11 @@ public class ObstacleDoor {
     }
     public void collision(Player player){ //TODO this plis (im crying)
         if (this.imageView.getBoundsInLocal().intersects(player.getBoundsInLocal())){
-            System.out.println("collision with doors");
+//            System.out.println("collision with doors");
             player.moveBackwardsAppliedForce();
 //            Car.moveForward = false;
             if (currentImage <=3 || currentImage>= 14){
-                System.out.println("pass");
+//                System.out.println("pass");
 //                Car.moveForward = true;
             }
         }

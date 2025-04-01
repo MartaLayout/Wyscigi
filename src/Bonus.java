@@ -42,7 +42,7 @@ public class Bonus extends ImageView {
         while (foundNewPlace == false){
 
             Color maskaColor = maskaReader.getColor((int) NewX, (int) NewY);
-            System.out.println("("+ NewX + NewY+ ")"+ maskaColor);
+//            System.out.println("("+ NewX + NewY+ ")"+ maskaColor);
             if (maskaColor.getRed() == 0 && maskaColor.getBlue() == 0 && maskaColor.getGreen() == 0){
                 foundNewPlace = true;
                 TokyoDriftTheme.level1Root.getChildren().remove(this);

@@ -7,6 +7,7 @@ import javafx.scene.image.PixelReader;
 import javafx.scene.input.KeyCode;
 import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -59,6 +60,9 @@ public class Car extends ImageView {
     static boolean moveForward;
     boolean moveLeft;
     boolean moveRight;
+    Rectangle checkpoint1 = new Rectangle(1019, 364, 160, 1);
+    Rectangle checkpoint2 = new Rectangle(31, 343, 153, 1);
+    Rectangle meta = new Rectangle(264, 30, 40, 110);
 
     private enum Surface {
         ASFALT, SNOW, GRUZ
@@ -66,9 +70,11 @@ public class Car extends ImageView {
 
     public Car(double x, double y, Image imageView) {
         super(imageView);
-        System.out.println("created");
+//        System.out.println("created");
         this.carX = x;
         this.carY = y;
+
+
 
         this.setTranslateX(carX);
         this.setTranslateY(carY);
@@ -195,6 +201,19 @@ public class Car extends ImageView {
         carY += speed * Math.sin(Math.toRadians(carAngle))*speedIncrimentation;
         slowDown();
         kolorMaski();
+        checkpoint();
+    }
+
+    private void checkpoint() {
+        if (checkpoint1.intersects(carX, carY, 10, 10)){
+            checkJEDEN = true;
+        }
+        if (checkpoint2.intersects(carX, carY, 10, 10)){
+            checkDWA = true;
+        }
+        if (meta.intersects(carX, carY, 10, 10) && checkJEDEN && checkDWA){
+            finalCheckMetaLAP();
+        }
     }
 
     protected void moveBackwardsAppliedForce(){
@@ -272,7 +291,7 @@ public class Car extends ImageView {
 //so i think here is the code for speeding up when the Player is in Nitro (part of the code at least)
     protected void EnterNitroModeWroom(){
         speed *=5;
-        System.out.println("EnterNitroModeWroom");
+//        System.out.println("EnterNitroModeWroom");
     }
 
     protected void ExitNitroModeNotWroom(){
@@ -283,7 +302,7 @@ public class Car extends ImageView {
 
     private void kolorMaski() {
         if (!Main.activeSamouczekScene) {
-            System.out.println("kolorMaski() method called!");
+//            System.out.println("kolorMaski() method called!");
             PixelReader maskaReader = maska.getPixelReader();
             if (maskaReader == null) {
                 System.out.println("Error: Cannot read pixels from the mask image.");
@@ -300,52 +319,45 @@ public class Car extends ImageView {
             }
 
             Color maskaColor = maskaReader.getColor(x, y);
-            System.out.println(maskaColor);
+//            System.out.println(maskaColor);
 
             if (maskaColor.equals(Color.rgb(0, 0, 0, 1))) {
-                System.out.println("BLACK detected.");
-
+//                System.out.println("BLACK detected.");
                 collide();
-                return;
             }
 
-            else if (maskaColor.equals(Color.rgb(255, 100, 0, 1))) {
-//            checkpointFIRST();
-                checkpointPOM = true;
-                return;
-//            System.out.println("ORANGE detected.");
-            }
-
-            else if (maskaColor.equals(Color.rgb(255, 0, 255, 1))) {
-                System.out.println("PURPLE detected.");
-                checkpointFIOL = true;
-                lap++;
-                if (checkJEDEN && checkDWA) {
-                    finalCheckMetaLAP();
-                }
-                return;
-
-            }
-
-            else if (maskaColor.equals(Color.rgb(255, 41, 47, 1))) {
-                if (checkpointZIEL) {
-                    checkpointRED = true;
-                    checkJEDEN = true;
-                    checkDWA = true;
-                }
-                System.out.println("RED detected.");
-                return;
-            }
-
-            else if (maskaColor.equals(Color.rgb(100, 255, 0, 1))) {
-                checkpointZIEL = true;
-                System.out.println("GREEN detected.");
-                return;
-            }
-
-//            else if (maskaColor.equals(Color.rgb(255, 255, 255, 1))) {
-////                System.out.println("WHITE detected");
-////                return;
+//            else if (maskaColor.equals(Color.rgb(255, 100, 0, 1))) {
+////            checkpointFIRST();
+//                checkpointPOM = true;
+//                return;
+////            System.out.println("ORANGE detected.");
+//            }
+//
+//            else if (maskaColor.equals(Color.rgb(255, 0, 255, 1))) {
+//                System.out.println("PURPLE detected.");
+//                checkpointFIOL = true;
+//                lap++;
+//                if (checkJEDEN && checkDWA) {
+//                    finalCheckMetaLAP();
+//                }
+//                return;
+//
+//            }
+//
+//            else if (maskaColor.equals(Color.rgb(255, 41, 47, 1))) {
+//                if (checkpointZIEL) {
+//                    checkpointRED = true;
+//                    checkJEDEN = true;
+//                    checkDWA = true;
+//                }
+//                System.out.println("RED detected.");
+//                return;
+//            }
+//
+//            else if (maskaColor.equals(Color.rgb(100, 255, 0, 1))) {
+//                checkpointZIEL = true;
+//                System.out.println("GREEN detected.");
+//                return;
 //            }
 
         }
@@ -359,17 +371,19 @@ public class Car extends ImageView {
         checkJEDEN = false;
         checkDWA = false;
         lap++;
-        System.out.println("NEEEEEEEEEEEEEEEWWWWWWWWWWWWWWWWWWWWWWWWWW LLLLLLLLLLLLLLLAP");
+        System.out.println(lap);
+//        System.out.println("NEEEEEEEEEEEEEEEWWWWWWWWWWWWWWWWWWWWWWWWWW LLLLLLLLLLLLLLLAP");
 //        TokyoDriftTheme.level1Root.getChildren().remove(TokyoDriftTheme.lapText);
 //        TokyoDriftTheme.lapTimerText = new Text("" + lap);
 //        TokyoDriftTheme.level1Root.getChildren().add(TokyoDriftTheme.lapText);
     }
 
     private void collide() {
-        System.out.println("Collision detected!");
+//        System.out.println("Collision detected!");
         slowDown();
 
-        carAngle = getRotate() + Math.abs(360 - 2*getRotate());
+//        carAngle = getRotate() + Math.abs(360 - 2*getRotate());
+        carAngle = getRotate() + 20;
         // Add collision handling logic here
     }
 

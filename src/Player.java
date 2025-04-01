@@ -273,20 +273,19 @@ static Image image = new Image("file:Tokyo/cars/car.png");
         if  (this.getBoundsInParent().intersects(bonus.getBoundsInParent())){
 
             bonus.appear();
-            System.out.println("first if - sees collision");
-            System.out.println(bonus.getCollectedCounter());
-
+//            System.out.println("first if - sees collision");
+//            System.out.println(bonus.getCollectedCounter());
 
 
 
             if (bonus.getCollectedCounter() >= 1){
-                System.out.println("second if - sees the change in the counter");
+//                System.out.println("second if - sees the change in the counter");
                 //normally the if condition would be 10, but for the sake of testing its 1
                 nitroMode = 500;
                 this.EnterNitroModeWroom();
-                System.out.println("speed" + speed);
+//                System.out.println("speed" + speed);
                 bonus.setCollectedCounter(0);
-                System.out.println("if entered");
+//                System.out.println("if entered");
            }
             return true;
         }
