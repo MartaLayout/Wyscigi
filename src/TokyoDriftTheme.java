@@ -207,7 +207,6 @@ public class TokyoDriftTheme {
         Main.mediaPlayerRacer.setCycleCount(MediaPlayer.INDEFINITE);
         Main.mediaPlayerRacer.setMute(false);
         Main.mediaPlayerRacer.play();
-        Main.mediaPlayerStartingCar.play();
 
 
          timelineTimer = new Timeline(
