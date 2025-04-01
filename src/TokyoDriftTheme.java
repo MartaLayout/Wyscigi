@@ -173,10 +173,6 @@ public class TokyoDriftTheme {
         activeLevel2Scene = false;
         activeLevel3Scene = false;
 
-        Main.mediaPlayer.stop();
-        Main.mediaPlayer = new MediaPlayer(Main.racingMusic);
-        Main.mediaPlayer.play();
-
         level1Root.getChildren().clear();
 
         ImageView imageViewTorLevel1Tokyo = new ImageView(new Image("file:Tokyo/tory/torduzy.png"));
@@ -215,6 +211,7 @@ public class TokyoDriftTheme {
 
 
 
+
          timelineTimer = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     if (start) {
@@ -228,6 +225,7 @@ public class TokyoDriftTheme {
         );
         timelineTimer.setCycleCount(Timeline.INDEFINITE);
         timelineTimer.play();
+        Main.mediaPlayer.play();
 
 //        //not working
 //        menuTokyoDriftLevel1.setOnMouseClicked(event -> {
@@ -274,8 +272,9 @@ public class TokyoDriftTheme {
         Rectangle checkpointMeta = new Rectangle(227, 16, 50, 255);
         Rectangle checkpoint = new Rectangle(227, 16, 25, 255);
 
-
-        level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDriftLevel1, timerText, lapTimerText, lapText, checkpointMeta, checkpoint);
+        Main.mediaPlayer = new MediaPlayer(Main.racingMusic);
+        Main.mediaPlayer.play();
+        level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDriftLevel1, timerText, lapTimerText, lapText);
         Puddle.puddleFactory(level1Root);
     }
 
@@ -493,7 +492,7 @@ public class TokyoDriftTheme {
         rotationTimeline.play();
 
 
-        level3Root.getChildren().addAll(player, shooter, menuTokyoDrift3, timerText, lapTimerText);
+        level3Root.getChildren().addAll(player, shooter, menuTokyoDrift3, timerText, lapTimerText, lapText);
     }
     public static void resetGame(){
         TokyoDriftTheme.lapSeconds = 0;

@@ -279,7 +279,7 @@ static Image image = new Image("file:Tokyo/cars/car.png");
 
 
 
-            if (bonus.getCollectedCounter() >= 10){
+            if (bonus.getCollectedCounter() >= 1){
                 System.out.println("second if - sees the change in the counter");
                 //normally the if condition would be 10, but for the sake of testing its 1
                 nitroMode = 500;
