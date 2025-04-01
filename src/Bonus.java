@@ -38,19 +38,28 @@ public class Bonus extends ImageView {
         boolean foundNewPlace = false;
         while (foundNewPlace == false){
 
-            Color maskaColor = maskaReader.getColor((int) NewX, (int) NewY);
+            PixelReader maskaReader = maska.getPixelReader();
+            if (maskaReader == null) {
+                System.out.println("Error: Cannot read pixels from the mask image.");
+                return;
+            }
+
+
+            Color maskaColor = maskaReader.getColor((int) (NewX - this.getFitWidth() - 10), (int) (NewY - this.getFitHeight()));
 //            System.out.println("("+ NewX + NewY+ ")"+ maskaColor);
-            if (maskaColor.getRed() == 0 && maskaColor.getBlue() == 0 && maskaColor.getGreen() == 0){
+            if (maskaColor.equals(Color.rgb(0, 0, 0, 1))){
+                NewX = Math.random()*Main.WIDTH;
+                NewY = Math.random()*Main.HEIGHT;
+            }
+            else{
                 foundNewPlace = true;
                 TokyoDriftTheme.level1Root.getChildren().remove(this);
                 setLayoutX(NewX);
                 setLayoutY(NewY);
                 TokyoDriftTheme.level1Root.getChildren().add(this);
                 collectedCounter ++;
-            }
-            else{
-                NewX = Math.random()*Main.WIDTH;
-                NewY = Math.random()*Main.HEIGHT;
+
+
             }
         }
     }
