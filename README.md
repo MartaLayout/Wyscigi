@@ -101,11 +101,12 @@ Były oczywiście problemy...... i zabawne bugi
 <a> 
   
 BONUS:
-Darya nie umie siedzieć prosto </a>
+Daria nie umie siedzieć prosto </a>
   
   <img src= https://github.com/user-attachments/assets/e375a0bb-cefd-4540-a007-171e2f72e573 width =250 height = 300>
 <img src = https://github.com/user-attachments/assets/d0630797-7a2d-4a39-945a-275d0108e5c7 width= 300 height = 300>
 <img src = https://github.com/user-attachments/assets/8030db77-764c-492e-969e-b5b0ce0e83d7 width= 300 height = 300>
+<img src = https://github.com/user-attachments/assets/0d62b9f1-f25a-4174-891f-4616926462dc  width = 200, height = 300>
 
 
 
