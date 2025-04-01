@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.AudioClip;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -172,9 +173,9 @@ public class TokyoDriftTheme {
         activeLevel2Scene = false;
         activeLevel3Scene = false;
 
-        //Main.mediaPlayer.stop();
-        //Main.mediaPlayer = new MediaPlayer(Main.racingMusic);
-        //Main.mediaPlayer.play();
+        Main.mediaPlayer.stop();
+        Main.mediaPlayer = new MediaPlayer(Main.racingMusic);
+        Main.mediaPlayer.play();
 
         level1Root.getChildren().clear();
 
@@ -377,6 +378,10 @@ public class TokyoDriftTheme {
         lapTimerText.setY(805);
         lapTimerText.setFont(font);
         lapTimerText.setFill(Color.color(1,0,0.7));
+        lapText.setX(830);
+        lapText.setY(805);
+        lapText.setFont(font);
+        lapText.setFill(Color.color(0.5,0,0.9));
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     updateTimer();
@@ -452,6 +457,10 @@ public class TokyoDriftTheme {
         lapTimerText.setY(805);
         lapTimerText.setFont(font);
         lapTimerText.setFill(Color.color(1,0,0.7));
+        lapText.setX(830);
+        lapText.setY(805);
+        lapText.setFont(font);
+        lapText.setFill(Color.color(0.5,0,0.9));
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0.5), event -> {
                     updateTimer();

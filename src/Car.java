@@ -59,7 +59,7 @@ public class Car extends ImageView {
     protected boolean checkpointFIOL = false;
 //    protected boolean
     boolean moveBackwards;
-    boolean moveForward;
+    static boolean moveForward;
     boolean moveLeft;
     boolean moveRight;
 
