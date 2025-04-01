@@ -58,11 +58,17 @@ public class Main extends Application {
 
     static String musicFile1 = "src/music/music.mp3";
     static String musicFile2 = "src/music/race.mp3";
+    static String musicFile3 = "src/music/Car starting sound effect.mp3";
     public static Media starterMusic = new Media(new File(musicFile1).toURI().toString());
 
     public static Media racingMusic = new Media(new File(musicFile2).toURI().toString());
-    public static MediaPlayer mediaPlayer = new MediaPlayer(starterMusic);
+    public static Media vroom = new Media(new File(musicFile3).toURI().toString());
 
+    public static MediaPlayer mediaPlayerStarter = new MediaPlayer(starterMusic);
+
+    public static MediaPlayer mediaPlayerRacer = new MediaPlayer(racingMusic);
+
+    public static MediaPlayer mediaPlayerStartingCar = new MediaPlayer(vroom);
 
     public static void main(String[] args) {
         launch(args);
@@ -73,8 +79,8 @@ public class Main extends Application {
         stage = primaryStage;
         startScene();
         stage.show();
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.play();
+        mediaPlayerStarter.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayerStarter.play();
     }
 
     public static void startScene() {
@@ -145,11 +151,14 @@ public class Main extends Application {
             if(isMusicOn == false){
                 musicOnOffButton.setImage(musicOff);
                 isMusicOn = true;
-                //mediaPlayer.stop();
+                mediaPlayerStarter.setMute(true);
+                mediaPlayerRacer.setMute(true);
+
             } else {
                 musicOnOffButton.setImage(musicOn);
                 isMusicOn = false;
-                //mediaPlayer.play();
+                mediaPlayerStarter.setMute(false);
+                mediaPlayerRacer.setMute(false);
             }
         });
 

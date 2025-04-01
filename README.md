@@ -27,18 +27,20 @@
  ──★ 
 </p>
  <p> <b> Porywająca Fabuła </b>
- ──★ 
+ ──★ babcia
 </p>
  <p> <b> Nitro Boost </b>
- ──★ 
+ ──★  po najechaniu (zebraniu), gracz na chwile dostaje boosta do prędkości 
 </p>
  <p> <b>
-  Strzelająca Wieża ──★  </b>
+  Strzelająca Wieża ──★ </b>  po lewej stronie po środku jest działo które strzela kulkami. Gdy trafi ona w auto, gracz obraca się w randomową stronę (lepiej unikać uderzeń 😉)
 </p>
 <p> <b>
- Kałuże oraz plamy oleju  ──★ </b>
+ Kałuże oraz plamy oleju  ──★ </b> po najechaniu na którąś z nich, gracz zwalnia 
 </p>
+<p><b> Zielone ściany ──★</b> które się zamykają i otwierają co jakiś czas. </p>
 
+──★Gdyby komuś bardzo przeszkadzała muzyka to w menu jest specjalny przycisk aby ją wyłączyć :))
 
 ## Jak grać
  Cały tutorial do gry jest w środku :)
