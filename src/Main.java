@@ -56,9 +56,9 @@ public class Main extends Application {
     static Image musicOn = new Image("file:imagesStart/menu/muzyka1.png");
     static boolean isMusicOn = true;
 
-    static String musicFile1 = "src/music/music.mp3";
-    static String musicFile2 = "race.mp3";
-    static String musicFile3 = "src/music/Car starting sound effect.mp3";
+    static String musicFile1 = "music/music.mp3";
+    static String musicFile2 = "music/race.mp3";
+    static String musicFile3 = "music/Car starting sound effect.mp3";
     public static Media starterMusic = new Media(new File(musicFile1).toURI().toString());
 
     public static Media racingMusic = new Media(new File(musicFile2).toURI().toString());
