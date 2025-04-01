@@ -145,11 +145,11 @@ public class Main extends Application {
             if(isMusicOn == false){
                 musicOnOffButton.setImage(musicOff);
                 isMusicOn = true;
-                //mediaPlayer.stop();
+                mediaPlayer.stop();
             } else {
                 musicOnOffButton.setImage(musicOn);
                 isMusicOn = false;
-                //mediaPlayer.play();
+                mediaPlayer.play();
             }
         });
 

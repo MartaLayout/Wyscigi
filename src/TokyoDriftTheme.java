@@ -70,6 +70,7 @@ public class TokyoDriftTheme {
 
 
         rootTokyoStart.getChildren().clear();
+        Main.mediaPlayer = new MediaPlayer(Main.racingMusic);
 
         ImageView background = new ImageView(new Image("file:Tokyo/backgroundGenerate.png"));
         background.setFitWidth(Main.WIDTH);
@@ -209,12 +210,15 @@ public class TokyoDriftTheme {
         lapText.setFont(font);
         lapText.setFill(Color.color(0.5,0,0.9));
 
+        Main.mediaPlayer.play();
 
 
 
          timelineTimer = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     if (start) {
+                        AudioClip startCar = new AudioClip("file:src/music/carSound.mp3");
+                        startCar.play();
                         isTimerRunning = true;
                         updateTimer();
                         updateLapTimer();
@@ -223,9 +227,9 @@ public class TokyoDriftTheme {
                 })
 
         );
-        timelineTimer.setCycleCount(Timeline.INDEFINITE);
+        timelineTimer.setCycleCount(INDEFINITE);
         timelineTimer.play();
-        Main.mediaPlayer.play();
+
 
 //        //not working
 //        menuTokyoDriftLevel1.setOnMouseClicked(event -> {
@@ -272,8 +276,6 @@ public class TokyoDriftTheme {
         Rectangle checkpointMeta = new Rectangle(227, 16, 50, 255);
         Rectangle checkpoint = new Rectangle(227, 16, 25, 255);
 
-        Main.mediaPlayer = new MediaPlayer(Main.racingMusic);
-        Main.mediaPlayer.play();
         level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDriftLevel1, timerText, lapTimerText, lapText);
         Puddle.puddleFactory(level1Root);
     }
