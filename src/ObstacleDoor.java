@@ -52,10 +52,10 @@ public class ObstacleDoor {
 
         TokyoDriftTheme.level2Root.getChildren().add(imageView);
 
-        timeline = new Timeline(new KeyFrame(Duration.millis(50), event -> {
+        timeline = new Timeline(new KeyFrame(Duration.millis(70), event -> {
             currentImage = (currentImage + 1) % images.size();
             imageView.setImage(images.get(currentImage));
-            imageView.setFitWidth(150);
+            imageView.setFitWidth(175);
             this.collision(TokyoDriftTheme.player);
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
@@ -65,13 +65,12 @@ public class ObstacleDoor {
     public static void doorCreation() {
 
         for (int i = 0; i < 3; i++) {
-            ObstacleDoor obstacleDoor = new ObstacleDoor(i*500+40,Main.HEIGHT/2 -20);
+            ObstacleDoor obstacleDoor = new ObstacleDoor(i*500+20,Main.HEIGHT/2 -20);
             doorsList.add(obstacleDoor);
 
         }
 
     }
-
 
     public void collision(Player player){
         if (this.imageView.getBoundsInParent().intersects(player.getBoundsInParent())){

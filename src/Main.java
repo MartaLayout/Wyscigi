@@ -246,10 +246,10 @@ public class Main extends Application {
              TokyoDriftTheme.timelineTimer.play();
              TokyoDriftTheme.timelineFiring.play();
         } else if (TokyoDriftTheme.activeLevel2Scene) {
-            TokyoDriftTheme.level2();
+//            TokyoDriftTheme.level2();
             stageMenu.close();
         } else if (TokyoDriftTheme.activeLevel3Scene) {
-            TokyoDriftTheme.level3();
+//            TokyoDriftTheme.level3();
             stageMenu.close();
         }
     }
@@ -605,6 +605,8 @@ public class Main extends Application {
         timeline.setCycleCount(1);
         timeline.play();
     }
+
+
 
     private static void animateText(String content, Text textDymek, double durationBetweenStrings) {
         final Animation typingAnimation = new Transition() {

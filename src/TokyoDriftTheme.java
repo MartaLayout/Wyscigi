@@ -196,7 +196,7 @@ public class TokyoDriftTheme {
         menuTokyoDriftLevel1.setLayoutY(744);
         menuTokyoDriftLevel1.setFitWidth(100);
         menuTokyoDriftLevel1.setFitHeight(50);
-
+        resetGame();
         //timer
         timerText.setX(337);
         timerText.setY(805);
@@ -207,8 +207,9 @@ public class TokyoDriftTheme {
         lapTimerText.setY(805);
         lapTimerText.setFont(font);
         lapTimerText.setFill(Color.color(1,0,0.7));
-        lapText.setX(755);
+        lapText.setX(830);
         lapText.setY(805);
+        lapText.setFont(font);
         lapText.setFill(Color.color(0.5,0,0.9));
 
 
@@ -272,9 +273,11 @@ public class TokyoDriftTheme {
         Rectangle checkpointMeta = new Rectangle(227, 16, 50, 255);
         Rectangle checkpoint = new Rectangle(227, 16, 25, 255);
 
-        level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDriftLevel1, timerText, lapTimerText);
+
+        level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDriftLevel1, timerText, lapTimerText, lapText, checkpointMeta, checkpoint);
         Puddle.puddleFactory(level1Root);
     }
+
 
 
     private static void updateLapTimer() {
@@ -315,7 +318,6 @@ public class TokyoDriftTheme {
         } if (lap == 5) {
             timelineTimer.stop();
             String fifthLapTimer = lapTimerText.getText();
-
         }
 
     }
@@ -364,7 +366,7 @@ public class TokyoDriftTheme {
         menuTokyoDrift2.setFitWidth(100);
         menuTokyoDrift2.setFitHeight(50);
         menuTokyoDrift2.setOnMouseClicked(event -> Main.menu());
-
+        resetGame();
         //timer
         timerText.setX(337);
         timerText.setY(805);
@@ -439,7 +441,7 @@ public class TokyoDriftTheme {
         menuTokyoDrift3.setFitWidth(100);
         menuTokyoDrift3.setFitHeight(50);
         menuTokyoDrift3.setOnMouseClicked(event -> Main.menu());
-
+        resetGame();
         //timer
         timerText.setX(337);
         timerText.setY(805);
@@ -451,7 +453,7 @@ public class TokyoDriftTheme {
         lapTimerText.setFont(font);
         lapTimerText.setFill(Color.color(1,0,0.7));
         Timeline timeline = new Timeline(
-                new KeyFrame(Duration.seconds(1), event -> {
+                new KeyFrame(Duration.seconds(0.5), event -> {
                     updateTimer();
                     updateLapTimer();
                 })
@@ -484,7 +486,13 @@ public class TokyoDriftTheme {
 
         level3Root.getChildren().addAll(player, shooter, menuTokyoDrift3, timerText, lapTimerText);
     }
-
+    public static void resetGame(){
+        TokyoDriftTheme.lapSeconds = 0;
+        TokyoDriftTheme.lapMinutes = 0;
+        TokyoDriftTheme.seconds = 0;
+        TokyoDriftTheme.minutes = 0;
+        Car.lap = 0;
+    }
 }
 
 
