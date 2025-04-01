@@ -217,7 +217,7 @@ public class TokyoDriftTheme {
          timelineTimer = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     if (start) {
-                        AudioClip startCar = new AudioClip("file:src/music/carSound.mp3");
+                        AudioClip startCar = new AudioClip("file:src/music/Car starting sound effect.mp3");
                         startCar.play();
                         isTimerRunning = true;
                         updateTimer();
