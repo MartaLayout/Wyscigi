@@ -27,7 +27,7 @@
  ──★ 
 </p>
  <p> <b> Porywająca Fabuła </b>
- ──★ babcia
+ ──★ 
 </p>
  <p> <b> Nitro Boost </b>
  ──★  po najechaniu (zebraniu), gracz na chwile dostaje boosta do prędkości 
@@ -41,6 +41,11 @@
 <p><b> Zielone ściany ──★</b> które się zamykają i otwierają co jakiś czas. </p>
 
 ──★Gdyby komuś bardzo przeszkadzała muzyka to w menu jest specjalny przycisk aby ją wyłączyć :))
+<p> ₊✩‧₊˚౨ৎ˚₊✩‧₊₊✩‧₊˚౨ৎ˚₊✩‧₊₊✩‧₊˚౨ৎ˚₊✩‧₊₊✩‧₊˚౨ৎ˚₊✩‧₊₊✩‧₊˚౨ৎ˚₊✩‧₊₊✩‧₊˚౨ৎ˚₊✩‧₊₊✩‧₊˚౨ৎ˚₊✩‧₊₊✩‧₊˚౨ৎ </p>
+<p>Gra niestety jest dalej zaledwie cieniem swojego pełnego potencjału. Oto kilka rzeczy, które chciałyśmy wprowadzić, ale z powodu ograniczeń czasowych zdążyłyśmy zaledwie opisać : </p>
+<p>──★ <b> tryb "Magiczny Wyścig" </b> - dwuosobowy tryb, działający na podobnej zasadzie do trybu głównego. Dwaj gracze mieli ścigać się ze sobą przy użyciu strzałek i klawiszy AWSD. Tryb ten wyróżniałby się nieco innymi typami przeszkód oraz nową szatą graficzną z odrębną fabułą (dzieło podekscytowanej członkini zainteresowanej DnD). </p>
+<p>──★ <b> wskaźniki opisujące ilość okrążeń i wynik </b> - niestety problemy techniczne spowodowały, iż okrążenia się nie naliczają, ale docelowy wynik miał być równy ich poczwórnej wartości. Wynik miał zagwarantować możliwość szybkiego zdobywania punktów i przewagi nad przeciwników. Okrążenia miały być też warunkiem odblokowania następnych poziomów, ale obecnie jest to osiągalne przy kliknięciu klawisza "K" </p>
+<p>──★ <b>inne funkcje opisane w punktacji </b> - Niestety skupiłyśmy się na dodatkach zamiast programowaniu punktowanych metod i obiektów. Pomimo tego liczymy, że gra  pokazuje chociaż namiastkę tego co chciałyśmy i że, przyniesie graczom tak dużo radości jak nam przyniosło jej tworzenie. </p>
 
 ## Jak grać
  Cały tutorial do gry jest w środku :)
@@ -50,11 +55,11 @@
 <img src=https://github.com/user-attachments/assets/ba456588-dae0-4927-b45d-37aee8b0e478>
  <p> Jesteśmy uczennicami 3IB w III LO w Gdańsku oraz wszystkie rozszerzamy Computer Science (informatykę). Dodatkowo chodzimy na kółko z programowania gier w Javie, i od drugiej klasy razem pracujemy nad przeróżnymi projektami :) </p>
 
-<p>──★  <b> Marta Oleszkiewicz </b> — nasza „kapitanka". Tworzyła interface, menu, przeszkody, samouczek i bazą danych. Także spinała naszą pracę w jednolitą całość. </p>
-<p>──★  <b> Nati Wasilewska </b> — autorska grafika, autorska muzyczka i autorskie pomysły 😎. Też pisała tę dokumentację i pomagała przy programowaniu drobiazgów. </p>
-<p>──★ <b> Zosia Geryk </b>— programistka, zajmowała się kolizją, maską na planszę, i pisała przeciwników. Również utajała się w tajemniki fizyki auta.</p>
-<p>──★  <b> Daria Markevich</b> — programistka, zajmowała się autem i przeciwnikami. „Pookie” naszej drużyny.</p>
-<p>──★  <b>  Pola Kowalska </b> — narysowała część grafiki i zajęła się przeszkodami na tory.</p>
+<p>──★  <b> Marta Oleszkiewicz </b> — nasza „kapitanka".</p>
+<p>──★  <b> Nati Wasilewska </b> - autorska grafika, autorska muzyczka i autorskie pomysły 😎. </p>
+<p>──★ <b> Zosia Geryk </b> </p>
+<p>──★  <b> Daria Markevich</b> —„Pookie” naszej drużyny.</p>
+<p>──★  <b>  Pola Kowalska </b> </p>
 
 <p>──★I oczywiście, nasz fantastyczny mentor <b>Bartosz Budniak :) </b> </p>
 
@@ -62,7 +67,7 @@
 
 ## Nasza Przygoda
 <p align=center>
-Oto nasza historia. Zaczęło się od długiego czekania na temat i po 15 minutach już byłyśmy pewne, że wybierzemy wyścigi. 
+Oto nasza historia. Zaczęło się od czekania na temat i po 15 minutach już byłyśmy pewne, że wybierzemy wyścigi. 
 Dużo omawiałyśmy i dyskutowałyśmy koncept, wygląd oraz funkcjonalność gry.
 
 <a> <img src=https://github.com/user-attachments/assets/901e36dc-d996-48e2-813f-6c18bbd86bca width = 200 height = 200> 
