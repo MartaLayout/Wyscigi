@@ -139,13 +139,23 @@ public class Player extends Car{
                 this.speedIncrimentation = 4;
                 this.speedIncrimentationBackwards = 4;
                 TokyoDriftTheme.level3TokyoScene.setOnKeyPressed(event -> {
+                    double chanceOfSlipping = Math.random();
                     if (event.getCode() == KeyCode.DOWN) {
                         moveBackwards = true;
                         TokyoDriftTheme.start = true;
+
                     }
                     if (event.getCode() == KeyCode.UP) {
                         moveForward = true;
                         TokyoDriftTheme.start = true;
+                        if (chanceOfSlipping<=0.1){
+                            System.out.println("slip");
+                            moveLeft = true;
+                        }
+                        else if (chanceOfSlipping<=0.2){
+                            moveRight = true;
+                        }
+
                     }
                     if (event.getCode() == KeyCode.LEFT) {
                         moveLeft = true;
@@ -233,6 +243,18 @@ public class Player extends Car{
                     Puddle.puddleList.get(i).delete();
                     //System.out.println("SHOULD BE DELETED");
                 }
+            }
+
+            for (int i = 0; i < Shooter.bullets.size(); i++) {
+//                Shooter.bullets.get(i).setTimer(Shooter.bullets.get(i).getTimer() -1);
+                if (Shooter.bullets.get(i).collision(this)){
+                    this.slowDown();
+                    this.carAngle = getRotate() + 8;
+
+                }
+//                if (Shooter.bullets.get(i).getTimer() <= 0){
+//                    Shooter.bullets.get(i).delete();
+//                }
             }
 
             }));

@@ -17,8 +17,9 @@ public class Shooter extends ImageView{
     public double stepAngle = Math.toRadians(5);
 
     private Timeline timeline;
+    public int timer;
 
-    private List<Bullet> bullets = new ArrayList<>();
+    public static List<Bullet> bullets = new ArrayList<>();
 
 
 
@@ -127,6 +128,11 @@ public class Shooter extends ImageView{
         } else {
             setRotate(currentAngle - Math.toDegrees(stepAngle));
         }
+    }
+
+
+    public void setTimer(int timer) {
+        this.timer = timer;
     }
 }
 
