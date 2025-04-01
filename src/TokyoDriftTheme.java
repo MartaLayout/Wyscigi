@@ -16,9 +16,7 @@ import javafx.util.Duration;
 import static javafx.animation.Animation.INDEFINITE;
 
 public class TokyoDriftTheme {
-    //hubhubhu
     public static boolean start = false;
-
     static Text timerText = new Text(" ");
     public static Text lapTimerText = new Text(" ");
     static Text lapText = new Text(" ");
@@ -69,7 +67,6 @@ public class TokyoDriftTheme {
         activeLevel2Scene = false;
         activeLevel3Scene = false;
 
-
         rootTokyoStart.getChildren().clear();
 
 
@@ -107,7 +104,6 @@ public class TokyoDriftTheme {
         klodkaLevel2.setFitHeight(300);
         klodkaLevel2.setLayoutX(450);
         klodkaLevel2.setLayoutY(275);
-
 
         ImageView imageViewLevel2 = new ImageView(new Image("file:Tokyo/level2Cover.png"));
         imageViewLevel2.setLayoutX(450);
@@ -166,9 +162,6 @@ public class TokyoDriftTheme {
     }
 
     public static void level1(){
-//        Main.activeSamouczekScene = false;
-//        Main.activeFabulaScene = false;
-//        Main.activeChooseThemeScene = false;
         activeGenerateScene = false;
 
         activeLevel1Scene = true;
@@ -211,6 +204,8 @@ public class TokyoDriftTheme {
         lapText.setFont(font);
         lapText.setFill(Color.color(0.5,0,0.9));
         Main.mediaPlayerStarter.stop();
+        Main.mediaPlayerRacer.setCycleCount(MediaPlayer.INDEFINITE);
+        Main.mediaPlayerRacer.setMute(false);
         Main.mediaPlayerRacer.play();
         Main.mediaPlayerStartingCar.play();
 
@@ -234,20 +229,11 @@ public class TokyoDriftTheme {
         timelineTimer.play();
 
 
-//        //not working
-//        menuTokyoDriftLevel1.setOnMouseClicked(event -> {
-//            timelineTimer.stop();
-//        });
-
-//        Main.wyjdzZMenu.setOnMouseClicked(event -> {
-//            timelineTimer.play();
-//        });
-
         bonus.appear();
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
-        //tworzymy wieżę - działa
+        //tworzymy wieżę
         Shooter shooter = new Shooter(283, 300, imageTowerShooter);
 
          timelineFiring = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
@@ -279,11 +265,18 @@ public class TokyoDriftTheme {
         Rectangle checkpointMeta = new Rectangle(227, 16, 50, 255);
         Rectangle checkpoint = new Rectangle(227, 16, 25, 255);
 
-        level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDriftLevel1, timerText, lapTimerText, lapText);
+//        Main.mediaPlayer = new MediaPlayer(Main.racingMusic);
+//        Main.mediaPlayer.play();
+
+        ImageView wBudowie = new ImageView(new Image("file:imagesStart/wBudowie.png"));
+        wBudowie.setFitHeight(60);
+        wBudowie.setFitWidth(60);
+        wBudowie.setLayoutX(95);
+        wBudowie.setLayoutY(747);
+
+        level1Root.getChildren().addAll(rectangle, player, shooter, menuTokyoDriftLevel1, timerText, lapTimerText, lapText, wBudowie);
         Puddle.puddleFactory(level1Root);
     }
-
-
 
     private static void updateLapTimer() {
         if (lap >= 0) {
@@ -324,7 +317,6 @@ public class TokyoDriftTheme {
             timelineTimer.stop();
             String fifthLapTimer = lapTimerText.getText();
         }
-
     }
 
     private static void updateTimer() {
@@ -342,7 +334,6 @@ public class TokyoDriftTheme {
     private static void lap() {
         lapText.setText(String.valueOf(lap + 1));
     }
-
 
     public static void level2(){
         activeGenerateScene = false;
@@ -391,7 +382,6 @@ public class TokyoDriftTheme {
                     updateTimer();
                     updateLapTimer();
                 })
-
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
@@ -399,13 +389,11 @@ public class TokyoDriftTheme {
 
         player = new Player(200,180);
 
-        //ObstacleDoor obstacleDoor = new ObstacleDoor(100,100);
-
         ObstacleDoor.doorCreation();
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
-        //tworzymy wieżę - działa
+        //tworzymy wieżę
         Shooter shooter = new Shooter(283, 300, imageTowerShooter);
 
         Timeline timelineFiring = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
@@ -421,7 +409,13 @@ public class TokyoDriftTheme {
         rotationTimeline.setCycleCount(INDEFINITE);
         rotationTimeline.play();
 
-        level2Root.getChildren().addAll( player, shooter, menuTokyoDrift2, timerText, lapTimerText);
+        ImageView wBudowie = new ImageView(new Image("file:imagesStart/wBudowie.png"));
+        wBudowie.setFitHeight(60);
+        wBudowie.setFitWidth(60);
+        wBudowie.setLayoutX(95);
+        wBudowie.setLayoutY(747);
+
+        level2Root.getChildren().addAll( player, shooter, menuTokyoDrift2, timerText, lapTimerText, wBudowie);
     }
 
     public static void level3(){
@@ -470,7 +464,6 @@ public class TokyoDriftTheme {
                     updateTimer();
                     updateLapTimer();
                 })
-
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
@@ -480,12 +473,10 @@ public class TokyoDriftTheme {
 
         Image imageTowerShooter = new Image("file:Tokyo/shooter.png");
 
-        //tworzymy wieżę - działa
         Shooter shooter = new Shooter(283, 300, imageTowerShooter);
 
         Timeline timelineFiring = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
             shooter.fireBullet(player.carX, player.carY, 20);
-
         }));
         timelineFiring.setCycleCount(INDEFINITE);
         timelineFiring.play();
@@ -496,8 +487,13 @@ public class TokyoDriftTheme {
         rotationTimeline.setCycleCount(INDEFINITE);
         rotationTimeline.play();
 
+        ImageView wBudowie = new ImageView(new Image("file:imagesStart/wBudowie.png"));
+        wBudowie.setFitHeight(60);
+        wBudowie.setFitWidth(60);
+        wBudowie.setLayoutX(95);
+        wBudowie.setLayoutY(747);
 
-        level3Root.getChildren().addAll(player, shooter, menuTokyoDrift3, timerText, lapTimerText, lapText);
+        level3Root.getChildren().addAll(player, shooter, menuTokyoDrift3, timerText, lapTimerText, lapText, wBudowie);
     }
     public static void resetGame(){
         TokyoDriftTheme.lapSeconds = 0;
