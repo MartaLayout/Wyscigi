@@ -295,7 +295,7 @@ public class Car extends ImageView {
         if (checkpoint2.intersects(carX, carY, 10, 10)){
             checkDWA = true;
         }
-        if (meta.intersects(carX, carY, 10, 10) && checkJEDEN && checkDWA){
+        if ((meta.intersects(carX, carY, 10, 10) && checkJEDEN == true && checkDWA == true)){
             finalCheckMetaLAP();
         }
     }
@@ -365,7 +365,7 @@ public class Car extends ImageView {
 
     private void finalCheckMetaLAP() {
         lap++;
-        System.out.println("lap                 lap            lap" + lap);
+        System.out.println("lap                  lap                    lap" + lap);
         checkpointPOM = false;
         checkpointZIEL = false;
         checkpointFIOL = false;
